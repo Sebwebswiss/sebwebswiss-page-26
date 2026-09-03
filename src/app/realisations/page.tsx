@@ -27,7 +27,7 @@ export default function Page() {
       <h2>Une expérience<br/><em>au-delà des frontières.</em></h2>
       <p>Ces projets ont été menés en Croatie. Ils illustrent la façon dont je travaille : un interlocuteur direct, des décisions expliquées et des solutions techniques adaptées à chaque activité.</p>
       <div className="service-list">
-        {projets.map(([n,tag,desc,href])=><a className="service-card" key={n} href={href}><span>{n}</span><div><h3>{tag}</h3><p>{desc}</p></div><b>↗</b></a>)}
+        {projets.map(([n,name,tag,desc,href])=><a className="service-card" key={n} href={href}><span>{n}</span><div><h3>{name}</h3><p>{desc}</p></div><b>↗</b></a>)}
       </div>
     </div></section>
     <section className="soft-cta"><p>Un projet similaire au vôtre ?</p><a className="button primary" href="/contact">Discuter de votre idée <span>↗</span></a></section>
