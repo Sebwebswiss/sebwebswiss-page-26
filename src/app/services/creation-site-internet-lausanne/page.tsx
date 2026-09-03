@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Création de site internet à Lausanne",
@@ -17,7 +18,17 @@ const faqs = [
 ];
 
 export default function Page() {
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Création de site internet à Lausanne",
+    serviceType: "Création de site internet",
+    provider: { "@id": "https://sebwebswiss.ch/#organization" },
+    url: "https://sebwebswiss.ch/services/creation-site-internet-lausanne",
+    areaServed: ["Lausanne", "Lutry", "Canton de Vaud", "Suisse romande"],
+  };
   return <><Header/><main>
+    <JsonLd data={serviceSchema} />
     <PageHero
       kicker="CRÉATION WEB · LAUSANNE"
       crumbs={[{label:"Services",href:"/services"},{label:"Création de site internet à Lausanne"}]}

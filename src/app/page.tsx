@@ -69,6 +69,8 @@ export default function Home() {
 
       <section className="marquee" aria-label="Expertises"><span>STRATÉGIE DIGITALE</span><b>✦</b><span>WEB DESIGN</span><b>✦</b><span>SEO LOCAL</span><b>✦</b><span>DÉVELOPPEMENT SUR MESURE</span><b>✦</b><span>E-COMMERCE</span></section>
 
+      <section className="trust-bar" aria-label="Points clés"><span><strong>5 ans</strong> de projets web</span><span className="dot">·</span><span><strong>Projets internationaux</strong></span><span className="dot">·</span><span>Basé <strong>près de Lausanne</strong></span><span className="dot">·</span><span><strong>Contact direct</strong>, sans intermédiaire</span></section>
+
       <section className="intro section-grid" id="approche">
         <p className="section-kicker">01 — L&apos;AGENCE</p>
         <div>
@@ -102,10 +104,28 @@ export default function Home() {
         <div className="coverage"><p>Zones accompagnées</p><div><span>Lausanne</span><span>Lutry</span><span>Vaud</span><span>Genève</span><span>Montreux</span><span>Vevey</span><span>Neuchâtel</span><span>Suisse romande</span></div></div>
       </section>
 
+      <section className="content-section">
+        <div className="content-label">Réalisations · International</div>
+        <div>
+          <h2>Une expérience<br/><em>construite sur des projets réels.</em></h2>
+          <p>Mon expertise technique s’appuie sur cinq années de projets web, notamment à l’international. Aujourd’hui basé près de Lausanne, je mets cette expérience au service des entreprises de Suisse romande.</p>
+          <a className="text-link" href="/realisations">Voir mes réalisations ↗</a>
+        </div>
+      </section>
+
       <section className="process">
         <p className="section-kicker">04 — MÉTHODE</p>
         <h2>Une méthode simple.<br/><em>Des décisions solides.</em></h2>
         <div className="process-steps"><div><span>01</span><h3>Comprendre</h3><p>Vos objectifs, votre activité et vos clients.</p></div><div><span>02</span><h3>Concevoir</h3><p>Une direction claire, utile et distinctive.</p></div><div><span>03</span><h3>Développer</h3><p>Une expérience rapide, fiable et évolutive.</p></div><div><span>04</span><h3>Faire grandir</h3><p>SEO, optimisation et accompagnement continu.</p></div></div>
+      </section>
+
+      <section className="programme-banner">
+        <div>
+          <p className="section-kicker">PROGRAMME FONDATEUR · 10 ENTREPRISES</p>
+          <h2>Votre site Web offert<br/><em>pendant la première année.</em></h2>
+          <p>À l’occasion de mes cinq années de projets web, je sélectionne 10 entreprises pour leur créer un site et mettre en place leur référencement — à CHF 0 pendant la première année.</p>
+        </div>
+        <a className="button primary" href="/offre-lancement">Découvrir l’offre <span>↗</span></a>
       </section>
 
       <section className="faq">
@@ -121,7 +141,7 @@ export default function Home() {
         <div className="contact-bottom"><span>{business.locality} · {business.region}</span><a href={`tel:${business.phone.replace(/\s/g, "")}`}>{business.phoneDisplay}</a></div>
       </section>
 
-      <footer><Link href="/" className="brand">Seb<span>Web</span>Swiss<i>.</i></Link><p>© {new Date().getFullYear()} SebWebSwiss. Tous droits réservés.</p><div><a href={business.social.facebook} target="_blank" rel="noreferrer">Facebook</a><a href={business.social.youtube} target="_blank" rel="noreferrer">YouTube</a><a href={business.social.tiktok} target="_blank" rel="noreferrer">TikTok</a></div></footer>
+      <footer><Link href="/" className="brand">Seb<span>Web</span>Swiss<i>.</i></Link><p>© {new Date().getFullYear()} SebWebSwiss. Tous droits réservés.</p><div><Link href="/realisations">Réalisations</Link><Link href="/blog">Blog</Link><Link href="/offre-lancement">Offre</Link><a href={business.social.facebook} target="_blank" rel="noreferrer">Facebook</a><a href={business.social.youtube} target="_blank" rel="noreferrer">YouTube</a><a href={business.social.tiktok} target="_blank" rel="noreferrer">TikTok</a></div></footer>
     </main>
   );
 }
