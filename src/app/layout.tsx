@@ -34,6 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: business.name,
     url: business.url,
     logo: "https://sebwebswiss.ch/og-image.png",
+    image: "https://sebwebswiss.ch/og-image.png",
     email: business.email,
     telephone: business.phone,
     address: {

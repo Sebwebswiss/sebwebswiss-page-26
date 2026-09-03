@@ -31,6 +31,8 @@ export default function Home() {
     url: business.url,
     email: business.email,
     telephone: business.phone,
+    image: "https://sebwebswiss.ch/og-image.png",
+    priceRange: "CHF",
     address: {
       "@type": "PostalAddress",
       streetAddress: business.address,
