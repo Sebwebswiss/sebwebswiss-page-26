@@ -1,5 +1,5 @@
 export const realisations = [
-  ["01", "Hexa Power Solutions", "Croatie · Projet international", "Site professionnel pour une entreprise technique.", "/realisations/hexapower-solutions"],
-  ["02", "Metropolis", "Croatie · Projet international", "Site pour un café-bar urbain à Rijeka.", "/realisations/metropolis-grad-rijeka"],
-  ["03", "Base-Line", "Croatie · Projet international", "Site pour une entreprise de chapes et finitions.", "/realisations/base-line"],
+  ["01", "Hexa Power Solutions", "Croatie · Projet international", "Site professionnel pour une entreprise technique.", "/realisations/hexapower-solutions", "Une architecture de pages par domaines d’expertise, un contenu adapté aux clients professionnels et des bases SEO solides posées dès la création (titres, maillage interne, sitemap)."],
+  ["02", "Metropolis", "Croatie · Projet international", "Site pour un café-bar urbain à Rijeka.", "/realisations/metropolis-grad-rijeka", "Une présentation de l’ambiance du lieu pensée avant tout pour le mobile, avec la localisation, les horaires et le contact facilement accessibles."],
+  ["03", "Base-Line", "Croatie · Projet international", "Site pour une entreprise de chapes et finitions.", "/realisations/base-line", "Une structure qui met en avant les services et le savoir-faire technique, avec une expérience rapide et une présentation professionnelle."],
 ] as const;

@@ -52,4 +52,5 @@ a { color:inherit; text-decoration:none; } .site-header { width:min(1440px,100%)
 .realisations-showcase h3{color:var(--text)}
 .showcase-cta{margin-top:45px}
 .showcase-cta .button{display:inline-flex}
+.case-tag{font-size:.72rem;color:var(--orange);text-transform:uppercase;letter-spacing:.05em;margin:0 0 6px}
 @media(max-width:760px){.realisations-showcase{padding:80px 6vw}}

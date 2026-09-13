@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
+import { business } from "@/content/business";
+import { realisations } from "@/content/realisations";
 
 export const metadata: Metadata = {
   title: "Création de site internet à Lausanne",
@@ -37,6 +39,8 @@ export default function Page() {
       primary={{label:"Parler de votre projet",href:"/contact"}}
     />
 
+    <section className="trust-bar" aria-label="Points clés"><span><strong>Contact direct</strong>, sans intermédiaire</span><span className="dot">·</span><span><strong>5 ans</strong> de projets web</span><span className="dot">·</span><span>Des bases <strong>SEO et performance</strong> incluses</span><span className="dot">·</span><span><a href={`tel:${business.phone.replace(/\s/g, "")}`}>{business.phoneDisplay}</a></span></section>
+
     <section className="content-section"><div className="content-label">VOTRE PRÉSENCE EN LIGNE</div><div>
       <h2>Un site clair, rapide<br/><em>et utile.</em></h2>
       <p>Votre site est souvent le premier contact avec votre entreprise. Nous concevons des sites internet sur mesure pour les indépendants, PME et entreprises de Lausanne, Lutry et du canton de Vaud qui veulent présenter leur offre avec clarté.</p>
@@ -47,7 +51,7 @@ export default function Page() {
     <section className="content-section"><div className="content-label">PROJETS WEB</div><div>
       <h2>La bonne solution,<br/><em>pas une formule imposée.</em></h2>
       <p>Nous n’imposons pas un modèle unique ni une accumulation de plugins. La technologie, les contenus et les fonctionnalités sont choisis selon la réalité de votre projet, votre budget et les évolutions que vous envisagez.</p>
-      <div className="service-list"><article className="service-card"><span>01</span><div><h3>Site vitrine professionnel</h3><p>Présentez votre entreprise, vos prestations, votre méthode et vos coordonnées avec une structure conçue pour rassurer et orienter vos visiteurs.</p></div><b>↗</b></article><article className="service-card"><span>02</span><div><h3>Refonte de site internet</h3><p>Reprenez un site devenu lent, difficile à faire évoluer ou peu clair afin de mieux servir vos clients et votre visibilité en ligne.</p></div><b>↗</b></article><article className="service-card"><span>03</span><div><h3>Pages de service et landing pages</h3><p>Créez des pages ciblées pour une offre, une campagne ou une zone de chalandise, avec un objectif concret et un appel à l’action utile.</p></div><b>↗</b></article><article className="service-card"><span>04</span><div><h3>Fonctionnalités sur mesure</h3><p>Formulaires, automatisations, outils métier ou intégrations : nous évaluons ce qui apporte réellement de la valeur avant de développer.</p></div><b>↗</b></article></div>
+      <div className="service-list"><article className="service-card"><span>01</span><div><h3>Site vitrine professionnel</h3><p>Présentez votre entreprise, vos prestations, votre méthode et vos coordonnées avec une structure conçue pour rassurer et orienter vos visiteurs.</p></div><b>↗</b></article><article className="service-card"><span>02</span><div><h3>Refonte de site internet</h3><p>Reprenez un site devenu lent, difficile à faire évoluer ou peu clair afin de mieux servir vos clients et votre visibilité en ligne.</p></div><b>↗</b></article><article className="service-card"><span>03</span><div><h3>Pages de service et landing pages</h3><p>Créez des pages ciblées pour une offre, une campagne ou une zone de chalandise, avec un objectif concret et un appel à l’action utile.</p></div><b>↗</b></article><article className="service-card"><span>04</span><div><h3>Fonctionnalités sur mesure</h3><p>Formulaires, automatisations, outils métier ou intégrations : nous évaluons ce qui apporte réellement de la valeur avant de développer.</p></div><b>↗</b></article><article className="service-card"><span>05</span><div><h3>Boutique en ligne (e-commerce)</h3><p>Vendez vos produits directement sur votre site : un catalogue clair, un parcours d’achat simple et une solution sécurisée, prête à évoluer avec votre activité.</p></div><b>↗</b></article></div>
     </div></section>
 
     <section className="content-section"><div className="content-label">NOTRE MÉTHODE</div><div>
@@ -60,6 +64,21 @@ export default function Page() {
       <h2>Une fondation saine<br/><em>pour être trouvé.</em></h2>
       <p>Le référencement ne se résume pas à ajouter quelques mots-clés après la création du site. Il commence avec une structure logique, des contenus utiles, des pages accessibles aux moteurs de recherche et une expérience rapide sur mobile.</p>
       <p>Chaque projet inclut les fondamentaux nécessaires à une bonne base : hiérarchie des titres, métadonnées essentielles, maillage interne, sitemap, règles d’indexation et contrôle des éléments techniques principaux. Pour un travail continu, découvrez notre <a className="text-link" href="/services/referencement-seo-lausanne">service de référencement SEO à Lausanne</a>.</p>
+    </div></section>
+
+    <section className="content-section"><div className="content-label">RÉALISATIONS</div><div>
+      <h2>Des projets réels,<br/><em>menés de bout en bout.</em></h2>
+      <p>Chaque projet applique la même exigence qu’à Lausanne : un message clair, une structure utile et une base technique posée pour la performance et le SEO.</p>
+      <div className="service-list">
+        {realisations.map(([n, name, tag,, href, built]) => <a className="service-card" key={n} href={href}><span>{n}</span><div><h3>{name}</h3><p className="case-tag">{tag}</p><p>{built}</p></div><b>↗</b></a>)}
+      </div>
+      <p>Pour un aperçu complet, découvrez nos <a className="text-link" href="/realisations">réalisations web</a>.</p>
+    </div></section>
+
+    <section className="content-section"><div className="content-label">VOTRE RÉGION</div><div>
+      <h2>Basé près de Lausanne,<br/><em>au service des entreprises vaudoises.</em></h2>
+      <p>Nous sommes installés à La Croix-sur-Lutry, à quelques minutes de Lausanne. Concrètement, cela signifie qu’un échange en personne est possible pour cadrer votre projet, que vous parlez directement à la personne qui développe votre site, et que vous travaillez avec une agence qui comprend les réalités des PME et indépendants du canton de Vaud.</p>
+      <p>Votre site internet est conçu, développé et suivi depuis le canton de Vaud — une proximité qui simplifie la collaboration du premier appel à la mise en ligne, et bien après.</p>
     </div></section>
 
     <section className="content-section"><div className="content-label">APRÈS LE LANCEMENT</div><div>
