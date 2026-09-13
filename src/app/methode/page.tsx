@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
-import { ServiceCard } from "@/components/ServiceCard";
 
 export const metadata:Metadata={title:"Méthode web et SEO",description:"Une méthode claire pour les projets de création de site et de référencement SEO en Suisse romande.",alternates:{canonical:"/methode"}};
 export default function Method(){return <><Header/><main><PageHero kicker="MÉTHODE · WEB & SEO" crumbs={[{label:"Méthode"}]} title={<>Comprendre. Prioriser.<br/><em>Construire durablement.</em></>} intro="Nous avançons par étapes claires pour relier vos objectifs, la réalité de votre marché et les actions à mettre en œuvre." primary={{label:"Parler de votre projet",href:"/contact"}}/><section className="steps"><article><span>01</span><h2>Comprendre</h2><p>Votre activité, vos clients, vos objectifs et votre situation actuelle.</p></article><article><span>02</span><h2>Prioriser</h2><p>Les actions qui ont le plus de sens avant de disperser votre budget.</p></article><article><span>03</span><h2>Construire</h2><p>Des pages, une technique et un contenu utiles et cohérents.</p></article><article><span>04</span><h2>Mesurer</h2><p>Les signaux réels pour ajuster le travail dans la durée.</p></article></section></main></>}
