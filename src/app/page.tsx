@@ -20,7 +20,7 @@ const services = [
 
 const faqs = [
   ["Combien coûte la création d'un site web ?", "Chaque projet est différent. Après un premier échange, nous préparons une proposition claire selon vos objectifs, vos fonctionnalités et votre calendrier."],
-  ["Travaillez-vous uniquement à Lausanne ?", "Nous sommes basés près de Lausanne et accompagnons des entreprises dans le canton de Vaud, à Genève, Neuchâtel et dans toute la Suisse romande."],
+  ["Travaillez-vous uniquement à Lausanne ?", "Nous sommes basés près de Lausanne et accompagnons des entreprises du canton de Vaud et de toute la Suisse romande."],
   ["Puis-je faire évoluer mon site plus tard ?", "Oui. Nous construisons des solutions évolutives et proposons des prestations de maintenance, d'hébergement et d'amélioration continue."],
 ];
 
@@ -53,7 +53,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow"><span /> SUR MESURE · LAUSANNE · SUISSE ROMANDE</p>
-          <h1>Agence web à Lausanne,<em> pensée pour faire grandir</em> votre entreprise.</h1>
+          <h1>Une agence web à Lausanne,<em> pensée pour faire grandir</em> votre entreprise.</h1>
           <p className="hero-lead">Création de site internet, e-commerce et référencement SEO pour les PME, indépendants et artisans de Lausanne, du canton de Vaud et de Suisse romande.</p>
           <div className="hero-actions">
             <a className="button primary" href="/contact">Demander un devis <span>↗</span></a>
@@ -104,7 +104,7 @@ export default function Home() {
           <article><span>03</span><h3>Une expérience simple à utiliser</h3><p>Design responsive, navigation claire et contenu utile : tout est conçu pour que vos visiteurs trouvent rapidement ce qu&apos;ils cherchent.</p></article>
           <article><span>04</span><h3>Une solution prête à évoluer</h3><p>Votre site peut évoluer avec vos besoins : nouvelles pages, e-commerce, fonctionnalités sur mesure, maintenance et optimisation continue.</p></article>
         </div>
-        <div className="coverage"><p>Zones accompagnées</p><div><span>Lausanne</span><span>Lutry</span><span>Vaud</span><span>Genève</span><span>Montreux</span><span>Vevey</span><span>Neuchâtel</span><span>Suisse romande</span></div></div>
+        <div className="coverage"><p>Zones accompagnées</p><div><span>Lausanne</span><span>Lutry</span><span>Vaud</span><span>Suisse romande</span></div></div>
       </section>
 
       <section className="content-section">

@@ -35,7 +35,7 @@ export default function Services() {
     </div></section>
     <section className="content-section"><div className="content-label">NOTRE ZONE</div><div>
       <h2>Une agence web à Lausanne,<br /><em>au service de la Suisse romande.</em></h2>
-      <p>Nous accompagnons les entreprises de Lausanne, Lutry, du canton de Vaud, de Genève, de Neuchâtel et de la Suisse romande : création de sites internet, référencement SEO et développement web sur mesure.</p>
+      <p>Nous accompagnons les entreprises de Lausanne, de Lutry, du canton de Vaud et de la Suisse romande : création de sites internet, référencement SEO et développement web sur mesure.</p>
       <a className="text-link" href="/contact">Discuter de votre projet ↗</a>
     </div></section>
     <section className="services service-page-list">{cards.map(([n, t, d, h]) => <ServiceCard key={n} number={n} title={t} text={d} href={h} />)}</section>

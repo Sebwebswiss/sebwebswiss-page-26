@@ -6,21 +6,23 @@ Dernière mise à jour : avant le déploiement du Batch 1 du plan « Sustiži ko
 
 **Lead qualifiés organiques** (KPI principal). Les positions ne sont pas garanties : les visées Top 20–30 puis Top 10 sont des **cibles**, pas des résultats promis.
 
-## Baseline (données propriétaire, Google Search Console — positions approximatives)
+## Baseline (données propriétaire, Google Search Console)
 
-| Requête prioritaire | Position env. | CTR / Clics / Impressions | URL cible |
-|---------------------|---------------|---------------------------|-----------|
-| création site internet lausanne | ~50.2 | à compléter | /services/creation-site-internet-lausanne |
-| agence seo lausanne | ~63.3 | à compléter | /services/referencement-seo-lausanne |
-| création site web lausanne | ~52.3 | à compléter | /services/creation-site-internet-lausanne |
-| agence de référencement lausanne | ~70 | à compléter | /services/referencement-seo-lausanne |
-| création site internet vaud | ~51.8 | à compléter | /services/creation-site-internet-lausanne |
-| seo lausanne | ~42.7 | à compléter | /services/referencement-seo-lausanne |
-| site internet lausanne | ~47.4 | à compléter | /services/creation-site-internet-lausanne |
-| création site sur mesure lausanne | ~44.4 | à compléter | /services/creation-site-internet-lausanne |
-| agence web lausanne | à relever | à compléter | / (homepage) |
+Période d'export : **derniers ~28 jours précédant le relevé (avant Batch 1, cf. export GSC du propriétaire, septembre 2026). À confirmer : dates exactes de l'export pour un comparatif comparable.**
 
-> Définition de « baseline complet » : impressions, clics, CTR (%) et position moyenne par requête, relevés dans GSC sur les 28 derniers jours. À saisir par le propriétaire puis rapprocher aux points suivants.
+| Requête prioritaire | Impressions | Clics | CTR | Avg. position | URL cible |
+|---------------------|-------------|-------|-----|---------------|-----------|
+| création site internet lausanne | 480 | 0 | 0 % | ~50.2 | /services/creation-site-internet-lausanne |
+| agence seo lausanne | 429 | 0 | 0 % | ~63.3 | /services/referencement-seo-lausanne |
+| création site web lausanne | 389 | 0 | 0 % | ~52.3 | /services/creation-site-internet-lausanne |
+| agence de référencement lausanne | 315 | 0 | 0 % | ~70.0 | /services/referencement-seo-lausanne |
+| création site internet vaud | 310 | 0 | 0 % | ~51.8 | /services/creation-site-internet-lausanne |
+| seo lausanne | 297 | 0 | 0 % | ~42.7 | /services/referencement-seo-lausanne |
+| site internet lausanne | 282 | 0 | 0 % | ~47.4 | /services/creation-site-internet-lausanne |
+| création site sur mesure lausanne | 213 | 0 | 0 % | ~44.4 | /services/creation-site-internet-lausanne |
+| agence web lausanne | à relever | à compléter | – | à relever | / (homepage) |
+
+> Note : CTR 0 % ici car aucun clic — attendu à ces positions (< position 40). Indicateur précoce pertinent : la distribution des positions (nombre de requêtes entrant dans Top 40 / 30 / 20), plus que le CTR seul.
 
 ## Comparaison planifiée
 
