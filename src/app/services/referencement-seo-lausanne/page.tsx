@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
+import { business } from "@/content/business";
 
 export const metadata: Metadata = {
   title: "Référencement SEO à Lausanne",
@@ -39,6 +40,8 @@ export default function Page() {
       primary={{label:"Demander un diagnostic initial",href:"/contact"}}
     />
 
+    <section className="trust-bar" aria-label="Points clés"><span><strong>Données réelles</strong>, pas de promesses</span><span className="dot">·</span><span><strong>5 ans</strong> de projets web</span><span className="dot">·</span><span>Basé <strong>près de Lausanne</strong></span><span className="dot">·</span><span><a href={`tel:${business.phone.replace(/\s/g, "")}`}>{business.phoneDisplay}</a></span></section>
+
     <section className="content-section"><div className="content-label">CE QUE JE FAIS</div><div>
       <h2>Une approche structurée,<br/><em>sans promesse irréaliste.</em></h2>
       <p>Chaque intervention commence par la compréhension de votre activité, de vos priorités et de votre situation actuelle. Je privilégie des recommandations utiles, réalisables et adaptées à votre contexte.</p>
@@ -56,6 +59,20 @@ export default function Page() {
       <h2>Ce que j’analyse<br/><em>avant d’agir.</em></h2>
       <p>Une stratégie commence par un état des lieux précis. Je regarde plusieurs dimensions pour identifier ce qui freine réellement votre visibilité.</p>
       <ul className="check-list"><li>Indexation — qualité du crawl, sitemap, pages réellement indexées dans Search Console</li><li>Technique — rapidité, mobile, Core Web Vitals</li><li>Contenu et intentions de recherche — ce que vos futurs clients cherchent réellement</li><li>SEO local — fiche Google Business Profile, NAP cohérent (nom, adresse, téléphone)</li><li>Maillage interne — liens entre vos pages pour structurer l’autorité</li><li>Expérience utilisateur — clarté, navigation, message</li></ul>
+    </div></section>
+
+    <section className="content-section"><div className="content-label">SEO TECHNIQUE</div><div>
+      <h2>La technique,<br/><em>ce qui se passe sous le capot.</em></h2>
+      <p>Une partie du travail se joue avant même les contenus : la structure des pages et de la navigation, la rapidité, l’expérience mobile, l’indexation, le sitemap et les données structurées. Sans une base technique saine, le meilleur contenu a du mal à porter ses fruits.</p>
+      <p>Beaucoup de ces fondations dépendent de la façon dont un site est construit dès le départ. C’est précisément l’objet de la <a className="text-link" href="/services/creation-site-internet-lausanne">création de sites internet à Lausanne</a> : une structure propre, des pages rapides et des bases SEO posées pendant le développement, pas après.</p>
+      <ul className="check-list"><li>Structure des URL et profondeur de navigation</li><li>Performance et expérience mobile (Core Web Vitals)</li><li>Indexation, sitemap et balises techniques</li><li>Données structurées cohérentes avec le contenu visible</li></ul>
+    </div></section>
+
+    <section className="content-section"><div className="content-label">CONTENU</div><div>
+      <h2>Optimisation du contenu,<br/><em>répondre à l’intention de recherche.</em></h2>
+      <p>Le contenu est le cœur du référencement : chaque page doit répondre clairement à la question que se pose votre futur client, avec une structure de titres logique, un maillage interne utile et une écriture humaine — pas une liste de mots-clés.</p>
+      <p>Avant d’écrire, je regarde ce que vos visiteurs cherchent réellement et ce que les résultats actuels de Google proposent, puis je construis une page plus utile. C’est une des premières briques de l’<a className="text-link" href="/services/audit-seo">audit SEO</a>.</p>
+      <ul className="check-list"><li>Titres et hiérarchie (H1, H2, H3) alignés sur l’intention</li><li>Des réponses utiles, pas de phrases bourrées de mots-clés</li><li>Maillage interne naturel vers les pages utiles</li><li>Mise à jour régulière selon les signalements réels</li></ul>
     </div></section>
 
     <section className="content-section"><div className="content-label">MA MÉTHODE</div><div>
