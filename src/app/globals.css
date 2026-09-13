@@ -46,3 +46,10 @@ a { color:inherit; text-decoration:none; } .site-header { width:min(1440px,100%)
 .programme-banner p{max-width:640px;color:var(--muted);line-height:1.7;font-size:1.05rem;margin:0}
 .programme-banner .button{white-space:nowrap}
 @media(max-width:760px){.trust-bar{padding:22px 6vw;gap:12px 24px}.programme-banner{padding:70px 6vw;grid-template-columns:1fr}.programme-banner .button{justify-self:start}}
+
+/* ===== UPDATE 05: RÉALISATIONS SHOWCASE (home) ===== */
+.realisations-showcase{max-width:1440px;margin:auto;padding:130px 5vw;background:var(--surface);border-bottom:1px solid var(--line)}
+.realisations-showcase h3{color:var(--text)}
+.showcase-cta{margin-top:45px}
+.showcase-cta .button{display:inline-flex}
+@media(max-width:760px){.realisations-showcase{padding:80px 6vw}}

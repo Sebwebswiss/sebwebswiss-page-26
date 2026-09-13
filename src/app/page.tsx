@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { business } from "@/content/business";
+import { realisations } from "@/content/realisations";
 
 export const metadata: Metadata = {
   title: "Agence web à Lausanne | Création de site internet & SEO",
@@ -52,8 +53,8 @@ export default function Home() {
       <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow"><span /> SUR MESURE · LAUSANNE · SUISSE ROMANDE</p>
-          <h1>Votre présence digitale,<em> pensée pour faire grandir</em> votre entreprise.</h1>
-          <p className="hero-lead">Nous concevons des sites web performants, des boutiques en ligne et des outils digitaux sur mesure pour transformer votre présence en ligne en opportunités concrètes.</p>
+          <h1>Agence web à Lausanne,<em> pensée pour faire grandir</em> votre entreprise.</h1>
+          <p className="hero-lead">Création de site internet, e-commerce et référencement SEO pour les PME, indépendants et artisans de Lausanne, du canton de Vaud et de Suisse romande.</p>
           <div className="hero-actions">
             <a className="button primary" href="/contact">Demander un devis <span>↗</span></a>
             <a className="button ghost" href="/services">Découvrir nos services <span>↓</span></a>
@@ -77,7 +78,7 @@ export default function Home() {
         <p className="section-kicker">01 — L&apos;AGENCE</p>
         <div>
           <h2>Un partenaire digital,<br/><em>pas une usine à sites.</em></h2>
-          <p>Nous travaillons avec des indépendants, PME et entreprises qui cherchent plus qu&apos;un joli site : une présence digitale claire, crédible et utile pour leur développement.</p>
+          <p>En tant qu&apos;agence web à Lausanne, nous travaillons avec des indépendants, PME et entreprises qui cherchent plus qu&apos;un joli site : une présence digitale claire, crédible et utile pour leur développement.</p>
           <p>Chaque projet commence par vos objectifs. Ensuite, nous réunissons design, technologie et référencement pour créer une solution qui vous ressemble — et qui fonctionne vraiment.</p>
         </div>
       </section>
@@ -121,22 +122,24 @@ export default function Home() {
         <div className="process-steps"><div><span>01</span><h3>Comprendre</h3><p>Vos objectifs, votre activité et vos clients.</p></div><div><span>02</span><h3>Concevoir</h3><p>Une direction claire, utile et distinctive.</p></div><div><span>03</span><h3>Développer</h3><p>Une expérience rapide, fiable et évolutive.</p></div><div><span>04</span><h3>Faire grandir</h3><p>SEO, optimisation et accompagnement continu.</p></div></div>
       </section>
 
-      <section className="programme-banner">
-        <div>
-          <p className="section-kicker">PROGRAMME FONDATEUR · 10 ENTREPRISES</p>
-          <h2>Votre site Web offert<br/><em>pendant la première année.</em></h2>
-          <p>À l’occasion de mes cinq années de projets web, je sélectionne 10 entreprises pour leur créer un site et mettre en place leur référencement — à CHF 0 pendant la première année.</p>
+<section className="realisations-showcase">
+        <div className="section-heading">
+          <p className="section-kicker">05 — RÉALISATIONS</p>
+          <h2>Des projets réels,<br/><em>menés de bout en bout.</em></h2>
         </div>
-        <a className="button primary" href="/offre-lancement">Découvrir l’offre <span>↗</span></a>
+        <div className="service-list">
+          {realisations.map(([n, name,, desc, href]) => <a className="service-card" key={n} href={href}><span>{n}</span><div><h3>{name}</h3><p>{desc}</p></div><b>↗</b></a>)}
+        </div>
+        <div className="showcase-cta"><a className="button primary" href="/realisations">Voir toutes les réalisations <span>↗</span></a></div>
       </section>
 
       <section className="faq">
-        <div><p className="section-kicker">05 — QUESTIONS</p><h2>Vous avez un projet ?<br/><em>Commençons simplement.</em></h2></div>
+        <div><p className="section-kicker">06 — QUESTIONS</p><h2>Vous avez un projet ?<br/><em>Commençons simplement.</em></h2></div>
         <div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span>+</span></summary><p>{answer}</p></details>)}</div>
       </section>
 
       <section className="contact" id="contact">
-        <p className="section-kicker">06 — CONTACT</p>
+        <p className="section-kicker">07 — CONTACT</p>
         <h2>Construisons quelque chose<br/><em>qui compte vraiment.</em></h2>
         <p>Décrivez-nous votre projet. Nous vous répondrons avec une approche claire et adaptée à votre entreprise.</p>
         <a className="contact-email" href={`mailto:${business.email}`}>{business.email}<span>↗</span></a>
