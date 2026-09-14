@@ -34,8 +34,8 @@ export const articles: Article[] = [
     description: "Guide pratique pour choisir une agence web à Lausanne : besoin, budget, portfolio, interlocuteur, expertise technique, SEO et questions à poser avant de signer.",
     intro: "Le bon prestataire fait la différence entre un site qui rapporte et un site qui dort. Voici les points concrets à vérifier avant de signer, sans jargon inutile.",
     excerpt: "Budget, portfolio, interlocuteur, SEO, propriété du site et support : les points concrets à vérifier avant de choisir une agence à Lausanne.",
-    datePublished: "2026-09-14",
-    dateModified: "2026-09-14",
+    datePublished: "2026-09-13",
+    dateModified: "2026-09-13",
     author: {
       name: "Sébastien",
       url: `${business.url}/a-propos`,
@@ -247,8 +247,8 @@ export const articles: Article[] = [
     description: "Comment être trouvé sur Google par les clients près de chez vous : Google Business Profile, avis, contenus et technique, avec les pièges à éviter pour les PME.",
     intro: "Apparaître quand un prospect cherche un service près de chez lui ne doit rien au hasard. Voici les leviers concrets du référencement local, étape par étape.",
     excerpt: "Business Profile, avis clients, contenus et fondations techniques : les leviers concrets du référencement local à Lausanne, et les erreurs qui coûtent cher.",
-    datePublished: "2026-09-14",
-    dateModified: "2026-09-14",
+    datePublished: "2026-09-13",
+    dateModified: "2026-09-13",
     author: {
       name: "Sébastien",
       url: `${business.url}/a-propos`,
