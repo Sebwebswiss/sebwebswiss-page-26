@@ -88,7 +88,7 @@ export const articles: Article[] = [
         content: [
           { text: "Pour vous situer avant de discuter, " },
           { text: "mon service de création de site", link: "/services/creation-site-internet-lausanne" },
-          { text: " publie des budgets indicatifs pour les PME de Suisse romande." },
+          { text: " vous aide à cadrer le projet, avec un échange direct pour clarifier le budget selon votre besoin." },
         ],
       },
       {
@@ -232,7 +232,7 @@ export const articles: Article[] = [
       {
         kind: "faq",
         items: [
-          ["Combien coûte un site web pour une PME à Lausanne ?", "Tout dépend de la structure et des fonctionnalités : un site vitrine soigné ne se joue pas à quelques centaines de francs, et une boutique change beaucoup la facture. Ma page sur la création de site publie des budgets indicatifs pour vous situer avant de discuter."],
+          ["Combien coûte un site web pour une PME à Lausanne ?", "Tout dépend de la structure et des fonctionnalités : un site vitrine soigné ne se joue pas à quelques centaines de francs, et une boutique change beaucoup la facture. Un échange direct permet de clarifier le budget selon votre besoin."],
           ["Mieux vaut une agence ou un indépendant ?", "L’important n’est pas la taille du prestataire mais la personne qui travaille réellement sur votre projet. Posez à l’un et à l’autre les questions de cet article et comparez les réponses."],
           ["Combien de temps faut-il pour créer un site ?", "Pour un site vitrine, comptez en général quelques semaines entre le premier échange et la mise en ligne. Le délai dépend beaucoup de la rapidité de vos retours sur les maquettes et les textes."],
           ["Peut-on changer d’agence plus tard ?", "Oui, si le domaine, l’hébergement et le code sont à votre nom. C’est précisément pour cela que cette question figure dans la liste de cet article."],
