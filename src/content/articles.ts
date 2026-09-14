@@ -240,6 +240,211 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "seo-local-lausanne",
+    kicker: "SEO LOCAL",
+    title: "SEO local à Lausanne : le guide pour les PME",
+    description: "Comment être trouvé sur Google par les clients près de chez vous : Google Business Profile, avis, contenus et technique, avec les pièges à éviter pour les PME.",
+    intro: "Apparaître quand un prospect cherche un service près de chez lui ne doit rien au hasard. Voici les leviers concrets du référencement local, étape par étape.",
+    excerpt: "Business Profile, avis clients, contenus et fondations techniques : les leviers concrets du référencement local à Lausanne, et les erreurs qui coûtent cher.",
+    datePublished: "2026-09-14",
+    dateModified: "2026-09-14",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-seo-local.png",
+    sections: [
+      {
+        kind: "h2",
+        text: "Ce que le SEO local change pour une PME",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Quand quelqu’un cherche un plombier, un dentiste ou une agence web, il veut d’abord une réponse proche de chez lui. Le référencement local consiste à rendre votre entreprise visible dans ces recherches géographiques, sur le moteur comme sur Maps." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pour une PME de Lausanne, l’objectif est simple : apparaître en face des recherches qui comptent pour vous, dans votre commune et dans la région. Le reste est une question de méthode, pas de budget publicitaire." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Google Business Profile : la base indispensable",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Votre fiche Google Business Profile est le premier levier du SEO local. Une fiche complète et tenue régulièrement pèse directement dans le classement local et dans la confiance des visiteurs." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "une catégorie principale cohérente avec votre métier",
+          "des horaires à jour, y compris les fermetures",
+          "des photos récentes de vos locaux et de vos réalisations",
+          "une zone de service définie sans l’étirer à l’excès",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "La cohérence de vos coordonnées (NAP)",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Nom, adresse, téléphone : ces informations doivent être identiques sur votre site, votre fiche Google et vos annuaires. Une adresse écrite de deux façons différentes sème le doute, chez Google comme chez vos clients." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "N’essayez pas non plus de créer des pages vides pour chaque commune des environs : ces pages portes ne servent pas les visiteurs et peuvent être pénalisées. Une fiche sérieuse vaut mieux que vingt pages creuses." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Des pages de service claires, pas des doublons",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Chaque service mérite une page dédiée qui dit ce que vous faites, pour qui et comment. Une page par service, rédigée pour vos clients, reste la meilleure base pour apparaître sur des recherches précises." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La structure de ces pages, leurs titres, leur vitesse et leurs textes demandent des réglages précis. C’est le cœur de ce que je propose dans " },
+          { text: "mon accompagnement en référencement SEO à Lausanne", link: "/services/referencement-seo-lausanne" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Les avis clients : un levier à entretenir",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Les avis Google influencent la visibilité locale et la décision de vos clients. Ils ne se commandent pas : ils se demandent naturellement, après une prestation réussie, et méritent toujours une réponse, même quand ils sont négatifs." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Un flux d’avis régulier est aussi un signal de confiance pour les visiteurs qui vous comparent avec un concurrent du même quartier." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Un contenu qui répond aux vraies questions",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Publier sur votre site ou votre blog n’est pas une course à la quantité. C’est l’occasion de répondre aux vraies questions de vos clients : coûts, délais, choix à faire. Ce contenu nourrit vos pages et vous rend visible sur des recherches précises." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce principe vaut pour tous les métiers. C’est la logique que je détaille " },
+          { text: "pour choisir une agence web à Lausanne", link: "/blog/comment-choisir-agence-web-lausanne" },
+          { text: " dans un autre guide de ce blog." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Les fondations techniques du site",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Vitesse, sécurité, lisibilité sur mobile : Google en tient compte pour tous les sites, y compris locaux. Un site lent et fragile plombe vos pages, quel que soit votre quartier." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Si votre site actuel repose sur des bases instables, mieux vaut parfois " },
+          { text: "créer un nouveau site", link: "/services/creation-site-internet-lausanne" },
+          { text: " sur de bonnes fondations que réparer sans fin l’existant." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Le maillage interne : relier vos pages entre elles",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Reliez vos pages entre elles avec des textes qui décrivent vraiment ce qu’on trouve derrière chaque lien. Un bon maillage aide Google à comprendre votre site et vos visiteurs à avancer vers un contact." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Chaque page de service devrait être pointée depuis la page d’accueil et depuis vos textes de présentation, avec un libellé naturel plutôt qu’un « cliquez ici »." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "L’autorité : se faire citer, sans tricher",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Être cité par de vrais sites — presse locale, associations, partenaires, fournisseurs — renforce la crédibilité de votre nom d’entreprise et de votre domaine." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "En revanche, payer pour figurer sur cent annuaires le même jour ne sert à rien et peut même nuire. Quelques citations de qualité, cohérentes avec votre activité, suffisent largement." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Mesurer avec Google Search Console",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La Search Console montre les recherches pour lesquelles votre site apparaît, les pages concernées et ce qui peut être amélioré. C’est votre tableau de bord, gratuit et indispensable." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pour aller plus loin qu’un simple constat, " },
+          { text: "un audit SEO", link: "/services/audit-seo" },
+          { text: " permet de faire le point sur les erreurs techniques, les opportunités de contenu et vos concurrents locaux." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Mesurer, corriger, recommencer : c’est la logique que je détaille dans " },
+          { text: "ma méthode de travail", link: "/methode" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Combien de temps avant de voir des résultats ?", "Comptez des mois plutôt que des semaines pour des changements durables. En revanche, des améliorations visibles — fiche complète, pages optimisées, avis — se remarquent souvent au bout de quelques semaines."],
+          ["Dois-je être présent sur tous les annuaires ?", "Non. Quelques annuaires de qualité, cohérents avec votre secteur et la région, suffisent. La cohérence de vos coordonnées compte plus que leur nombre."],
+          ["Faut-il une page par commune ?", "Pas de pages vides. Concentrez-vous sur votre vraie zone de service et créez du contenu uniquement pour les communes où vous pouvez réellement intervenir."],
+          ["Le SEO local suffit-il à faire vivre une PME ?", "Il apporte un trafic qualifié, mais il ne remplace ni un site crédible ni une offre solide. Il fonctionne le mieux en complément : fiche soignée, bonnes pages, avis et contenus réguliers."],
+        ],
+      },
+    ],
+  },
 ];
 
 export const getArticle = (slug: string): Article | undefined =>
