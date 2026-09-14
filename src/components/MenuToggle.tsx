@@ -1,5 +1,28 @@
-"use client";
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { navLinks } from "./nav";
-export function MenuToggle(){const[open,setOpen]=useState(false);const close=()=>setOpen(false);useEffect(()=>{document.body.style.overflow=open?"hidden":"";return()=>{document.body.style.overflow=""}},[open]);return <><button type="button" className={`menu-toggle ${open?"is-open":""}`} aria-label={open?"Fermer le menu":"Ouvrir le menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={()=>setOpen(v=>!v)}><span/><span/></button><div id="mobile-navigation" className={`mobile-menu ${open?"is-open":""}`}><nav aria-label="Navigation mobile">{navLinks.map((l,i)=><Link key={l.href} href={l.href} onClick={close} style={{transitionDelay:open?`${i*55}ms`:"0ms"}}><span>0{i+1}</span>{l.label}<b>↗</b></Link>)}<Link className="mobile-menu-cta" href="/contact" onClick={close}>Demander un devis <span>↗</span></Link></nav><p>Lausanne · Vaud · Suisse romande</p></div></>}
+
+export function MenuToggle() {
+  return (
+    <details className="menu-details">
+      <summary className="menu-toggle" aria-label="Ouvrir le menu">
+        <span />
+        <span />
+      </summary>
+      <div id="mobile-navigation" className="mobile-menu">
+        <nav aria-label="Navigation mobile">
+          {navLinks.map((l, i) => (
+            <Link key={l.href} href={l.href} style={{ transitionDelay: `${i * 55}ms` }}>
+              <span>0{i + 1}</span>
+              {l.label}
+              <b>↗</b>
+            </Link>
+          ))}
+          <Link className="mobile-menu-cta" href="/contact">
+            Demander un devis <span>↗</span>
+          </Link>
+        </nav>
+        <p>Lausanne · Vaud · Suisse romande</p>
+      </div>
+    </details>
+  );
+}

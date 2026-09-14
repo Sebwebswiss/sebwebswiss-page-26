@@ -4,8 +4,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { business } from "@/content/business";
 import "./globals.css";
 
-const sans = DM_Sans({ variable: "--font-sans", subsets: ["latin"], display: "block" });
-const serif = Playfair_Display({ variable: "--font-display", subsets: ["latin"], display: "block" });
+const sans = DM_Sans({ variable: "--font-sans", subsets: ["latin"], display: "optional" });
+const serif = Playfair_Display({ variable: "--font-display", subsets: ["latin"], display: "optional" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://sebwebswiss.ch"),
