@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
-const baseUrl = "https://sebwebswiss.ch";
+import { business } from "@/content/business";
+import { articles } from "@/content/articles";
+
 const paths = [
   "",
   "/services",
@@ -19,6 +21,19 @@ const paths = [
   "/offre-lancement",
   "/blog",
 ];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return paths.map((path) => ({ url: `${baseUrl}${path}`, lastModified: new Date(), changeFrequency: "monthly" }));
+  const pages: MetadataRoute.Sitemap = paths.map((path) => ({
+    url: `${business.url}${path}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+  }));
+
+  const articlePages: MetadataRoute.Sitemap = articles.map((a) => ({
+    url: `${business.url}/blog/${a.slug}`,
+    lastModified: new Date(a.dateModified),
+    changeFrequency: "monthly" as const,
+  }));
+
+  return [...pages, ...articlePages];
 }
