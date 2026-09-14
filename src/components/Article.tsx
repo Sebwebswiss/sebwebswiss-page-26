@@ -50,7 +50,7 @@ const Block = ({ block }: { block: ArticleBlock }) => {
                   {q}
                   <span>+</span>
                 </summary>
-                <p>{a}</p>
+                <p>{Array.isArray(a) ? renderInline(a) : a}</p>
               </details>
             ))}
           </div>
