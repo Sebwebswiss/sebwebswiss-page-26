@@ -70,6 +70,9 @@ body:has(.menu-details[open]){overflow:hidden}
 .article-check-list{list-style:none;margin:8px 0 26px;padding:0;border-top:1px solid var(--line)}
 .article-check-list li{padding:15px 0;border-bottom:1px solid var(--line);color:var(--muted);line-height:1.7}
 .article-check-list li:before{content:"↗";color:var(--lime);padding-right:13px}
+.article-callout{border:1px solid color-mix(in srgb,var(--orange) 40%,transparent);border-left:4px solid var(--orange);border-radius:14px;background:color-mix(in srgb,var(--orange) 7%,transparent);padding:18px 20px;margin:8px 0 28px}
+.article-callout>b{display:block;font-size:.82rem;letter-spacing:.09em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.article-callout p{margin:0;line-height:1.85;font-size:1.05rem}
 .article-faq{margin-top:66px;border-top:1px solid var(--line);padding-top:10px}
 .article-faq summary{font-size:1.05rem}
 .article-list{list-style:none;margin:42px 0 0;padding:0;border-top:1px solid var(--line)}

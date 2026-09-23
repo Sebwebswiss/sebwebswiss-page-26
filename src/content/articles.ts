@@ -9,6 +9,7 @@ export type ArticleBlock =
   | { kind: "h3"; text: string }
   | { kind: "p"; content: Inline[] }
   | { kind: "list"; items: string[] }
+  | { kind: "callout"; title: string; content: Inline[] }
   | { kind: "faq"; items: readonly [string, string | Inline[]][] };
 
 export type Article = {
@@ -875,6 +876,254 @@ export const articles: Article[] = [
           ["Pourquoi les prix varient-ils autant entre agences ?", "Parce que le contenu des devis varie autant que leur montant. Deux propositions au même prix peuvent inclure des choses totalement différentes. Comparez le périmètre, pas seulement le chiffre."],
           ["L’hébergement coûte-t-il cher ?", "Le coût de l’hébergement, du domaine et de la maintenance est un poste récurrent à prévoir chaque année. Ce n’est pas un détail du budget total, mais un engagement qui doit être explicite avant la signature."],
           ["Le référencement est-il inclus dans le prix du site ?", "Les bases SEO peuvent l’être : structure, titres, vitesse, indexation. La visibilité durable, elle, est un accompagnement séparé et suivi dans le temps. Posez la question avant de signer."],
+        ],
+      },
+    ],
+  },
+  {
+    slug: "google-remunere-les-sites-cites-par-l-ia",
+    kicker: "NOUVELLE GOOGLE",
+    title: "Google commence à rémunérer certains éditeurs pour l’IA : ce que cela change vraiment",
+    description: "Google teste un programme qui rémunère certains éditeurs lorsque leurs contenus contribuent aux réponses IA. Ce que cela signifie vraiment pour les entreprises.",
+    intro: "Le 14 septembre 2026, Digiday a détaillé un programme encore discret : Google rémunère certains éditeurs dont le contenu contribue à ses réponses IA. Voici les faits vérifiés, et ce qu’ils signifient vraiment pour une PME.",
+    excerpt: "Un programme pilote, un paiement lié à la valeur plutôt qu’au simple usage, et beaucoup de malentendus possibles. Ce que l’enquête de Digiday du 14 septembre révèle vraiment.",
+    datePublished: "2026-09-23",
+    dateModified: "2026-09-23",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-google-remunere-ia.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Ce programme est actuellement un test limité à certains éditeurs. Une PME, un indépendant ou un site local ne peut pas simplement s’inscrire pour être rémunéré par Google." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que l’enquête révèle",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le 14 septembre 2026, l’enquête de Digiday, relayée par Search Engine Roundtable, a rendu publique l’existence du programme d’essai appelé « AI contribution pilot », repéré dès avril 2026 mais dont les conditions n’étaient pas connues." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Google expérimente actuellement un programme pilote baptisé AI Contribution Pilot. Il concerne un nombre limité d’éditeurs dont les contenus peuvent contribuer de manière significative à certaines réponses générées dans Gemini, AI Overviews ou AI Mode." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Il ne s’agit pas d’un système ouvert à tous les sites web, ni d’une rémunération automatique dès qu’une page est citée. Le principe tient en une phrase, publiée par Google sur l’écran d’accueil des éditeurs concernés : « Accumulez des gains lorsque votre contenu contribue de manière significative aux réponses génératives dans les produits participants. » Les éditeurs concernés suivent leurs gains mensuels dans Search Console et peuvent se retirer à tout moment." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que cela ne change pas (et c’est l’essentiel)",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Une citation ne signifie pas automatiquement une rémunération. Être utilisé comme source, apparaître dans une réponse générée et être rémunéré sont trois choses différentes. Le programme annoncé par Google reste sélectif et expérimental." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "ce n’est pas une rémunération de trafic : un simple lien après une réponse ne compte pas, Google ne paie que si le contenu a participé à la génération de la réponse",
+          "ce n’est pas une rémunération à l’usage : selon Digiday, le paiement dépend de la valeur jugée par Google, pas du volume de consultations",
+          "ce n’est pas ouvert à tous : Google parle d’un pilote d’apprentissage au stade précoce, réservé à quelques dizaines d’éditeurs, avec une attraction marquée pour les petits et moyens sites",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Un signal, pas une promesse",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce programme est surtout un signal : Google cherche à récompenser les contenus qui nourrissent vraiment ses réponses IA, au-delà des liens. Plusieurs éditeurs approchés y voient l’amorce d’un « marché de données d’inférence » — un moyen de comprendre ce que les IA valorisent en observant ce qui est rémunéré." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pour autant, ce n’est pas une raison de changer de stratégie. Le sujet d’une PME reste d’être trouvée, comprise et recommandée — ce que je décris en détail dans l’article sur la " },
+          { text: "visibilité dans ChatGPT, Gemini et les moteurs IA", link: "/blog/etre-visible-chatgpt-gemini-moteurs-ia" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Pour une entreprise à Lausanne, qu’est-ce que cela change ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "À court terme, probablement rien sur le plan financier. Le véritable signal est ailleurs : les moteurs IA accordent de plus en plus de valeur aux contenus capables d’apporter une information claire, originale et identifiable." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pour une PME, l’objectif ne devrait donc pas être de « se faire payer par Google », mais de devenir une source crédible : site accessible, identité claire, expertise démontrée, " },
+          { text: "réalisations réelles", link: "/realisations" },
+          { text: " et informations cohérentes sur l’entreprise." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Et en pratique ?",
+      },
+      {
+        kind: "list",
+        items: [
+          "vérifier dans Search Console que son site est autorisé dans les fonctionnalités génératives de Google (Settings → Search generative AI, disponible pour tous les sites depuis fin août 2026)",
+          "suivre ses propres citations dans les réponses IA et le trafic qui en arrive",
+          "se méfier de toute promesse d’une « place dans les IA » : aucune place n’est vendue, et ce pilote n’est ni une inscription ni un produit",
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Google paie-t-il tous les sites cités dans ses réponses IA ?", "Non. Le programme est un pilote : seuls des éditeurs sélectionnés ont été approchés, et Google le présente comme un apprentissage au stade précoce, pas comme un dispositif généralisé."],
+          ["Faut-il s’inscrire quelque part ?", "Non. Les éditeurs concernés sont contactés par Google. Il n’existe aucune procédure d’inscription publique, et aucun intermédiaire n’est nécessaire."],
+          ["Cela remplace-t-il le trafic vers mon site ?", "Non. Google distingue le lien vers votre site (non rémunéré) de la contribution à la réponse elle-même (potentiellement rémunérée). Le trafic reste le premier indicateur à suivre."],
+          ["Faut-il exclure son site des réponses IA ?", "C’est un choix d’entreprise. Le réglage Search generative AI dans Search Console permet de retirer son contenu de ces fonctionnalités ; il supprime alors les impressions dans les réponses génératives. Ce n’est pas une décision à prendre à la légère."],
+          ["Est-ce le début d’un « SEO pour être payé par Google » ?", "Pas à ce stade. Le programme est trop récent et trop restreint pour en faire une stratégie. Les fondations — contenu utile, informations cohérentes, preuves — restent ce qui décide de vos citations."],
+        ],
+      },
+    ],
+  },
+  {
+    slug: "deux-experiences-reelles-sur-la-visibilite-ia",
+    kicker: "VISIBILITÉ IA",
+    title: "Citations IA : deux expériences GEO bousculent les conseils habituels",
+    description: "Deux expériences GEO ont généré 775 citations IA et révèlent des résultats surprenants sur les sources tierces, les contenus propriétaires et la visibilité dans les moteurs IA.",
+    intro: "Le 14 septembre 2026, Search Engine Land a publié deux expériences GEO mesurées, portant sur 775 citations dans les réponses IA. L’une de leurs conclusions contredit une partie des conseils habituels.",
+    excerpt: "Sources qui vous mentionnent, plates-formes qui citent, contenus que vous contrôlez : ce que les mesures publiées le 14 septembre disent vraiment.",
+    datePublished: "2026-09-23",
+    dateModified: "2026-09-23",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-experiences-visibilite-ia.png",
+    sections: [
+      {
+        kind: "h2",
+        text: "Ce que les deux expériences ont testé",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La première expérience a été menée pour une marque existante, sur plusieurs mois et quatre plates-formes. La seconde a démarré de zéro : une entreprise sans aucune présence IA mesurable, suivie pendant trente jours sur six plates-formes — Gemini, Google AI Mode, Claude, ChatGPT, Grok et Perplexity — avec quinze mots-clés commerciaux vérifiés à la main. Au total, 775 citations ont été enregistrées (Search Engine Land, 14 septembre 2026)." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Les chiffres de l’expérience de démarrage à froid",
+      },
+      {
+        kind: "list",
+        items: [
+          "298 apparitions en trente jours, sans aucune présence au départ",
+          "Gemini : 104 citations, Google AI Mode : 95, Claude : 59, ChatGPT : 32",
+          "Grok et Perplexity : les volumes les plus faibles (4 citations chacun) — et pourtant, dans cette expérience, l’une des rares citations Perplexity a conduit à un prospect devenu ensuite client",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pendant la période observée, 18,5 % des nouveaux utilisateurs sont arrivés via du trafic referral, tandis que 3,25 % ont été attribués au canal AI Assistant dans GA4. Ensemble, ces deux catégories représentaient un peu plus d’un cinquième des nouveaux utilisateurs. Cela ne signifie toutefois pas que l’ensemble des 21,75 % provenait directement de moteurs IA." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Un referral provenant de Perplexity a également conduit à un prospect qui est ensuite devenu client. C’est le résultat de cette expérience, pas une promesse de ce qui se produira pour tous les sites." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Le résultat qui contredit les conseils habituels",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Dans ces expériences, les sources tierces ont parfois joué un rôle plus important que les contenus publiés directement par la marque. Cela ne permet pas de conclure que les sources externes seront toujours supérieures. Ces résultats montrent surtout qu’une stratégie de visibilité IA ne doit pas se limiter au contenu publié sur son propre site." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Dans l’un des tests, le listicle publié directement par la marque représentait environ 14 % des mentions de sources observées. Les sources tierces étaient nettement plus présentes dans cette expérience." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La première expérience tirait une conclusion opposée sur le rôle du contenu maîtrisé. Que cette conclusion n’ait pas survécu à la deuxième mesure est une leçon d’humilité : ce qui vaut pour une marque établie ne vaut pas pour une entreprise qui démarre." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que cela signifie pour une petite entreprise",
+      },
+      {
+        kind: "list",
+        items: [
+          "l’autorité locale compte : si des sources que les IA lisent déjà (annuaires, presse locale, associations) parlent de vous, vos chances de citation augmentent",
+          "votre propre contenu reste un prérequis plus qu’un moteur : il pose l’identité et factuellement votre activité, mais il ne crée pas la citation à lui seul",
+          "les plates-formes ne se ressemblent pas : Gemini, AI Mode, Claude, ChatGPT, Grok et Perplexity citent différemment — et toutes ne génèrent pas du clic",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est cohérent avec l’importance que je donne à une " },
+          { text: "identité cohérente et à des preuves de votre activité", link: "/realisations" },
+          { text: ". Les mentions extérieures se construisent comme les avis : par un travail de terrain régulier, pas par une case à cocher." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que ces expériences ne prouvent pas",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ces résultats sont intéressants, mais ils ne constituent pas une formule universelle pour apparaître dans ChatGPT, Gemini ou Google AI Mode. Il s’agit de deux expériences menées dans des contextes précis, sur un nombre limité de requêtes commerciales et avec plusieurs actions réalisées en parallèle. Je les considère comme des signaux utiles à tester, pas comme des règles de classement garanties." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Conclusions honnêtes",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Aucune garantie n’existe, et aucune méthode ne promet une citation. Ce que ces expériences suggèrent, c’est un ordre des priorités : être mentionné là où les IA lisent, garder des " },
+          { text: "fondations techniques propres", link: "/services/audit-seo" },
+          { text: ", et mesurer ce qui arrive réellement — citations, clics, demandes. C’est la logique que je propose aux entreprises de Lausanne et de Suisse romande, dans le cadre d’un accompagnement et pas d’une promesse." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Faut-il publier des articles sur des sites externes pour être cité par les IA ?", "Pas automatiquement. Ces expériences montrent que des sources tierces peuvent jouer un rôle important, mais cela ne signifie pas qu’il faut multiplier les publications artificielles ou acheter des mentions. La pertinence, la crédibilité et le contexte restent essentiels."],
+          ["La visibilité IA dépend-elle de mon contenu ?", "Pas seulement. Les deux expériences montrent que les sources extérieures qui vous mentionnent jouent le rôle principal. Votre contenu reste essentiel pour être décrit correctement, mais il n’est pas le moteur principal des citations."],
+          ["Par quoi commencer si mon entreprise est invisible dans les IA ?", "Vérifier les fondations — indexabilité, identité, cohérence des informations — puis chercher les sources locales que les IA citent déjà et qui pourraient vous mentionner. Le reste se mesure sur des mois."],
+          ["Les plates-formes se valent-elles ?", "Non. L’expérience de démarrage à froid montre des écarts très importants entre Gemini, AI Mode, Claude, ChatGPT, Grok et Perplexity. Mieux vaut observer là où vos clients posent réellement leurs questions."],
+          ["Une citation dans une IA génère-t-elle des clients ?", "Rarement directement, mais elle peut. Dans l’expérience, une des rares citations Perplexity a conduit à un client payant. C’est une probabilité que l’on augmente en multipliant les zones de présence, pas en espérant un classement unique."],
+          ["Faut-il créer un fichier ou une page spéciale pour les IA ?", "Non. Google ne demande aucun format particulier. Les citations se construisent par la clarté, la cohérence et les mentions extérieures — pas par un réglage spécial."],
         ],
       },
     ],

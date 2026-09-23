@@ -40,6 +40,13 @@ const Block = ({ block }: { block: ArticleBlock }) => {
           ))}
         </ul>
       );
+    case "callout":
+      return (
+        <aside className="article-callout">
+          <b>{block.title}</b>
+          <p>{renderInline(block.content)}</p>
+        </aside>
+      );
     case "faq":
       return (
         <div className="article-faq">
