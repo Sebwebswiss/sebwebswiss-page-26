@@ -939,7 +939,7 @@ export const articles: Article[] = [
         items: [
           "ce n’est pas une rémunération de trafic : un simple lien après une réponse ne compte pas, Google ne paie que si le contenu a participé à la génération de la réponse",
           "ce n’est pas une rémunération à l’usage : selon Digiday, le paiement dépend de la valeur jugée par Google, pas du volume de consultations",
-          "ce n’est pas ouvert à tous : Google parle d’un pilote d’apprentissage au stade précoce, réservé à quelques dizaines d’éditeurs, avec une attraction marquée pour les petits et moyens sites",
+          "ce n’est pas ouvert à tous : Google parle d’un pilote d’apprentissage au stade précoce. Digiday indique qu’au moins plusieurs dizaines d’éditeurs ont été approchés. Le programme semble, jusqu’ici, susciter davantage d’intérêt auprès de petits et moyens éditeurs que des grands groupes",
         ],
       },
       {
@@ -949,7 +949,7 @@ export const articles: Article[] = [
       {
         kind: "p",
         content: [
-          { text: "Ce programme est surtout un signal : Google cherche à récompenser les contenus qui nourrissent vraiment ses réponses IA, au-delà des liens. Plusieurs éditeurs approchés y voient l’amorce d’un « marché de données d’inférence » — un moyen de comprendre ce que les IA valorisent en observant ce qui est rémunéré." },
+          { text: "Ce programme est surtout un signal : Google cherche à récompenser les contenus qui nourrissent vraiment ses réponses IA, au-delà des liens. Un dirigeant d’éditeur participant au pilote y voit même un premier test de ce qui pourrait devenir un « marché de données d’inférence » — un moyen de comprendre ce que les IA valorisent en observant ce qui est rémunéré." },
         ],
       },
       {
@@ -985,9 +985,15 @@ export const articles: Article[] = [
       {
         kind: "list",
         items: [
-          "vérifier dans Search Console que son site est autorisé dans les fonctionnalités génératives de Google (Settings → Search generative AI, disponible pour tous les sites depuis fin août 2026)",
-          "suivre ses propres citations dans les réponses IA et le trafic qui en arrive",
+          "vérifier dans Search Console → Settings → Search generative AI que le site est configuré pour être inclus dans les fonctionnalités génératives de Google",
+          "suivre dans Search Console les impressions générées par les fonctionnalités IA de Google, surveiller manuellement les citations dans les autres moteurs IA et analyser le trafic referral dans son outil analytics",
           "se méfier de toute promesse d’une « place dans les IA » : aucune place n’est vendue, et ce pilote n’est ni une inscription ni un produit",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Cette option rend le contenu éligible ; elle ne garantit ni une citation ni une visibilité. La commande est disponible pour tous les sites depuis fin août 2026." },
         ],
       },
       {
@@ -998,6 +1004,18 @@ export const articles: Article[] = [
           ["Cela remplace-t-il le trafic vers mon site ?", "Non. Google distingue le lien vers votre site (non rémunéré) de la contribution à la réponse elle-même (potentiellement rémunérée). Le trafic reste le premier indicateur à suivre."],
           ["Faut-il exclure son site des réponses IA ?", "C’est un choix d’entreprise. Le réglage Search generative AI dans Search Console permet de retirer son contenu de ces fonctionnalités ; il supprime alors les impressions dans les réponses génératives. Ce n’est pas une décision à prendre à la légère."],
           ["Est-ce le début d’un « SEO pour être payé par Google » ?", "Pas à ce stade. Le programme est trop récent et trop restreint pour en faire une stratégie. Les fondations — contenu utile, informations cohérentes, preuves — restent ce qui décide de vos citations."],
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Sources",
+      },
+      {
+        kind: "list",
+        items: [
+          "Digiday — « Google rolls out pay-per-value AI licensing program to publishers », 14 septembre 2026",
+          "Google Search Console Help — « Search generative AI control »",
+          "Search Engine Roundtable — « Google AI Contribution Pilot »",
         ],
       },
     ],
