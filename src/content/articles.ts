@@ -1146,6 +1146,269 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "google-admet-position-ia-peu-fiable",
+    kicker: "NOUVELLE GOOGLE",
+    title: "Google le confirme : la « position » dans les réponses IA devient une métrique trompeuse",
+    description: "Search Console enregistre n’importe quel lien d’un encadré IA en position 1. Google le reconnaît et invite à regarder les résultats réels. Ce que cela change pour mesurer votre visibilité.",
+    intro: "Le 24 septembre 2026, Google reconnaît publiquement que la « position » n’est plus mesurable comme avant dans ses réponses IA : Search Console traite chaque encadré généré comme un seul bloc. Voici ce que cela change, et ce que vous pouvez suivre à la place.",
+    excerpt: "« Block flattening » : pourquoi Search Console affiche chaque lien d’un encadré IA en position 1 — et les 4 indicateurs qu’une PME devrait suivre à la place.",
+    datePublished: "2026-09-26",
+    dateModified: "2026-09-26",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-position-ia-peu-fiable.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "La position moyenne de Search Console ne dit presque plus rien pour les réponses IA : Google compte tout l’encadré comme un seul bloc. Ce qui reste mesurable : être cité (oui ou non), les visites réelles et les demandes." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que Google a reconnu le 24 septembre",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le 24 septembre 2026, Search Engine Journal rapporte les précisions de John Mueller, porte-parole de Google. Questionné sur Reddit sur la fiabilité des rapports de recherche IA, il l’admet sans détour : pour ces fonctionnalités, la position est « difficile à rendre utile », car Search Console traite l’ensemble d’un encadré IA comme un seul bloc. Des propos similaires étaient déjà apparus à la mi-septembre." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Cette approche porte un nom chez les observateurs : le « block flattening ». Concrètement, Google ne regarde pas où se trouve votre lien à l’intérieur de la réponse générée : il prend la position du bloc entier — en général la première, puisque l’encadré s’affiche au-dessus des résultats classiques — et l’attribue à chaque lien qu’il contient." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Résultat : un lien bien visible sous la première phrase et un lien enfoui derrière « Show more » sont enregistrés à l’identique, comme position 1. Vos rapports peuvent donc afficher une visibilité « parfaite » sans qu’un visiteur vous ait jamais vu." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Pourquoi la position moyenne vous trompe",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce constat n’est pas théorique. Une étude de terrain randomisée, relayée par Search Engine Journal, a mesuré ce qui se passe sur les requêtes où un encadré IA apparaît : environ 38 % de clics organiques en moins vers les sites externes sur ces requêtes-là — pas une baisse de 38 % de votre trafic global. Une version plus récente de l’étude ramène ce chiffre aux alentours de 39,8 %. D’autres analyses observent une chute des taux de clic des sites cités, en partie parce que les impressions enregistrées n’ont plus aucun rapport avec ce que l’utilisateur voit. Je vous laisse lire ces chiffres avec prudence : ce qui compte ici, c’est la leçon, le « rang » n’est plus un proxy fiable du trafic." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "De la position à la question : ce qu’il faut suivre à la place",
+      },
+      {
+        kind: "list",
+        items: [
+          "être cité ou pas — la question binaire. Le rapport Generative AI de Search Console (impressions, pages, pays, appareils) est disponible pour tous les sites depuis le 31 août 2026 ; regardez s’il indique une présence, pas où elle se situe",
+          "les visites réelles — clics, sessions et trafic referral dans votre outil d’analyse. Des métriques difficiles à distordre par les impressions fantômes",
+          "les demandes — appels, formulaires, messages. C’est ce qu’une impression ne dira jamais",
+          "regarder de vos propres yeux — ouvrez une recherche en navigation privée : où votre lien apparaît dans l’encadré ne se lit dans aucun rapport",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Et une nouveauté bienvenue : depuis le 24 septembre, Search Console ajoute aussi les impressions de recherche multimodale (Lens, Circle to Search, recherche par image). C’est un signal à isoler — pas à fondre dans une « position moyenne » qui n’a plus de sens." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que cela ne change pas pour une PME à Lausanne",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Rien de nouveau à « optimiser » : la conséquence est logique. Si vos rapports affichent une position apparente de 1 ou 2 dans les encadrés IA, ne la comptez pas comme une promesse de trafic. Ce qui reste utile est exactement ce que je conseille depuis le début — des fondations techniques propres (" },
+          { text: "audit SEO", link: "/services/audit-seo" },
+          { text: "), des informations cohérentes, des contenus utiles — puis vérifier si vous êtes cité, oui ou non, dans ChatGPT, Gemini et les autres moteurs (" },
+          { text: "comment mesurer sa visibilité IA", link: "/blog/etre-visible-chatgpt-gemini-moteurs-ia" },
+          { text: ")." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Et en pratique ?",
+      },
+      {
+        kind: "list",
+        items: [
+          "ouvrir le rapport Generative AI de Search Console et noter vos pages les plus présentes — sans lire la colonne position",
+          "comparer avec vos indicateurs de résultat : sessions, demandes via le formulaire, appels",
+          "vérifier en navigation privée ce qu’affichent réellement deux ou trois de vos recherches cibles",
+          "enregistrer dans votre outil d’analyse l’éventuel trafic referral en provenance des moteurs IA",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est une habitude de cinq minutes par semaine. Elle coûte moins cher qu’une obsession de la position, et elle donne enfin des chiffres qui correspondent au terrain. Ce travail d’analyse fait partie de l’" },
+          { text: "accompagnement", link: "/methode" },
+          { text: " que je propose aux entreprises de Suisse romande." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Sources",
+      },
+      {
+        kind: "list",
+        items: [
+          "Search Engine Journal — « Search Console Uses Block Flattening For AIOs: Forget Position & Focus On Outcomes », 24 septembre 2026",
+          "Google Search Central Blog — « Announcing web multimodal Search performance reporting in Search Console », 24 septembre 2026",
+          "Google Search Central Blog — « Introducing Search Generative AI performance reports in Search Console », 3 juin 2026",
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Si mon site est en position 1 dans Search Console pour les IA, suis-je réellement premier ?", "Pas nécessairement. Search Console attribue la position du bloc entier à chaque lien qu’il contient. Votre lien peut être replié derrière « Show more » et apparaître quand même en position 1."],
+          ["Le rapport Generative AI remplace-t-il le rapport de performance classique ?", "Non, il s’y ajoute. Les impressions des encadrés IA restent incluses dans le rapport de performance classique, avec une vue séparée pour les fonctionnalités génératives."],
+          ["Que faire de ma « position moyenne 1,2 » affichée pour les IA ?", "La lire comme un indice de présence, pas comme un rang. Google lui-même le dit : la position par bloc n’est « pas utile » pour piloter la recherche IA."],
+          ["Dois-je arrêter de vérifier Search Console ?", "Non — juste changer ce que vous y regardez : la présence (cité ou non), les pages, les pays, les impressions. Complétez avec vos mesures de résultat au lieu de la position."],
+          ["Ces limites concernent-elles ChatGPT ou Perplexity ?", "Non. Ce rapport couvre uniquement les fonctionnalités IA de Google. Pour les autres moteurs, il n’existe aucun rapport officiel : il faut vérifier manuellement ou passer par des outils tiers."],
+        ],
+      },
+    ],
+  },
+  {
+    slug: "optimiser-fiche-google-business-profile-lausanne",
+    kicker: "SEO LOCAL",
+    title: "Fiche Google Business Profile : les actions concrètes de septembre 2026",
+    description: "Depuis mars 2026, la complétude de votre fiche influence le classement local. En septembre : un délai de 4 jours pour contester une modification, Ask Maps, Collected Info. 8 actions concrètes pour une PME à Lausanne.",
+    intro: "Le 23 septembre 2026, Google précise les règles : vous avez quatre jours pour refuser une modification proposée par un utilisateur sur votre fiche Google Business Profile, sinon elle peut être publiée automatiquement. C’est l’occasion de ressortir votre fiche du placard — voici pourquoi, et en 8 actions concrètes.",
+    excerpt: "Délai de 4 jours pour contester une modification, complétude devenue facteur de classement, Ask Maps qui répond à votre place : les changements de septembre 2026 et 8 actions concrètes pour une PME à Lausanne.",
+    datePublished: "2026-09-26",
+    dateModified: "2026-09-26",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-fiche-google-business-profile.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Une fiche incomplète ou laissée sans réponse est aujourd’hui un désavantage mesurable. Le délai de 4 jours pour contester les modifications suggérées n’en est qu’un symptôme : Google veut des fiches vivantes, pas des cartes de visite oubliées." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Le changement de septembre : 4 jours pour dire non",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le 23 septembre 2026, Google a clarifié son aide en ligne : pour certaines modifications suggérées par des utilisateurs, Google vous envoie une notification et demande votre révision. Dès cette notification, vous avez quatre jours pour accepter ou refuser la suggestion. Sans réponse, Google peut publier la modification si elle est cohérente avec d’autres informations publiques — par exemple votre site web. Google précise aussi que certaines modifications conformes aux règles peuvent être appliquées sans passer par ce réexamen." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pour une PME, c’est un rappel simple : relire vos notifications (e-mails et dans l’interface) au moins une fois par semaine, et garder un site dont les informations correspondent en toutes lettres à la fiche. Plus vos coordonnées sont cohérentes partout, moins une suggestion erronée a de chances d’être « soutenue » par d’autres sources — c’est le cœur du " },
+          { text: "SEO local", link: "/blog/seo-local-lausanne" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Une fiche complète peut soutenir la visibilité locale",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Restons précis. Google ne présente pas la fiche Business Profile comme un « facteur de classement » : officiellement, le classement local repose surtout sur la pertinence, la distance et la notoriété. Ce que Google dit explicitement, c’est qu’un profil complet et exact peut aider la visibilité locale." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "En pratique, les analyses de praticiens publiées depuis mars 2026 constatent un effet bien réel de cette complétude : un écart moyen d’environ 18 % pour les fiches incomplètes, un impact important de la présence de photos et un poids accru des avis récents plutôt que de leur simple nombre. Ces chiffres proviennent d’analyses de terrain, pas d’annonces officielles de Google — je les prends pour ce qu’ils sont : une direction, pas une loi. Et une fiche soignée alimente aussi Gemini (Ask Maps), ce qui dépasse le classement traditionnel." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que Gemini fait désormais de votre fiche",
+      },
+      {
+        kind: "list",
+        items: [
+          "Ask Maps : le Q&A public est démantelé (l’API a été dépréciée fin 2025). Google répond maintenant instantanément aux questions des clients avec un contenu généré à partir de votre fiche, de votre site et de vos avis — le principe est le même que pour les moteurs IA en général",
+          "Collected Info (disponible depuis la mi-septembre) : Google rassemble des informations sur votre entreprise par appels, SMS automatisés et données publiques, et les affiche dans un onglet dédié avec la source et la date — vous pouvez supprimer tout ce qui est faux",
+          "Résumé IA et statistiques : Google génère un résumé de votre activité depuis vos avis les plus positifs, et compte désormais les vues de vos publications. Vérifiez ce résumé : s’il est faux, c’est lui qui « répond » à votre place",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce changement de logique est cohérent avec ce que j’explique dans l’article sur la " },
+          { text: "visibilité dans les moteurs IA", link: "/blog/etre-visible-chatgpt-gemini-moteurs-ia" },
+          { text: " : ce qui compte, c’est la matière première. Gemini répond avec ce qu’il trouve, pas avec ce que vous espériez qu’on lise." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "8 actions concrètes cette semaine",
+      },
+      {
+        kind: "list",
+        items: [
+          "choisir la catégorie principale la plus précise (ex. « Graphiste indépendant » plutôt que « Agence ») — c’est le levier le plus fort de la fiche",
+          "remplir tous les attributs utiles : accessibilité, modes de paiement, services proposés — Google les utilise pour les recherches précises",
+          "déclarer chaque service par son nom exact, et le même que sur votre site",
+          "vérifier la cohérence NAP (nom, adresse, téléphone) entre le site, la fiche et les annuaires",
+          "répondre à tous les avis sous 48 h, y compris les négatifs, et viser 3 à 5 avis récents par mois — la régularité pèse plus que le stock",
+          "ajouter plus de 10 photos réelles et en renouveler régulièrement",
+          "ouvrir Collected Info et supprimer toute donnée fausse ; corriger le résumé IA si besoin",
+          "publier un post par semaine et vérifier les notifications de modifications suggérées (délai de 4 jours)",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Et en pratique ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Trente minutes par semaine suffisent pour entretenir une fiche. Et si le choix de la catégorie, la cohérence NAP ou un processus d’avis vous bloquent, c’est exactement le genre de travail que je prends en charge dans un " },
+          { text: "audit SEO local", link: "/services/audit-seo" },
+          { text: " — pas une promesse de position, mais un chantier de fond, avec des " },
+          { text: "exemples concrets", link: "/realisations" },
+          { text: " derrière." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Sources",
+      },
+      {
+        kind: "list",
+        items: [
+          "Search Engine Roundtable — « Google Business Profiles Gives You Four Days To Reject User Suggested Edits », 23 septembre 2026",
+          "Google Business Profile Help — « Understand notifications about suggested edits »",
+          "Analyses de praticiens du SEO local, septembre 2026 (complétude, attributs, avis)",
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Si je ne réponds pas à une modification proposée dans les 4 jours, que se passe-t-il ?", "Google peut la publier automatiquement si elle est soutenue par d’autres informations publiques cohérentes. Vérifier vos notifications au moins une fois par semaine est le minimum."],
+          ["La fiche Google Business Profile est-elle un facteur de classement ?", "Google ne le présente pas comme tel : officiellement, le classement local repose sur la pertinence, la distance et la notoriété. Ce que Google affirme, c’est qu’un profil complet et exact peu aider la visibilité locale — et les analyses de praticiens depuis mars 2026 constatent un effet réel de cette complétude."],
+          ["Ask Maps remplace-t-il vraiment le Q&A ?", "Oui. Le Q&A public a été démantelé fin 2025 ; Google répond désormais aux questions par du contenu généré à partir de votre fiche, de votre site et de vos avis."],
+          ["Combien d’avis faut-il viser ?", "Plutôt 3 à 5 avis récents chaque mois, auxquels vous répondez sous 48 h, que de grands volumes anciens. La régularité pèse plus que le stock."],
+          ["Dois-je payer pour apparaître dans le pack local ?", "Non. La fiche est gratuite ; les annonces vers une fiche sont une option payante distincte qui n’influence pas le classement organique local."],
+        ],
+      },
+    ],
+  },
 ];
 
 export const getArticle = (slug: string): Article | undefined =>
