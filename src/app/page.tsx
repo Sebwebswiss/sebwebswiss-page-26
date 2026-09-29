@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import Link from "next/link";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   title: "Agence web à Lausanne | Création de site internet & SEO",
   description: "SebWebSwiss : création de sites internet, référencement SEO et accompagnement technique pour les entreprises à Lausanne, Lutry et en Suisse romande.",
   alternates: { canonical: "/" },
-  openGraph: { url: "https://sebwebswiss.ch/" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/" },
 };
 
 const services = [

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 
@@ -6,7 +7,7 @@ export const metadata: Metadata = {
   title: "Programme Fondateur — 10 sites offerts la première année",
   description: "Le Programme Fondateur SebWebSwiss : je crée le site et mets en place le SEO de 10 entreprises sélectionnées pour leur première année.",
   alternates: { canonical: "/offre-lancement" },
-  openGraph: { url: "https://sebwebswiss.ch/offre-lancement" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/offre-lancement" },
 };
 
 export default function Page() {

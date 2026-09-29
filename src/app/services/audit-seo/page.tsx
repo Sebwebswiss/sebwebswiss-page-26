@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   title: "Audit SEO et plan d’action",
   description: "Audit SEO pour identifier les freins techniques, de contenu et de visibilité, puis prioriser les actions utiles pour votre site.",
   alternates: { canonical: "/services/audit-seo" },
-  openGraph: { url: "https://sebwebswiss.ch/services/audit-seo" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/services/audit-seo" },
 };
 
 const faqs = [

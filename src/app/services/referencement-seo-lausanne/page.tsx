@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   title: "Référencement SEO à Lausanne",
   description: "Consultant SEO à Lausanne : audit, stratégie de contenu, optimisation technique et accompagnement pour améliorer votre visibilité organique.",
   alternates: { canonical: "/services/referencement-seo-lausanne" },
-  openGraph: { url: "https://sebwebswiss.ch/services/referencement-seo-lausanne" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/services/referencement-seo-lausanne" },
 };
 
 const faqs = [

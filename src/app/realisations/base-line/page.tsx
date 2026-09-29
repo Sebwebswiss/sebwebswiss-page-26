@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   title: "Base-Line — Projet web international",
   description: "Site web pour Base-Line, entreprise de chapes et finitions : une présentation claire de ses services et de son savoir-faire.",
   alternates: { canonical: "/realisations/base-line" },
-  openGraph: { url: "https://sebwebswiss.ch/realisations/base-line" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/realisations/base-line" },
 };
 
 export default function Page() {

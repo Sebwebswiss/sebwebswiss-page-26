@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   title: "Services web et SEO à Lausanne",
   description: "Création de sites internet, référencement SEO, refonte, audit et maintenance pour les entreprises de Lausanne, Lutry et de Suisse romande.",
   alternates: { canonical: "/services" },
-  openGraph: { url: "https://sebwebswiss.ch/services" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/services" },
 };
 
 const cards = [

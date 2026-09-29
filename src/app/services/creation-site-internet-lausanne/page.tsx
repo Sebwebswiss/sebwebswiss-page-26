@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   title: "Création de site internet à Lausanne",
   description: "Création de sites internet sur mesure à Lausanne : sites vitrines, refonte, performance, bases SEO et accompagnement après la mise en ligne.",
   alternates: { canonical: "/services/creation-site-internet-lausanne" },
-  openGraph: { url: "https://sebwebswiss.ch/services/creation-site-internet-lausanne" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/services/creation-site-internet-lausanne" },
 };
 
 const faqs = [

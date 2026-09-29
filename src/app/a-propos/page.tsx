@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   title: "À propos de SebWebSwiss — Sébastien, créateur de sites web",
   description: "SebWebSwiss, c’est Sébastien : cinq années de projets web, une expertise technique, un accès direct et des explications claires pour les entreprises de Suisse romande.",
   alternates: { canonical: "/a-propos" },
-  openGraph: { url: "https://sebwebswiss.ch/a-propos" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/a-propos" },
 };
 
 export default function About() {

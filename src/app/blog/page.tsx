@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { PageHero } from "@/components/PageHero";
 import { articles } from "@/content/articles";
@@ -7,7 +8,7 @@ export const metadata: Metadata = {
   title: "Conseils SEO, web et performance — Blog SebWebSwiss",
   description: "Guides pratiques sur le référencement SEO, la création de sites web et la performance, rédigés par Sébastien pour les entreprises de Suisse romande.",
   alternates: { canonical: "/blog" },
-  openGraph: { url: "https://sebwebswiss.ch/blog" },
+  openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/blog" },
 };
 
 const formatDate = (iso: string) =>
