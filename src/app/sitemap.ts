@@ -19,6 +19,7 @@ const paths = [
   "/realisations/metropolis-grad-rijeka",
   "/realisations/base-line",
   "/offre-lancement",
+  "/check-up-site-web",
   "/blog",
 ];
 
