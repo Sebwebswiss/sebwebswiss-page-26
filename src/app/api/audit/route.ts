@@ -6,7 +6,7 @@ import { assessTech } from "@/lib/audit/assessTech";
 import { assessLocal } from "@/lib/audit/assessLocal";
 import { computeScore } from "@/lib/audit/score";
 import { computePriorities } from "@/lib/audit/prioritize";
-import { consumeRate, saveAudit } from "@/lib/redis";
+import { consumeRate, saveAudit, StorageUnavailableError } from "@/lib/redis";
 import type { CheckResult } from "@/content/audit/checks";
 import { t } from "@/content/audit/translations";
 
@@ -64,15 +64,30 @@ export async function POST(req: Request) {
   const ip = getClientIp(req);
 
   try {
-    const hour = await consumeRate(ip, host, "hour");
+    let hour: number;
+    try {
+      hour = await consumeRate(ip, host, "hour");
+    } catch (error) {
+      if (error instanceof StorageUnavailableError) throw error;
+      hour = 0;
+    }
     if (hour > 5) {
       return NextResponse.json({ error: t("fr").errorRate }, { status: 429 });
     }
-    const day = await consumeRate(ip, host, "day");
+    let day: number;
+    try {
+      day = await consumeRate(ip, host, "day");
+    } catch (error) {
+      if (error instanceof StorageUnavailableError) throw error;
+      day = 0;
+    }
     if (day > 20) {
       return NextResponse.json({ error: t("fr").errorRate }, { status: 429 });
     }
-  } catch {
+  } catch (error) {
+    if (error instanceof StorageUnavailableError) {
+      return NextResponse.json({ error: t("fr").errorService }, { status: 503 });
+    }
     // never hard-fail on rate limiter unavailability
   }
 
@@ -108,6 +123,9 @@ export async function POST(req: Request) {
       resultUrl: `/check-up-site-web/r/${id}`,
     });
   } catch (error) {
+    if (error instanceof StorageUnavailableError) {
+      return NextResponse.json({ error: t("fr").errorService }, { status: 503 });
+    }
     const message = error instanceof Error ? error.message : t("fr").errorGeneric;
     return NextResponse.json({ error: message }, { status: 422 });
   }

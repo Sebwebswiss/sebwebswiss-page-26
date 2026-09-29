@@ -28,7 +28,21 @@ const LEAD_TTL = 60 * 60 * 24 * 365; // 1 an
 const url = process.env.UPSTASH_REDIS_REST_URL;
 const token = process.env.UPSTASH_REDIS_REST_TOKEN;
 
+const isProduction = process.env.NODE_ENV === "production";
 const redisIsConfigured = Boolean(url && token);
+
+export class StorageUnavailableError extends Error {
+  constructor() {
+    super("Storage is not configured.");
+    this.name = "StorageUnavailableError";
+  }
+}
+
+function requireStorageAvailability() {
+  if (isProduction && !redisIsConfigured) {
+    throw new StorageUnavailableError();
+  }
+}
 
 function createRedis(): Redis | null {
   if (!url || !token) return null;
@@ -78,6 +92,7 @@ const g = globalThis as unknown as { __memoryStore?: MemoryStore };
 const memory: MemoryStore = g.__memoryStore ?? (g.__memoryStore = createMemoryStore());
 
 export async function saveAudit(audit: StoredAudit): Promise<void> {
+  requireStorageAvailability();
   const r = getRedis();
   if (!r) {
     await memory.setAudit(audit.id, audit);
@@ -87,6 +102,7 @@ export async function saveAudit(audit: StoredAudit): Promise<void> {
 }
 
 export async function getAudit(id: string): Promise<StoredAudit | null> {
+  requireStorageAvailability();
   const r = getRedis();
   if (!r) return memory.getAudit(id);
   try {
@@ -98,6 +114,7 @@ export async function getAudit(id: string): Promise<StoredAudit | null> {
 }
 
 export async function saveLead(lead: StoredLead): Promise<void> {
+  requireStorageAvailability();
   const r = getRedis();
   if (!r) {
     await memory.setLead(lead.id, lead);
@@ -107,6 +124,7 @@ export async function saveLead(lead: StoredLead): Promise<void> {
 }
 
 export async function getLead(id: string): Promise<StoredLead | null> {
+  requireStorageAvailability();
   const r = getRedis();
   if (!r) return memory.getLead(id);
   try {
@@ -120,6 +138,7 @@ export async function getLead(id: string): Promise<StoredLead | null> {
 export type RateBucket = "hour" | "day";
 
 export async function consumeRate(ip: string, host: string, bucket: RateBucket): Promise<number> {
+  requireStorageAvailability();
   const key = `audit:rate:${bucket}:${ip}:${host}`;
   const ttl = bucket === "hour" ? 3600 : 86400;
   const r = getRedis();

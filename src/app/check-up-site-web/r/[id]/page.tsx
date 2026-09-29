@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import type { Lang } from "@/content/audit/checks";
-import { getAudit } from "@/lib/redis";
+import { getAudit, StorageUnavailableError } from "@/lib/redis";
 import { moduleMeta } from "@/content/audit/checks";
 import { t } from "@/content/audit/translations";
 
@@ -21,7 +21,31 @@ const gradeColor: Record<string, string> = { bad: "#b42318", fair: "#b76e00", go
 
 export default async function Page({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const audit = await getAudit(id);
+  let audit;
+  try {
+    audit = await getAudit(id);
+  } catch (error) {
+    if (error instanceof StorageUnavailableError) {
+      return (
+        <>
+          <Header />
+          <main>
+            <section className="audit-hero audit-hero-result">
+              <p className="eyebrow"><span /> RESULTAT DU CHECK-UP</p>
+              <p className="audit-result-url">Service temporairement indisponible</p>
+            </section>
+            <section className="audit-result audit-result-shared">
+              <p className="audit-all-ok">Réessayez dans quelques minutes.</p>
+              <div className="audit-result-cta">
+                <a className="button primary" href="/check-up-site-web">Refaire un check-up <span>↗</span></a>
+              </div>
+            </section>
+          </main>
+        </>
+      );
+    }
+    throw error;
+  }
   if (!audit) notFound();
 
   const lang: Lang = ["fr", "de", "it", "en"].includes(audit.lang) ? (audit.lang as Lang) : "fr";

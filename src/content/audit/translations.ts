@@ -54,6 +54,7 @@ const fr = {
   errorUrl: "Veuillez indiquer une adresse de site valide (ex. https://exemple.ch).",
   errorRate: "Trop de demandes. Réessayez dans une heure.",
   errorGeneric: "Le site n’a pas pu être analysé. Vérifiez l’adresse et réessayez.",
+  errorService: "Service temporairement indisponible. Réessayez dans quelques minutes.",
   labelOk: "OK",
   labelWarn: "À vérifier",
   labelFail: "À corriger",

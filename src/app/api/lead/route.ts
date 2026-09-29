@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 import { randomUUID } from "node:crypto";
-import { getAudit, saveLead } from "@/lib/redis";
+import { getAudit, saveLead, StorageUnavailableError } from "@/lib/redis";
 import type { StoredLead } from "@/lib/redis";
 import { buildReportHtml } from "@/lib/audit/report";
 
@@ -33,7 +33,15 @@ export async function POST(req: Request) {
   const email = body.email.trim().toLowerCase().slice(0, 254);
   const lang = typeof body.lang === "string" && LANGS.includes(body.lang) ? body.lang : "fr";
 
-  const audit = await getAudit(body.auditId);
+  let audit;
+  try {
+    audit = await getAudit(body.auditId);
+  } catch (error) {
+    if (error instanceof StorageUnavailableError) {
+      return NextResponse.json({ error: "Service temporairement indisponible." }, { status: 503 });
+    }
+    throw error;
+  }
   if (!audit) {
     return NextResponse.json({ error: "Ce résultat n’est plus disponible." }, { status: 404 });
   }
@@ -65,7 +73,14 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "L’envoi a échoué. Veuillez réessayer." }, { status: 502 });
   }
 
-  await saveLead(lead);
+  try {
+    await saveLead(lead);
+  } catch (storageError) {
+    if (storageError instanceof StorageUnavailableError) {
+      return NextResponse.json({ error: "Service temporairement indisponible." }, { status: 503 });
+    }
+    throw storageError;
+  }
 
   return NextResponse.json({ ok: true });
 }
