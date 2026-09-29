@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Services web et SEO à Lausanne",
   description: "Création de sites internet, référencement SEO, refonte, audit et maintenance pour les entreprises de Lausanne, Lutry et de Suisse romande.",
   alternates: { canonical: "/services" },
+  openGraph: { url: "https://sebwebswiss.ch/services" },
 };
 
 const cards = [

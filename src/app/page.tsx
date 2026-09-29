@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Agence web à Lausanne | Création de site internet & SEO",
   description: "SebWebSwiss : création de sites internet, référencement SEO et accompagnement technique pour les entreprises à Lausanne, Lutry et en Suisse romande.",
   alternates: { canonical: "/" },
+  openGraph: { url: "https://sebwebswiss.ch/" },
 };
 
 const services = [
@@ -27,7 +28,7 @@ const faqs = [
 export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": "LocalBusiness",
     name: business.name,
     url: business.url,
     email: business.email,
@@ -39,6 +40,7 @@ export default function Home() {
       streetAddress: business.address,
       postalCode: business.postalCode,
       addressLocality: business.locality,
+      addressRegion: "Vaud",
       addressCountry: business.country,
     },
     areaServed: ["Lausanne", "Lutry", "Canton de Vaud", "Suisse romande"],

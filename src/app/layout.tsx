@@ -22,6 +22,9 @@ export const metadata: Metadata = {
     description: "Création de sites internet, référencement SEO et solutions digitales sur mesure à Lausanne et en Suisse romande.",
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "SebWebSwiss — Agence web à Lausanne" }],
   },
+  facebook: {
+    appId: "39490314557233919",
+  },
   twitter: { card: "summary_large_image", title: "SebWebSwiss | Agence web à Lausanne", description: "Création de sites internet, SEO et solutions digitales sur mesure.", images: ["/og-image.png"] },
   robots: { index: true, follow: true },
 };

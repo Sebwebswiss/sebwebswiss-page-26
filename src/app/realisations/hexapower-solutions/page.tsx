@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Hexa Power Solutions — Projet web international",
   description: "Création du site web pour Hexa Power Solutions, entreprise technique en Croatie : présentation claire, structure et base SEO.",
   alternates: { canonical: "/realisations/hexapower-solutions" },
+  openGraph: { url: "https://sebwebswiss.ch/realisations/hexapower-solutions" },
 };
 
 export default function Page() {

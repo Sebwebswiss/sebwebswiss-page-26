@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Metropolis — Projet web international",
   description: "Site web pour le café-bar Metropolis à Rijeka : une présence en ligne claire, moderne et cohérente avec l’image du lieu.",
   alternates: { canonical: "/realisations/metropolis-grad-rijeka" },
+  openGraph: { url: "https://sebwebswiss.ch/realisations/metropolis-grad-rijeka" },
 };
 
 export default function Page() {

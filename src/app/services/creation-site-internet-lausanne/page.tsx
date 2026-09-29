@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Création de site internet à Lausanne",
   description: "Création de sites internet sur mesure à Lausanne : sites vitrines, refonte, performance, bases SEO et accompagnement après la mise en ligne.",
   alternates: { canonical: "/services/creation-site-internet-lausanne" },
+  openGraph: { url: "https://sebwebswiss.ch/services/creation-site-internet-lausanne" },
 };
 
 const faqs = [

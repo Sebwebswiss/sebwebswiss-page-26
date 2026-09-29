@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Refonte de site internet",
   description: "Refonte de site internet pour améliorer la clarté, la performance, le référencement et la capacité de conversion de votre présence digitale.",
   alternates: { canonical: "/services/refonte-site-internet" },
+  openGraph: { url: "https://sebwebswiss.ch/services/refonte-site-internet" },
 };
 
 const faqs = [

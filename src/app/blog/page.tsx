@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Conseils SEO, web et performance — Blog SebWebSwiss",
   description: "Guides pratiques sur le référencement SEO, la création de sites web et la performance, rédigés par Sébastien pour les entreprises de Suisse romande.",
   alternates: { canonical: "/blog" },
+  openGraph: { url: "https://sebwebswiss.ch/blog" },
 };
 
 const formatDate = (iso: string) =>
