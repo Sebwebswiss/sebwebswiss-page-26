@@ -1409,6 +1409,298 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "etude-kmu-digital-pulse-2026-pme-ia",
+    kicker: "ÉTUDE SUISSE",
+    title: "58 % des PME suisses n’ont jamais vérifié comment les IA les présentent",
+    description: "Une étude suisse représentative (localsearch + Hochschule Luzern) mesure la visibilité des PME dans les réponses IA : 58 % n’ont jamais vérifié, et 8 % seulement contrôlent systématiquement.",
+    intro: "Le 24 septembre 2026, localsearch et la Hochschule Luzern publient « KMU Digital Pulse 2026 », une étude suisse représentative sur le rapport des PME à l’IA. Le chiffre qui ressort : plus d’une PME sur deux n’a jamais vérifié comment les IA la présentent. Voici ce que l’étude révèle, et ce que j’en retiens pour une entreprise.",
+    excerpt: "58 % des PME suisses n’ont jamais vérifié comment les IA les présentent, alors que 45 % estiment que leurs clients utilisent de plus en plus l’IA pour rechercher des offres. Les chiffres clés d’une étude inédite, et ce que cela change.",
+    datePublished: "2026-09-29",
+    dateModified: "2026-09-29",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-kmu-digital-pulse-ia.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Une PME sur deux ne sait pas ce qu’une IA dit d’elle — mais presque toutes considèrent qu’il est important que ce soit correct. C’est un angle mort : on ne peut corriger que ce que l’on voit." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que mesure l’étude « KMU Digital Pulse 2026 »",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Réalisée par localsearch (Swisscom Directories AG) et l’Institut de communication et marketing de la Hochschule Luzern, l’étude a interrogé 504 personnes responsables ou associées aux décisions marketing de PME suisses, du 13 au 21 mai 2026. L’échantillon est pondéré par région linguistique et par classe d’effectifs : il est représentatif de la structure des PME suisses. Pour la première fois dans la série KMU Digital Pulse, les microentreprises de 1 à 9 employés ont été intégrées systématiquement ; elles représentent environ 90 % des PME du pays." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "58 % : un angle mort à l’échelle du pays",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Près de six PME suisses sur dix (58 %) n’ont jamais vérifié ce qu’un outil d’IA — ChatGPT, Google AI Overview, Gemini ou un autre — raconte à propos de leur entreprise. Le contraste est encore plus net dans les petites structures : 60 % des micro-entreprises n’ont jamais contrôlé, contre 45 % des petites et 36 % des moyennes entreprises." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est d’autant plus frappant que 76 % des PME jugent important que les informations renvoyées par les IA à leur sujet soient correctes. L’importance est reconnue ; le contrôle, lui, reste l’exception. Le résultat : des informations fausses, datées ou absentes dans les réponses IA passent inaperçues, alors qu’elles peuvent peser sur une décision d’achat." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que font réellement les PME (et ce qu’elles ne font pas)",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La gestion de la visibilité IA est aujourd’hui l’affaire d’une minorité : à peine plus d’une PME sur dix la traite sérieusement. Plus précisément, 8 % des entreprises vérifient régulièrement ce que les IA disent d’elles, et 2 % prennent des mesures ciblées pour être mieux trouvées et mieux présentées. Tout le reste — neuf PME sur dix — n’a pas de suivi." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Un paradoxe ressort en miroir : 45 % des PME estiment que leurs clients utilisent de plus en plus l’IA pour rechercher des offres, et la moitié perçoit déjà des changements dans les comportements de recherche. L’usage par les clients est donc connu — mais l’image que l’IA renvoie de sa propre entreprise reste largement ignorée." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Le site web : la matière première que personne ne surveille",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "L’étude apporte un deuxième chiffre révélateur : le site web reste la mesure marketing la plus répandue des PME suisses (69 %). Or c’est précisément ce site — sa structure, son contenu, ses informations — qui sert de matière première aux réponses IA lorsqu’elles décrivent une entreprise." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le vrai frein, selon les répondants, n’est pas technique : 44 % des PME disent ne pas voir de bénéfice ou de besoin clair pour leur entreprise. C’est compréhensible — tant qu’on n’a pas regardé ce qu’une IA dit de son activité, difficile d’imaginer pourquoi cela compterait. C’est le même constat que celui qui guide mon article sur la " },
+          { text: "visibilité dans les moteurs IA", link: "/blog/etre-visible-chatgpt-gemini-moteurs-ia" },
+          { text: " : il n’existe aucune case à cocher, mais des fondations qui, cumulées, changent le résultat." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que j’en retiens pour une entreprise à Lausanne ou en Suisse romande",
+      },
+      {
+        kind: "list",
+        items: [
+          "regarder une fois par mois : tapez votre nom et votre activité dans deux ou trois outils (ChatGPT, Perplexity, une recherche Google). Ce que vous voyez est ce que vos clients potentiels voient",
+          "garder un site clair et exhaustif : métier, zone d’intervention, coordonnées cohérentes, réalisations. C’est la matière première que les IA vont relire",
+          "entretenir les sources que les IA consultent déjà : fiche Google Business Profile, avis, annuaires, mentions dans la presse locale",
+          "suivre son évolution plutôt que chercher la perfection : les résultats se mesurent sur des mois, pas sur une semaine",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La liste complète et paramétrée pour votre situation fait partie du travail que je réalise dans un " },
+          { text: "audit SEO", link: "/services/audit-seo" },
+          { text: " — avec, cette fois, un volet dédié à ce que les IA répondent à votre sujet." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que cette étude ne dit pas",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "L’étude mesure des pratiques, pas des performances : elle ne dit pas que les entreprises qui contrôlent leur visibilité IA gagnent plus de clients. Elle dit que neuf PME sur dix n’ont aucun suivi, dans un pays où la moitié des décideurs constatent que la recherche évolue vers l’IA. C’est une invitation à regarder, pas une promesse de résultat." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Cette étude est-elle représentative des PME suisses ?", "Oui : 504 décideurs marketing interrogés en mai 2026, échantillon pondéré par région linguistique et par taille d’entreprise. Elle couvre notamment les micro-entreprises, qui représentent environ 90 % des PME suisses."],
+          ["Dois-je modifier mon site pour être mieux cité par les IA ?", "Pas de réglage magique, mais un site clair, précis et à jour est la base. Les IA citent ce qu’elles trouvent : des informations cohérentes, une activité décrite sans ambiguïté, des preuves comme des réalisations."],
+          ["Ne pas utiliser l’IA en interne m’empêche-t-il d’être visible dans les IA ?", "Non. La visibilité côté clients ne dépend pas de votre usage interne, mais de ce que les IA trouvent à votre sujet : site, fiche Google Business Profile, mentions extérieures."],
+          ["Par où commencer si je n’ai jamais vérifié ?", "Cinq minutes suffisent pour un premier constat : tapez votre nom et votre activité dans deux outils IA et notez ce qui est correct, faux ou absent. Un contrôle mensuel suffit ensuite."],
+          ["Combien de temps faut-il pour voir un changement ?", "Des mois plutôt que des heures. L’étude ne promet aucun délai ; elle montre simplement que la plupart des entreprises n’ont même pas commencé à regarder. La régularité compte plus que l’intensité."],
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Sources",
+      },
+      {
+        kind: "list",
+        items: [
+          "localsearch (Swisscom Directories AG) & Hochschule Luzern (IKM) — « KMU Digital Pulse 2026 », publié le 24 septembre 2026 (localsearch.ch, version publique sur Zenodo)",
+          "Communiqué de presse localsearch / HSLU, 24 septembre 2026 (presseportal.ch)",
+          "Bilanz — couverture de l’étude, septembre 2026",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "recherche-ia-suisse-romande-moins-de-firmes",
+    kicker: "RECHERCHE IA",
+    title: "Recherche IA en Suisse romande : ce que 65 000 citations révèlent sur la visibilité des entreprises",
+    description: "Depuis avril, Repliq Research interroge ChatGPT, Google AI Overview, Google AI Mode et Perplexity en Suisse romande. Constat de septembre : Google nomme moins d’entreprises, ChatGPT affiche moins de sources, et la moitié des citations échappe aux entreprises elles-mêmes.",
+    intro: "Depuis avril 2026, Repliq Research mesure deux fois par mois ce que les assistants IA répondent à près de 200 questions identiques, en français, sur le marché suisse romand. En septembre, le constat précis est net : Google nomme moins d’entreprises dans ses réponses locales, ChatGPT affiche nettement moins de sources — et environ la moitié des citations échappe aux entreprises elles-mêmes. Voici ce que cela change pour vous.",
+    excerpt: "Moins d’entreprises citées, des fiches d’établissement qui gagnent du terrain, des sources que vous ne contrôlez pas : le relevé de septembre de l’observatoire romand des citations IA, décrypté.",
+    datePublished: "2026-09-29",
+    dateModified: "2026-09-29",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-recherche-ia-suisse-romande.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Google nomme aujourd’hui nettement moins d’entreprises dans ses réponses, ChatGPT affiche beaucoup moins de sources — et environ une citation sur deux renvoie vers un site que vous ne possédez pas. Votre fiche, votre site et vos mentions extérieures comptent donc plus que jamais — mais seuls, ni l’un ni l’autre ne suffisent." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "D’où viennent ces 65 000 citations ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Chaque quinzaine depuis avril, Repliq pose près de 200 questions fixes à quatre assistants — ChatGPT, Google AI Overview, Google AI Mode et Perplexity — directement dans leurs interfaces publiques, pas via des API. Les questions couvrent dix secteurs de l’économie suisse et sont posées en français, pour le marché romand. Le relevé d’août totalise environ 65 000 citations, près de 8 000 domaines et 25 000 pages distinctes. La méthode est publiée et rejouable, ce qui en fait l’une des seules mesures continues de ce type en Suisse." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Google nomme environ un quart d’entreprises en moins",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le constat le plus net concerne Google : là où une réponse nommait environ 5 entreprises en avril, elle en nomme 3,8 début septembre — plus d’un quart de moins. Sur 44 questions suivies, 36 sont en baisse, et les réponses qui ne nomment aucune entreprise sont passées de 4 % à 10 %. Moins de noms cités, c’est mécaniquement moins de place pour vous." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Deux évolutions techniques accompagnent ce mouvement. L’Aperçu IA de Google s’affiche désormais sur 83 % des questions suivies (contre 75 % au printemps), et 88 % quand la question porte sur le nom même d’une entreprise. Parallèlement, Google AI Mode répond de plus en plus aux recherches locales avec des fiches d’établissement issues de Google Maps : aucune en juillet, une réponse sur neuf depuis la mi-août. La catégorie, l’adresse et les horaires de votre fiche deviennent alors directement la réponse — c’est exactement le terrain de la " },
+          { text: "fiche Google Business Profile", link: "/blog/optimiser-fiche-google-business-profile-lausanne" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "ChatGPT affiche trois fois moins de sources",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "En l’espace de trois semaines, ChatGPT est passé d’environ 9 sites affichés comme sources par réponse à 3,3. Google AI Mode est passé dans le même temps de 8,5 à 2,7 sources — pendant que les réponses de ChatGPT s’allongeaient de 22 %. Le phénomène est spectaculaire : l’assistant écrit plus long, mais affiche beaucoup moins de sources." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le cas le plus parlant relevé par Repliq : une question sur la meilleure assurance maladie pour un frontalier employé à Genève citait 28 domaines le 15 août. Dix-sept jours plus tard, la même question n’en citait plus que deux — ge.ch et priminfo.admin.ch. Et Reddit, présent dans 15 % des réponses ChatGPT début août, est tombé sous 1 % au 1er septembre." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "La moitié des citations échappe aux entreprises",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le chiffre le plus intéressant n’a, lui, presque pas bougé : 50,4 % des citations renvoient vers des sites que l’entreprise concernée ne possède pas. En haut du classement des sources : les sites d’entreprises (28,6 % des citations), puis les comparateurs et annuaires (16,2 %), les sites officiels (14,2 %), les blogs indépendants (10 %), la presse suisse (6 %) et les forums (5,1 %)." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Conséquence directe : se contenter d’optimiser son propre site suffit d’autant moins que les citations dépendent aussi de tiers. Cela rejoint le constat des deux expériences GEO publiées en septembre : " },
+          { text: "l’essentiel des citations vient souvent de l’extérieur", link: "/blog/deux-experiences-reelles-sur-la-visibilite-ia" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Aucun site ne domine : c’est une autre logique que Google",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Contrairement à un moteur de recherche classique, aucun domaine ne domine réseau : les dix premiers domaines ne pèsent ensemble que 10,4 % des citations, et il faut cumuler 500 domaines pour atteindre 59,7 % d’entre elles. Deux entreprises sur trois citées ne le sont que par un seul des quatre assistants. Être bien placé sur l’un ne garantit rien sur l’autre." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Autre enseignement pour les secteurs concurrentiels : sur les questions de choix de banque suisse, la page la plus citée du corpus est un blog personnel (mustachianpost.com) — pas un site bancaire. La présence dans une réponse IA ne suit pas la notoriété : elle suit ce que les assistants jugent utile pour répondre, ce qui se travaille." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que cela change pour une PME",
+      },
+      {
+        kind: "list",
+        items: [
+          "soigner sa fiche Google Business Profile : catégorie, adresse, horaires — c’est elle qui répond directement dans les recherches locales",
+          "publier du contenu qui répond aux questions, chiffré et daté — le type de pages que Repliq voit le plus cité",
+          "chercher des mentions extérieures : presse, annuaires, comparateurs, associations — la moitié du terrain vous échappe sinon",
+          "mesurer assistant par assistant : aucune visibilité globale n’existe, et les classements ne se transmettent pas d’un outil à l’autre",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ces quatre axes correspondent aux bases que je pose dans un " },
+          { text: "audit SEO", link: "/services/audit-seo" },
+          { text: " : fondations techniques, contenus utiles, cohérence des informations, mentions extérieures. Rien de magique, mais une méthode qui réponde au terrain." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que ces chiffres ne prouvent pas",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ces relevés mesurent des citations, pas des ventes : une citation n’est ni un clic ni un client. Les réponses IA sont aussi mouvantes par nature — Repliq le rappelle, Reddit est passé de 15 % à moins de 1 % des citations ChatGPT en un mois. Le sérieux de la méthode ne change rien au fait qu’il faut lire ces chiffres comme des tendances, pas des lois." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Ces mesures concernent-elles toute la Suisse ?", "Les questions sont posées en français et ciblent le marché suisse romand. Les tendances sur le nombre de sources citées concernent les assistants interrogés ; elles peuvent différer en Suisse alémanique."],
+          ["Quelle différence entre ce relevé et un classement Google classique ?", "Un moteur de recherche renvoie une liste ordonnée de liens ; un assistant compose une réponse en citant quelques sources, sans « premier de la liste ». Les deux logiques coexistent, mais la seconde ne se pilote plus par la seule position."],
+          ["Faut-il être présent sur les comparateurs pour être cité ?", "Pour certains secteurs, c’est un levier réel, car ils figurent parmi les sources les plus citées. Mais la présence doit rester cohérente : une représentation fausse ou datée y est aussi une réponse IA qui se trompe sur vous."],
+          ["Comment savoir si mon entreprise est citée ?", "En posant les questions que vos clients posent, dans l’interface publique de chaque assistant, régulièrement. Sans rapport officiel pour ces outils, la vérification manuelle mensuelle reste la méthode la plus fiable."],
+          ["Ces assistants citent-ils de plus en plus de sources ?", "Non, la tendance de septembre est inverse sur les quatre assistants suivis : moins de sources affichées par réponse, des réponses plus longues. C’est précisément pourquoi la qualité de chaque citation compte plus que leur nombre."],
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Sources",
+      },
+      {
+        kind: "list",
+        items: [
+          "Repliq Research — « Recherche IA en Suisse romande : ce qui a changé cet été », Xavier Mercier, publié le 3 septembre 2026 (gorepliq.com)",
+          "Repliq Research — Observatoire des sources IA, Suisse romande (méthodologie publiée, données ouvertes)",
+          "ICTjournal — « Les assistants IA créent un nouveau défi de visibilité pour les entreprises suisses », juin 2026",
+        ],
+      },
+    ],
+  },
 ];
 
 export const getArticle = (slug: string): Article | undefined =>
