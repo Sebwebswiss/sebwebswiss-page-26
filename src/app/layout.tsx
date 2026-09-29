@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   facebook: {
     appId: "39490314557233919",
   },
-  twitter: { card: "summary_large_image", title: "SebWebSwiss | Agence web à Lausanne", description: "Création de sites internet, SEO et solutions digitales sur mesure.", images: ["/og-image.png"] },
+  twitter: { card: "summary_large_image", site: "@SebWebSwiss", images: ["/og-image.png"] },
   robots: { index: true, follow: true },
 };
 
