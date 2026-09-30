@@ -45,6 +45,14 @@ export default function Home() {
       addressCountry: business.country,
     },
     areaServed: ["Lausanne", "Lutry", "Canton de Vaud", "Suisse romande"],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: business.hours.days,
+        opens: business.hours.opens,
+        closes: business.hours.closes,
+      },
+    ],
     sameAs: [business.social.facebook, business.social.youtube, business.social.tiktok],
   };
 
@@ -147,6 +155,7 @@ export default function Home() {
         <p>Décrivez-nous votre projet. Nous vous répondrons avec une approche claire et adaptée à votre entreprise.</p>
         <a className="contact-email" href={`mailto:${business.email}`}>{business.email}<span>↗</span></a>
         <div className="contact-bottom"><span>{business.locality} · {business.region}</span><a href={`tel:${business.phone.replace(/\s/g, "")}`}>{business.phoneDisplay}</a></div>
+        <p className="contact-hours">{business.hours.display}</p>
       </section>
 
       <footer><Link href="/" className="brand">Seb<span>Web</span>Swiss<i>.</i></Link><p>© {new Date().getFullYear()} SebWebSwiss. Tous droits réservés.</p><div><Link href="/realisations">Réalisations</Link><Link href="/blog">Blog</Link><Link href="/offre-lancement">Offre</Link><a href={business.social.facebook} target="_blank" rel="noreferrer">Facebook</a><a href={business.social.youtube} target="_blank" rel="noreferrer">YouTube</a><a href={business.social.tiktok} target="_blank" rel="noreferrer">TikTok</a></div></footer>

@@ -10,6 +10,12 @@ export const business = {
   locality: "La Croix-sur-Lutry",
   country: "CH",
   region: "Suisse romande",
+  hours: {
+    days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+    opens: "08:00",
+    closes: "17:00",
+    display: "Lundi au samedi : 08:00 – 17:00 · Dimanche : fermé",
+  },
   social: {
     facebook: "https://www.facebook.com/sebwebswiss",
     youtube: "https://www.youtube.com/@sebwebswiss-designdesitewe7799",
