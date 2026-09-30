@@ -25,8 +25,10 @@ export type StoredLead = {
 const AUDIT_TTL = 60 * 60 * 24 * 7; // 7 jours
 const LEAD_TTL = 60 * 60 * 24 * 365; // 1 an
 
-const url = process.env.UPSTASH_REDIS_REST_URL;
-const token = process.env.UPSTASH_REDIS_REST_TOKEN;
+const url =
+  process.env.UPSTASH_REDIS_REST_URL || process.env.STORAGE_KV_REST_API_URL || undefined;
+const token =
+  process.env.UPSTASH_REDIS_REST_TOKEN || process.env.STORAGE_KV_REST_API_TOKEN || undefined;
 
 const isProduction = process.env.NODE_ENV === "production";
 const redisIsConfigured = Boolean(url && token);
