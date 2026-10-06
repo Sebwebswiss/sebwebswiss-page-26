@@ -33,6 +33,13 @@ export function setConsent(value: Consent) {
   listeners.forEach((listener) => listener());
 }
 
+/** Birač privole se ponovno otvara iz footera: briše odluku i trenutno gasi mjerenje. */
+export function reopenConsent() {
+  window.localStorage.removeItem(CONSENT_KEY);
+  window.gtag?.("consent", "update", { analytics_storage: "denied" });
+  listeners.forEach((listener) => listener());
+}
+
 export function sendPageView() {
   window.gtag?.("event", "page_view", {
     page_location: window.location.href,

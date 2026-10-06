@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useSyncExternalStore } from "react";
 import { readConsent, sendPageView, setConsent, subscribeConsent } from "@/lib/ga";
 
+const UNKNOWN = " unknown";
+
 export function ConsentBar() {
-  const stored = useSyncExternalStore(subscribeConsent, readConsent, () => "");
+  const stored = useSyncExternalStore(subscribeConsent, readConsent, () => UNKNOWN);
 
   if (stored !== "") return null;
 
