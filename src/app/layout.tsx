@@ -5,6 +5,7 @@ import { DM_Sans, Playfair_Display } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { RouteTracker } from "@/components/RouteTracker";
 import { ConsentBar } from "@/components/ConsentBar";
+import { EventTracker } from "@/components/EventTracker";
 import { business } from "@/content/business";
 import { openGraphDefaults } from "@/content/metadata";
 import "./globals.css";
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <RouteTracker />
         </Suspense>
         <ConsentBar />
+        <EventTracker />
         {children}
       </body>
     </html>

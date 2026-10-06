@@ -6,6 +6,7 @@ import { moduleMeta } from "@/content/audit/checks";
 import type { AuditScore, ModuleScore } from "@/lib/audit/score";
 import type { Priority } from "@/lib/audit/prioritize";
 import { t, uiLangs } from "@/content/audit/translations";
+import { trackEvent } from "@/lib/ga";
 
 type AuditPayload = {
   ok: boolean;
@@ -97,6 +98,7 @@ function EmailGate({ auditId, lang }: { auditId: string; lang: Lang }) {
         body: JSON.stringify({ auditId, email, consent, lang }),
       });
       if (!r.ok) throw new Error();
+      trackEvent("generate_lead", { form_name: "checkup_report" });
       setStatus("success");
     } catch {
       setStatus("error");

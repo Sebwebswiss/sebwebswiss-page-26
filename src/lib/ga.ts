@@ -47,3 +47,9 @@ export function sendPageView() {
     page_title: document.title,
   });
 }
+
+/** Šalje GA4 event samo ako je korisnik dao privolu. */
+export function trackEvent(name: string, params?: Record<string, string | number | boolean>) {
+  if (getConsent() !== "granted") return;
+  window.gtag?.("event", name, params);
+}
