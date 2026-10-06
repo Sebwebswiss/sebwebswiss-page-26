@@ -1701,6 +1701,343 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "site-internet-pas-visible-google",
+    kicker: "VISIBILITÉ GOOGLE",
+    title: "Pourquoi mon site n’apparaît pas sur Google ? 10 causes et le test en 2 minutes",
+    description: "Votre site n’apparaît pas sur Google : les 10 causes les plus fréquentes — indexation, réglages, technique, contenu — et un test en 2 minutes pour identifier la vôtre.",
+    intro: "Réponse courte : si votre site n’apparaît pas, c’est presque toujours parce que Google ne l’a pas encore indexé, parce qu’un réglage l’en empêche (noindex, robots.txt), ou parce qu’il est indexé sans être assez pertinent pour vos requêtes. Les trois cas se distinguent en deux minutes avec le test ci-dessous.",
+    excerpt: "Indexation manquante, noindex, JavaScript, contenu mince ou position trop basse : les 10 causes, et un test en 2 minutes pour savoir laquelle vous concerne.",
+    datePublished: "2026-10-06",
+    dateModified: "2026-10-06",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-site-pas-visible-google.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Google ne classe pas un site qu’il n’a pas indexé. Avant de chercher un coupable dans le contenu, vérifiez trois choses : la page est-elle indexée, un réglage l’interdit-il, apparaît-elle sous votre nom de domaine ? Ce sont les trois cas qui reviennent le plus, et le test de deux minutes ci-dessous les départage." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Pourquoi Google ne connaît pas encore mon site ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est la cause la plus fréquente, et la plus bénigne : une page n’apparaît dans les résultats qu’après trois étapes — Google découvre l’URL, il l’explore, puis il l’indexe. Un site récent, sans lien entrant et sans sitemap soumis, peut attendre de quelques jours à plusieurs semaines avant la dernière étape. Si votre site a moins d’un mois, c’est probablement simplement cela." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le signe qui ne trompe pas : taper site:votredomaine.ch dans Google. Si aucune URL n’apparaît, le site n’est pas indexé du tout, et le reste de cet article n’a pas encore d’intérêt — passez au test." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Qu’est-ce qui bloque l’indexation sans que je le sache ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Un site peut être parfaitement en ligne et volontairement invisible. Trois réglages causent l’essentiel des cas : la balise meta robots noindex (invitée par erreur après une mise en ligne), le fichier robots.txt qui interdit l’accès à tout ou partie du site, et une redirection ou une protection d’accès qui empêche le robot d’Google de voir la page." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "meta name=\"robots\" content=\"noindex\" présent dans le code de la page",
+          "Disallow: / dans le fichier à la racine du domaine",
+          "page protégée par mot de passe ou en construction (code 401/503)",
+          "HTML vide côté serveur pour les robots (contenu chargé uniquement après coup)",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Un site neuf peut-il mettre des semaines à apparaître ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Oui, et c’est normal. Un domaine sans historique, sans mentions extérieures et sans données d’utilisation convient moins vite un moteur qui doit faire confiance à sa source. Ce n’est pas une pénalisation : c’est le temps que Google accumule des signaux. Les sites déjà connus indexent leurs nouvelles pages en quelques heures ; un domaine réellement neuf met davantage." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Est-ce que le JavaScript peut empêcher mon site d’être trouvé ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Dans certains cas, oui. Googlebot rend les pages, mais si votre contenu n’apparaît qu’après un chargement lourd, ou si des composants essentiels (titres, liens, textes) ne sont produits que par le navigateur, la version indexée peut être incomplète — ou vide. Un site construit entièrement en JavaScript sans prérendu est le cas typique." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Que faire si mon contenu est trop mince ou dupliqué ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Google indexe souvent ces pages, mais leur retire toute visibilité : pages avec trois phrases, descriptions copiées sur d’autres sites, versions FR/DE/IT quasi identiques, fiche produit reprise du fournisseur. Le diagnostic est simple — si votre site est indexé mais que seules quelques pages reçoivent des impressions, c’est le contenu qui manque de substance ou d’originalité." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Comment des erreurs techniques font-elles disparaître un site ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Un passage en HTTP sans redirection propre, des certificats HTTPS expirés, des erreurs serveur récurrentes (5xx) ou une durée de chargement excessive réduisent la confiance et le budget d’exploration accordé à votre domaine. Google ne pénalise pas la lenteur pour elle-même : il explore moins, et ce qu’il explore moins se classe moins." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Pourquoi mon site apparaît sous son nom mais pas sous mes mots-clés ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est le cas le plus courant des PME, et il change complètement le diagnostic : votre site est indexé, il est juste mal positionné. Taper le nom du domaine renvoie le site, la requête métier non. Le problème se joue alors sur la pertinence de la page, la concurrence et les signaux d’autorité — pas sur l’indexation. C’est le terrain du " },
+          { text: "référencement local à Lausanne", link: "/blog/seo-local-lausanne" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Piratage ou sanction manuelle : est-ce que Google m’a puni ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est rare, mais à vérifier : des redirections parasites vers des sites tiers, du contenu de casinos ou de viagra injecté en fin de page, ou un message dans Google Search Console concernant une action manuelle. Si votre position s’effondre du jour au lendemain sans modification de votre part, commencez par cette vérification." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Cas fréquent chez les PME à Lausanne et dans le canton de Vaud",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le scénario que nous retrouvons le plus : un site refait récemment, avec de nouvelles adresses d’URL et sans redirections depuis les anciennes ; une fiche Google Business Profile dont l’adresse ou la catégorie n’a jamais été mise à jour ; ou un site bilingue dont une version est quasi vide. Dans les trois cas, l’entreprise n’a rien vu venir, car le site — lui — fonctionne parfaitement." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le bon réflexe est le même que celui décrit dans la " },
+          { text: "fiche Google Business Profile", link: "/blog/optimiser-fiche-google-business-profile-lausanne" },
+          { text: " : aligner site, fiche et mentions locales sur les mêmes informations. Un écart entre les trois suffit à faire disparaître une partie de votre visibilité locale." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Le test en 2 minutes : cinq vérifications dans l’ordre",
+      },
+      {
+        kind: "list",
+        items: [
+          "Tapez site:votredomaine.ch — aucune ligne : le site n’est pas indexé, tout le reste est secondaire",
+          "Reprenez votre titre exact entre guillemets — trouvé : vous êtes indexé, c’est un problème de position",
+          "Ouvrez Google Search Console > Inspection d’URL : la page est-elle « disponible pour Google » ?",
+          "Vérifiez le robots.txt et la balise noindex de la page concernée — les deux se corrigent en quelques minutes",
+          "Lancez le check-up gratuit : il contrôle en une passe titres, description, indexation, canonical et données structurées",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ces cinq étapes répondent à la question posée en titre. Si les cinq sont vertes et que vous restez invisible sur vos mots-clés métier, le sujet n’est plus la technique : c’est le contenu, la concurrence et les mentions extérieures. Dans ce cas, un " },
+          { text: "audit SEO", link: "/services/audit-seo" },
+          { text: " commence exactement là où ce test s’arrête." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Que faire aujourd’hui si vous n’êtes pas indexé ?",
+      },
+      {
+        kind: "list",
+        items: [
+          "supprimer le noindex et ouvrir le robots.txt, puis demander l’indexation dans Search Console",
+          "soumettre un sitemap et corriger les redirections depuis les anciennes URLs",
+          "publier du contenu utile et spécifique — une page par offre, par service et par ville visée",
+          "obtenir les premières mentions locales : annuaires, partenaires, presse, associations",
+          "mesurer chaque mois les impressions dans Search Console plutôt que votre position à un instant donné",
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Combien de temps faut-il pour apparaître sur Google ?", "Quelques heures à quelques jours pour une page déjà explorée d’un site connu, et plusieurs semaines pour un domaine neuf sans lien. Au-delà d’un mois sans indexation, un blocage est presque toujours en cause."],
+          ["Mon site apparaît quand je tape son nom, pas sinon, pourquoi ?", "Cela signifie que l’indexation fonctionne : c’est un problème de position sur vos mots-clés métier, pas d’indexation. Le travail porte sur le contenu, les mentions et la concurrence locale."],
+          ["Est-ce que Google Ads fait apparaître mon site dans les résultats naturels ?", "Non. Les annonces et le référencement naturel sont deux systèmes distincts : payer ne fait pas remonter une page en résultats naturels, et arrêter les annonces n’a aucun effet non plus."],
+          ["Comment forcer Google à indexer une page plus vite ?", "Dans Google Search Console, ouvrez l’inspection d’URL et lancez une demande d’indexation. Cela accélère la prise en compte, mais ne remplace ni l’ouverture du robots.txt ni l’absence de noindex."],
+          ["Est-ce que changer de domaine fait tout recommencer ?", "Oui, partiellement : les redirections 301 transmettent une partie de la valeur, mais un nouveau domaine repart avec un historique vierge. C’est l’une des raisons pour lesquelles une refonte sans redirections fait chuter le trafic."],
+          ["Le contenu dupliqué fait-il disparaître un site de Google ?", "Rarement entièrement : Google fusionne ou déclasse les versions. Le symptôme le plus fréquent est qu’une seule version des pages apparaît, souvent pas la vôtre — d’où l’importance des balises canoniques."],
+        ],
+      },
+    ],
+  },
+  {
+    slug: "delais-resultats-seo-2026",
+    kicker: "SEO · DÉLAIS",
+    title: "Combien de temps faut-il pour voir les résultats du SEO en 2026 ?",
+    description: "Les délais réels du référencement : premiers signaux en quelques jours, positions utiles en 3 à 6 mois, site neuf plus longtemps. Ce qui accélère, ce qui ralentit, et comment mesurer l’avancement.",
+    intro: "Réponse courte : comptez 3 à 6 mois pour les premières positions utiles, 6 à 12 mois pour des résultats stables sur un marché concurrentiel, et un site tout neuf démarre avec quelques semaines supplémentaires. Les premiers signaux — indexation et impressions — apparaissent en revanche en quelques jours.",
+    excerpt: "3 à 6 mois pour les premières positions, 6 à 12 mois pour un site neuf : les délais réels du SEO, les indicateurs à suivre dès la première semaine et le plan à 90 jours.",
+    datePublished: "2026-10-06",
+    dateModified: "2026-10-06",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-delais-seo.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Le SEO ne produit pas les effets au même rythme : les premiers signaux arrivent en jours, les premières positions utiles en mois, la stabilité sur un marché concurrentiel en année. Attendez-vous à 3 à 6 mois pour les premiers résultats concrets, et jugez l’avancement sur les impressions, pas sur votre position d’un jour." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Combien de temps pour les premiers signaux ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Quelques jours. Une nouvelle page est découverte et explorée en 24 heures à une semaine sur un site déjà connu ; les premières impressions — moments où votre page s’affiche dans les résultats sans encore générer de clic — apparaissent généralement dans Google Search Console dans les jours qui suivent l’indexation. Ce sont ces signaux-là qu’il faut regarder en premier." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Combien de temps pour les premières positions utiles ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Trois à six mois est la fourchette la plus honnête pour une entreprise locale sur des requêtes de difficulté modérée : assez de temps pour que le contenu soit exploré, que les premiers liens et signaux locaux soient pris en compte, et que Google teste votre page face à d’autres. Les requêtes très concurrentielles demandent davantage ; les requêtes très ciblées, moins." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Combien de temps pour un site qui vient d’être lancé ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Comptez plus longtemps — souvent 6 à 12 mois pour des positions stables. Un domaine sans historique doit d’abord prouver sa fiabilité : pages utiles, mentions extérieures, signaux d’utilisation. Ce délai n’est pas une fatalité commerciale : les requêtes locales et longue traîne, moins disputées, tombent généralement en premier." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Qu’est-ce qui fait varier le délai ?",
+      },
+      {
+        kind: "list",
+        items: [
+          "la concurrence sur vos requêtes cibles — un métier très disputé à Lausanne ne se gagne pas comme un service de niche",
+          "la santé technique du site : indexation, vitesse, HTTPS, structure",
+          "le fond : une page par offre et par intention, avec des réponses concrètes",
+          "les mentions extérieures : annuaires sérieux, presse, partenaires, associations",
+          "la régularité : quelques pages solides par mois battent une grosse mise à jour annuelle",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Comment savoir que ça marche avant d’y être ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Sur les impressions et la position moyenne, pas sur les premiers clics. Dans Search Console, une page qui passe de 0 à 80 impressions par semaine est en bonne voie, même si elle n’est qu’à la neuvième place. Les clics arrivent ensuite, mécaniquement, quand la position s’améliore et que l’URL gagne en confiance." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "pages indexées : la courbe doit monter, jamais stagner",
+          "impressions par semaine : le premier indicateur réel d’avancement",
+          "position moyenne des requêtes cibles : elle descend avant que les clics montent",
+          "clics : l’effet retardé des trois points précédents",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Pourquoi les promesses « première page en un mois » sont souvent fausses ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Parce qu’elles mélangent deux situations très différentes. Se positionner sur le nom de votre entreprise prend quelques jours — cela n’a aucune valeur concurrentielle. Gagner une requête disputée demande des mois de contenu, de technique et de signaux extérieurs : aucune méthode sérieuse ne raccourcit ce cycle, seule une méthode douteuse prétend le faire." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que nous observons sur les sites de PME suisses",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Sur les sites vitrines que nous accompagnons en Suisse romande, le schéma est régulier : les premiers résultats utiles arrivent sur la longue traîne et la recherche locale — les requêtes avec une ville, un quartier, un besoin précis — puis les pages services suivent, et seulement ensuite les requêtes génériques les plus disputées. La fiche Google Business Profile, elle, peut produire des contacts avant même le site." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Concrètement, une PME à Lutry ou à Lausanne voit souvent des demandes locales apparaître avant que le site remonte sur « agence web » ou « référencement ». C’est logique, et c’est pour cela qu’un " },
+          { text: "référencement local", link: "/blog/seo-local-lausanne" },
+          { text: " bien conduit donne des résultats plus tôt qu’un travail uniquement national." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Un plan réaliste sur 90 jours",
+      },
+      {
+        kind: "list",
+        items: [
+          "Jours 1 à 30 : corrections techniques, Search Console installée, sitemap, base de mesure — les impressions commencent",
+          "Jours 31 à 60 : une page par offre et par ville, réponses directes en tête de page, données structurées propres",
+          "Jours 61 à 90 : premières mentions locales et partenaires, optimisation des pages qui gagnent déjà des impressions",
+          "Au-delà : publication régulière, mesure mensuelle, ajustement des pages qui montent — c’est là que le levier devient cumulatif",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce calendrier correspond au déroulé d’un " },
+          { text: "audit SEO", link: "/services/audit-seo" },
+          { text: " puis de son suivi. L’objectif n’est pas d’accélérer artificiellement le délai, mais d’empêcher qu’un blocage technique ne vous coûte les trois premiers mois." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Combien de temps avant la première page de Google ?", "Entre 3 et 6 mois pour une requête de difficulté modérée, plus sur un marché concurrentiel. Les requêtes locales et de niche y arrivent généralement plus vite que les requêtes génériques."],
+          ["Est-ce que le SEO est devenu plus lent qu’il y a cinq ans ?", "Non, mais le terrain a changé : les réponses IA captent une partie des clics, ce qui rend l’impression plus précieuse qu’avant. Le délai d’obtention d’une position reste comparable ; l’importance des premières positions, elle, a augmenté."],
+          ["Faut-il publier chaque semaine pour avancer ?", "La régularité compte plus que la fréquence. Un contenu solide et mis à jour bat un article pressé : ce qui fait avancer une page, c’est sa capacité à répondre complètement à la question posée."],
+          ["Combien de temps avant d’être cité par ChatGPT ou Gemini ?", [
+            { text: "Les assistants s’appuient sur des pages déjà indexées et sur des sources qu’ils citent déjà : les semaines plutôt que les jours, une fois le contenu en ligne et les mentions en place. Voir " },
+            { text: "la visibilité sur les moteurs IA", link: "/blog/etre-visible-chatgpt-gemini-moteurs-ia" },
+            { text: "." },
+          ]],
+          ["Que faire si rien ne bouge après six mois ?", "Revenir aux fondations : pages indexées, impressions dans Search Console, contenu aligné sur l’intention, mentions extérieures. Un site dont les impressions stagnent a presque toujours l’un des quatre manque — c’est le sujet d’un check-up puis d’un audit."],
+          ["Les résultats SEO s’arrêtent-ils une fois la première position atteinte ?", "Non, mais ils deviennent fragiles : la position se défend, les concurrents aussi. Le travail passe de l’acquisition à la consolidation — mise à jour, signaux de confiance, nouveaux contenus connexes."],
+        ],
+      },
+    ],
+  },
 ];
 
 export const getArticle = (slug: string): Article | undefined =>
