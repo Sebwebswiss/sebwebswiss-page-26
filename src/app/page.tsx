@@ -158,7 +158,7 @@ export default function Home() {
         <p className="contact-hours">{business.hours.display}</p>
       </section>
 
-      <footer><Link href="/" className="brand">Seb<span>Web</span>Swiss<i>.</i></Link><p>© {new Date().getFullYear()} SebWebSwiss. Tous droits réservés.</p><div><Link href="/realisations">Réalisations</Link><Link href="/blog">Blog</Link><Link href="/offre-lancement">Offre</Link><a href={business.social.facebook} target="_blank" rel="noreferrer">Facebook</a><a href={business.social.youtube} target="_blank" rel="noreferrer">YouTube</a><a href={business.social.tiktok} target="_blank" rel="noreferrer">TikTok</a></div></footer>
+      <footer><Link href="/" className="brand">Seb<span>Web</span>Swiss<i>.</i></Link><p>© {new Date().getFullYear()} SebWebSwiss. Tous droits réservés.</p><div><Link href="/realisations">Réalisations</Link><Link href="/blog">Blog</Link><Link href="/offre-lancement">Offre</Link><Link href="/confidentialite">Confidentialité</Link><a href={business.social.facebook} target="_blank" rel="noreferrer">Facebook</a><a href={business.social.youtube} target="_blank" rel="noreferrer">YouTube</a><a href={business.social.tiktok} target="_blank" rel="noreferrer">TikTok</a></div></footer>
     </main>
   );
 }

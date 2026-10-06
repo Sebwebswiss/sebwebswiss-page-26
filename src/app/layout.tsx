@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import Script from "next/script";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
+import { RouteTracker } from "@/components/RouteTracker";
 import { business } from "@/content/business";
 import { openGraphDefaults } from "@/content/metadata";
 import "./globals.css";
@@ -51,6 +54,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="fr" className={`${sans.variable} ${serif.variable}`}>
       <body>
         <JsonLd data={organizationSchema} />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0N3HQK03DF',{send_page_view:false});`,
+          }}
+        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-0N3HQK03DF" strategy="afterInteractive" />
+        <Suspense>
+          <RouteTracker />
+        </Suspense>
         {children}
       </body>
     </html>

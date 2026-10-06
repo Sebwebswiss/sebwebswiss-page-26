@@ -21,6 +21,7 @@ const paths = [
   "/offre-lancement",
   "/check-up-site-web",
   "/blog",
+  "/confidentialite",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
