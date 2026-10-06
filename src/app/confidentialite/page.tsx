@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { business } from "@/content/business";
 
@@ -74,5 +75,5 @@ export default function Confidentialite() {
         <Link className="button primary" href="/contact">Nous contacter <span>↗</span></Link>
       </div>
     </div></section>
-  </main></>;
+  </main><Footer /></>;
 }

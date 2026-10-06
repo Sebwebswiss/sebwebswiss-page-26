@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { articles } from "@/content/articles";
 
@@ -49,5 +50,5 @@ export default function Page() {
       )}
     </div></section>
     <section className="soft-cta"><p>Une question sur votre présence en ligne ?</p><a className="button primary" href="/contact">Me contacter <span>↗</span></a></section>
-  </main></>;
+  </main><Footer /></>;
 }

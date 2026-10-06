@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import type { Lang } from "@/content/audit/checks";
 import { getAudit, StorageUnavailableError } from "@/lib/redis";
 import { moduleMeta } from "@/content/audit/checks";
@@ -40,7 +41,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                 <a className="button primary" href="/check-up-site-web">Refaire un check-up <span>↗</span></a>
               </div>
             </section>
-          </main>
+          </main><Footer />
         </>
       );
     }
@@ -125,7 +126,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             <a className="button primary" href="/contact">{ui.ctaButton} <span>↗</span></a>
           </div>
         </section>
-      </main>
+      </main><Footer />
     </>
   );
 }

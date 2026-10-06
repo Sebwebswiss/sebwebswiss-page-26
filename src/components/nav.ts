@@ -3,6 +3,7 @@ export const navLinks = [
   { href: "/services/referencement-seo-lausanne", label: "SEO" },
   { href: "/check-up-site-web", label: "Check-up" },
   { href: "/methode", label: "Méthode" },
+  { href: "/blog", label: "Blog" },
   { href: "/a-propos", label: "À propos" },
   { href: "/contact", label: "Contact" },
 ];

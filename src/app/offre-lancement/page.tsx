@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 
 export const metadata: Metadata = {
@@ -57,5 +58,5 @@ export default function Page() {
     </div></section>
 
     <section className="soft-cta"><p>Votre entreprise mérite une présence en ligne claire, sans coût la première année.</p><a className="button primary" href="/contact">Postuler au programme <span>↗</span></a></section>
-  </main></>;
+  </main><Footer /></>;
 }

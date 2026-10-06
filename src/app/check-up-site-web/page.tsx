@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JsonLd } from "@/components/JsonLd";
 import { AuditTool } from "@/components/audit/AuditTool";
 
 export const metadata: Metadata = {
-  title: "Check-up site web gratuit en Suisse | Audit SEO & visibilité locale",
+  title: { absolute: "Check-up site web gratuit | SEO & visibilité locale" },
   description:
     "Analysez gratuitement les principaux points techniques et locaux de votre site en moins d’une minute : SEO, visibilité locale et données structurées.",
   alternates: { canonical: "/check-up-site-web" },
@@ -70,7 +71,7 @@ export default function Page() {
         </section>
 
         <section className="soft-cta"><p>Besoin d’aide pour corriger ces points ?</p><a className="button primary" href="/contact">Réserver un appel gratuit <span>↗</span></a></section>
-      </main>
+      </main><Footer />
     </>
   );
 }

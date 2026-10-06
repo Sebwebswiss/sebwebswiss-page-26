@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -47,5 +48,5 @@ export default function Page() {
     </div></section>
 
     <section className="soft-cta"><p>Vous avez un projet similaire ?</p><a className="button primary" href="/contact">Parler de votre projet <span>↗</span></a></section>
-  </main></>;
+  </main><Footer /></>;
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { ServiceCard } from "@/components/ServiceCard";
 
@@ -41,5 +42,5 @@ export default function Services() {
       <a className="text-link" href="/contact">Discuter de votre projet ↗</a>
     </div></section>
     <section className="services service-page-list">{cards.map(([n, t, d, h]) => <ServiceCard key={n} number={n} title={t} text={d} href={h} />)}</section>
-  </main></>;
+  </main><Footer /></>;
 }

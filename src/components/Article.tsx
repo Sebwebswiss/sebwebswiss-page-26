@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 import { business } from "@/content/business";
@@ -130,7 +131,7 @@ export default function Article({ article }: { article: ArticleData }) {
             Parler de votre projet <span>↗</span>
           </a>
         </section>
-      </main>
+      </main><Footer />
     </>
   );
 }

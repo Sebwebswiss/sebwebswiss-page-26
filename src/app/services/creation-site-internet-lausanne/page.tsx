@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 import { business } from "@/content/business";
@@ -92,5 +93,5 @@ export default function Page() {
 
     <section className="faq"><div><p className="section-kicker">QUESTIONS FRÉQUENTES</p><h2>Un projet clair<br/><em>commence par de bonnes questions.</em></h2></div><div className="faq-list">{faqs.map(([q,a])=><details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></section>
     <section className="soft-cta"><p>Vous avez un projet de création ou de refonte de site internet à Lausanne ?</p><a className="button primary" href="/contact">Demander un premier échange <span>↗</span></a></section>
-  </main></>;
+  </main><Footer /></>;
 }

@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "À propos de SebWebSwiss — Sébastien, créateur de sites web",
-  description: "SebWebSwiss, c’est Sébastien : cinq années de projets web, une expertise technique, un accès direct et des explications claires pour les entreprises de Suisse romande.",
+  description: "SebWebSwiss, c’est Sébastien : création de sites web et référencement SEO à Lausanne, un accès direct et des explications claires pour vos projets.",
   alternates: { canonical: "/a-propos" },
   openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/a-propos" },
 };
@@ -52,5 +53,5 @@ export default function About() {
     </div></section>
 
     <section className="soft-cta"><p>Vous souhaitez échanger sur votre projet ?</p><a className="button primary" href="/contact">Me contacter <span>↗</span></a></section>
-  </main></>;
+  </main><Footer /></>;
 }
