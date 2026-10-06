@@ -40,6 +40,8 @@ const fr = {
   emailLabel: "Votre e-mail",
   consentLabel:
     "J’accepte d’être contacté(e) par SebWebSwiss au sujet de mon rapport. Je peux me désinscrire à tout moment.",
+  privacyNote: "En envoyant votre adresse e-mail, vous acceptez notre",
+  privacyLink: "politique de confidentialité",
   sendReport: "Recevoir le rapport complet",
   reportSent: "Merci. Votre rapport vous a été envoyé par e-mail.",
   disclaimer:
@@ -70,6 +72,8 @@ const de: typeof fr = {
   description:
     "Analysieren Sie kostenlos die wichtigsten technischen und lokalen Punkte Ihrer Website in unter einer Minute.",
   heroTitle: "Ist Ihre Website wirklich bereit, Kunden anzuziehen?",
+  privacyNote: "Wenn Sie Ihre E-Mail-Adresse senden, akzeptieren Sie unsere",
+  privacyLink: "Datenschutzerklärung",
 };
 
 const it: typeof fr = {
@@ -79,6 +83,8 @@ const it: typeof fr = {
   description:
     "Analizza gratuitamente i punti tecnici e locali principali del tuo sito in meno di un minuto.",
   heroTitle: "Il tuo sito è davvero pronto ad attirare clienti?",
+  privacyNote: "Inviando il vostro indirizzo e-mail accettate la nostra",
+  privacyLink: "informativa sulla privacy",
 };
 
 const en: typeof fr = {
@@ -88,6 +94,8 @@ const en: typeof fr = {
   description:
     "Analyze the key technical and local points of your website for free in under a minute.",
   heroTitle: "Is your website really ready to attract clients?",
+  privacyNote: "By sending your email address you accept our",
+  privacyLink: "privacy policy",
 };
 
 const dict: Record<Lang, typeof fr> = { fr, de, it, en };

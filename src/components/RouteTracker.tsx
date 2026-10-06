@@ -2,12 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-  }
-}
+import { getConsent, sendPageView } from "@/lib/ga";
 
 export function RouteTracker() {
   const pathname = usePathname();
@@ -17,14 +12,10 @@ export function RouteTracker() {
   useEffect(() => {
     const query = searchParams?.toString();
     const url = query ? `${pathname}?${query}` : pathname;
-    if (!window.gtag || lastUrl.current === url) return;
+    if (lastUrl.current === url || getConsent() !== "granted") return;
 
     lastUrl.current = url;
-    window.gtag("event", "page_view", {
-      page_location: window.location.href,
-      page_path: url,
-      page_title: document.title,
-    });
+    sendPageView();
   }, [pathname, searchParams]);
 
   return null;

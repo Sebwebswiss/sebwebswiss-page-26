@@ -4,6 +4,7 @@ import Script from "next/script";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { RouteTracker } from "@/components/RouteTracker";
+import { ConsentBar } from "@/components/ConsentBar";
 import { business } from "@/content/business";
 import { openGraphDefaults } from "@/content/metadata";
 import "./globals.css";
@@ -56,13 +57,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <JsonLd data={organizationSchema} />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0N3HQK03DF',{send_page_view:false});`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied'});gtag('js',new Date());gtag('config','G-0N3HQK03DF',{send_page_view:false});`,
           }}
         />
         <Script src="https://www.googletagmanager.com/gtag/js?id=G-0N3HQK03DF" strategy="afterInteractive" />
         <Suspense>
           <RouteTracker />
         </Suspense>
+        <ConsentBar />
         {children}
       </body>
     </html>

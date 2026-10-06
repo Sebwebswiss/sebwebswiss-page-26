@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import type { CheckResult, Lang } from "@/content/audit/checks";
 import { moduleMeta } from "@/content/audit/checks";
@@ -116,6 +117,9 @@ function EmailGate({ auditId, lang }: { auditId: string; lang: Lang }) {
         <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} required />
         <span>{ui.consentLabel}</span>
       </label>
+      <p className="audit-privacy-note">
+        {ui.privacyNote} <Link href="/confidentialite">{ui.privacyLink}</Link>.
+      </p>
       {status === "error" && <p className="form-error">Une erreur est survenue. Réessayez ou écrivez-nous à info@sebwebswiss.ch.</p>}
     </form>
   );
