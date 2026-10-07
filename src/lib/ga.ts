@@ -42,6 +42,7 @@ export function reopenConsent() {
 
 export function sendPageView() {
   window.gtag?.("event", "page_view", {
+    send_to: "G-F0EX3JLZC0",
     page_location: window.location.href,
     page_path: window.location.pathname + window.location.search,
     page_title: document.title,
@@ -51,5 +52,5 @@ export function sendPageView() {
 /** Šalje GA4 event samo ako je korisnik dao privolu. */
 export function trackEvent(name: string, params?: Record<string, string | number | boolean>) {
   if (getConsent() !== "granted") return;
-  window.gtag?.("event", name, params);
+  window.gtag?.("event", name, { send_to: "G-F0EX3JLZC0", ...params });
 }
