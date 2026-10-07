@@ -58,10 +58,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <JsonLd data={organizationSchema} />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied'});gtag('js',new Date());gtag('config','GT-NFJBZF8X',{send_page_view:false});`,
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied'});gtag('js',new Date());gtag('config','G-F0EX3JLZC0',{send_page_view:false});`,
           }}
         />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=GT-NFJBZF8X" strategy="afterInteractive" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-F0EX3JLZC0" strategy="afterInteractive" />
         <Suspense>
           <RouteTracker />
         </Suspense>

@@ -43,7 +43,7 @@ export default function Confidentialite() {
 
     <section className="content-section"><div className="content-label">GOOGLE ANALYTICS</div><div>
       <h2>Google Analytics<br/><em>en toute transparence.</em></h2>
-      <p>Ce site utilise Google Analytics (Google tag {`GT-NFJBZF8X`}, identifiant de mesure {`G-0N3HQK03DF`}), un service d’analyse fourni par Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, États-Unis.</p>
+      <p>Ce site utilise Google Analytics (identifiant de mesure {`G-F0EX3JLZC0`}), un service d’analyse fourni par Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, États-Unis.</p>
       <ul className="check-list">
         <li>Cookies utilisés : <code>_ga</code> et <code>_ga_*</code> (durée maximale 13 mois)</li>
         <li>Finalité : statistiques de fréquentation agrégées (pages vues, provenance, appareil)</li>
