@@ -160,7 +160,7 @@ body:has(.menu-details[open]){overflow:hidden}
 .audit-table th{text-align:left;color:var(--muted);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);padding:10px 8px}
 .audit-table td{padding:13px 8px;border-bottom:1px solid var(--line);color:var(--muted);line-height:1.5;vertical-align:top}
 .audit-table td:first-child{color:var(--text);font-weight:600}
-.audit-feature-grid{max-width:1440px;margin:auto;padding:110px 5vw 130px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.audit-feature-grid{max-width:1440px;margin:auto;padding:110px 5vw 130px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
 .audit-feature-grid article{border-top:1px solid var(--line);padding-top:20px}
 .audit-feature-grid h2{font-size:clamp(1.6rem,2.6vw,2.4rem)}
 .audit-feature-grid p:not(.section-kicker){color:var(--muted);line-height:1.7}

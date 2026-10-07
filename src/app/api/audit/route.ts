@@ -4,6 +4,7 @@ import { fetchSite } from "@/lib/audit/fetchSite";
 import { parsePage } from "@/lib/audit/parsers";
 import { assessTech } from "@/lib/audit/assessTech";
 import { assessLocal } from "@/lib/audit/assessLocal";
+import { assessAi } from "@/lib/audit/assessAi";
 import { computeScore } from "@/lib/audit/score";
 import { computePriorities } from "@/lib/audit/prioritize";
 import { consumeRate, saveAudit, StorageUnavailableError } from "@/lib/redis";
@@ -39,6 +40,18 @@ function normalizeHost(url: string): string {
     return new URL(url).hostname.replace(/^www\./, "").toLowerCase();
   } catch {
     return "unknown";
+  }
+}
+
+async function fetchOptionalText(url: string): Promise<string | null> {
+  try {
+    const res = await fetchSite(url, 4000);
+    if (res.status !== 200) return null;
+    const type = res.headers["content-type"] ?? "";
+    if (/text\/html/i.test(type)) return null;
+    return res.html.slice(0, 200_000);
+  } catch {
+    return null;
   }
 }
 
@@ -95,7 +108,13 @@ export async function POST(req: Request) {
     const site = await fetchSite(url);
     const page = parsePage(site.html);
 
-    const checks: CheckResult[] = [...assessTech(page, site), ...assessLocal(page, site)];
+    const origin = new URL(site.finalUrl).origin;
+    const [robotsTxt, llmsTxt] = await Promise.all([
+      fetchOptionalText(`${origin}/robots.txt`),
+      fetchOptionalText(`${origin}/llms.txt`),
+    ]);
+
+    const checks: CheckResult[] = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, { robotsTxt, llmsTxt })];
     const score = computeScore(checks);
     const priorities = computePriorities(checks, 3);
 

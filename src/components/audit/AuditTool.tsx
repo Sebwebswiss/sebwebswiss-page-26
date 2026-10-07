@@ -227,7 +227,7 @@ export function AuditTool() {
             {result.score.modules.map((m) => (
               <ModuleCard key={m.module} score={m} lang={result.lang} />
             ))}
-            {(["privacy", "lang", "ai"] as const).map((m) => (
+            {(["privacy", "lang"] as const).map((m) => (
               <article className="audit-module audit-module-soon" key={m}>
                 <div><p className="audit-module-kicker">{moduleMeta[m].short}</p><h3>{moduleMeta[m].title}</h3></div>
                 <span className="audit-badge-soon">{t(result.lang).comingSoon}</span>

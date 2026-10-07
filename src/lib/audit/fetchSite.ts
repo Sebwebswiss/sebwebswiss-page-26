@@ -176,7 +176,7 @@ export type SiteResponse = {
   timeMs: number;
 };
 
-export async function fetchSite(inputUrl: string): Promise<SiteResponse> {
+export async function fetchSite(inputUrl: string, timeoutMs: number = FETCH_TIMEOUT_MS): Promise<SiteResponse> {
   let url: URL;
   try {
     url = new URL(inputUrl);
@@ -219,7 +219,7 @@ export async function fetchSite(inputUrl: string): Promise<SiteResponse> {
     const res = await fetch(current, {
       redirect: "manual",
       headers: { "user-agent": USER_AGENT, accept: "text/html,application/xhtml+xml,*/*" },
-      signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+      signal: AbortSignal.timeout(timeoutMs),
     });
 
     status = res.status;

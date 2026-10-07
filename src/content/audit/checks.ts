@@ -1,4 +1,4 @@
-export type CheckModule = "tech" | "local";
+export type CheckModule = "tech" | "local" | "ai";
 export type ModuleId = "tech" | "local" | "privacy" | "lang" | "ai";
 
 export type CheckStatus = "ok" | "warn" | "fail";
@@ -198,12 +198,89 @@ export const localChecks: Check[] = [
   },
 ];
 
+export const aiChecks: Check[] = [
+  {
+    id: "ai-crawlers",
+    module: "ai",
+    label: "Accès de l’OAI-SearchBot (ChatGPT Search)",
+    weight: 10,
+    impact: 3,
+    effort: 1,
+    howToFix: "Vérifiez le robots.txt : l’agent OAI-SearchBot (utilisé par ChatGPT Search) doit pouvoir explorer le site. Ne le bloquez pas avec un « Disallow: / ». Bloquer GPTBot (entraînement) n’a pas d’impact sur l’apparition dans ChatGPT Search.",
+  },
+  {
+    id: "ai-html",
+    module: "ai",
+    label: "Contenu principal présent dans le HTML initial",
+    weight: 8,
+    impact: 3,
+    effort: 2,
+    howToFix: "Assurez-vous que le contenu principal est présent dans le HTML envoyé au navigateur (rendu serveur/statique), et non injecté uniquement par JavaScript. Un contenu accessible sans exécuter de script améliore la lecture par les moteurs et les assistants.",
+  },
+  {
+    id: "ai-schema",
+    module: "ai",
+    label: "Données structurées exploitables",
+    weight: 8,
+    impact: 3,
+    effort: 2,
+    howToFix: "Ajoutez un bloc JSON-LD décrivant votre entité (Organization, LocalBusiness, ProfessionalService ou WebSite) afin d’aider les moteurs à comprendre votre entreprise.",
+  },
+  {
+    id: "ai-identity",
+    module: "ai",
+    label: "Signaux d’identité et de confiance",
+    weight: 8,
+    impact: 2,
+    effort: 2,
+    howToFix: "Rendez votre identité explicite : schéma d’entité, nom d’entreprise visible, lien « À propos », lien « Contact », page légale/confidentialité et, si possible, des profils officiels (sameAs).",
+  },
+  {
+    id: "ai-content",
+    module: "ai",
+    label: "Contenu substantiel",
+    weight: 6,
+    impact: 2,
+    effort: 2,
+    howToFix: "Étoffez le contenu principal pour répondre clairement aux questions de vos clients (activité, zone desservie, offres). Un contenu précis et complet est plus facilement réutilisé par les assistants.",
+  },
+  {
+    id: "ai-headings",
+    module: "ai",
+    label: "Hiérarchie sémantique (H2/H3)",
+    weight: 6,
+    impact: 1,
+    effort: 1,
+    howToFix: "Structurez la page avec des titres H2/H3 clairs et descriptifs, qui reflètent les différentes parties de votre offre.",
+  },
+  {
+    id: "ai-qa",
+    module: "ai",
+    label: "Contenu questions-réponses",
+    weight: 4,
+    impact: 1,
+    effort: 2,
+    howToFix: "Ajoutez un bloc de questions fréquentes visible (titres formulés comme des questions, ou questions dépliables) pour couvrir les intentions de recherche.",
+  },
+  {
+    id: "ai-llms-txt",
+    module: "ai",
+    label: "Fichier llms.txt (informationnel)",
+    weight: 0,
+    impact: 1,
+    effort: 2,
+    howToFix: "Optionnel : vous pouvez proposer un fichier llms.txt qui résume votre site pour les assistants. Il s’agit encore d’une convention proposée, sans gain garanti — aucun impact sur le score.",
+  },
+];
+
 export const MAX_MODULE_POINTS = 50;
+
+export const SCORED_MODULES: CheckModule[] = ["tech", "local", "ai"];
 
 export const moduleMeta: Record<ModuleId, { title: string; short: string; available: boolean }> = {
   tech: { title: "Technique", short: "Technique", available: true },
   local: { title: "Informations locales sur le site", short: "Local", available: true },
+  ai: { title: "Visibilité IA — préparation technique", short: "IA", available: true },
   privacy: { title: "Confidentialité & nDSG", short: "nDSG", available: false },
   lang: { title: "Multilinguisme", short: "Langues", available: false },
-  ai: { title: "Visibilité IA", short: "IA", available: false },
 };

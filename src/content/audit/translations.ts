@@ -25,7 +25,7 @@ const fr = {
   moduleA: "Technique",
   moduleB: "Informations locales sur le site",
   comingSoon: "Bientôt disponible",
-  comingSoonModules: ["Confidentialité & nDSG", "Multilinguisme", "Visibilité IA"],
+  comingSoonModules: ["Confidentialité & nDSG", "Multilinguisme"],
   prioritiesTitle: "Vos 3 priorités",
   prioritiesSubtitle:
     "Les points les plus importants à corriger, classés par impact et par effort de mise en œuvre.",
