@@ -95,12 +95,12 @@ export function assessTech(page: ParsedPage, site: SiteResponse): CheckResult[] 
       : "Aucune donnée structurée JSON-LD détectée.",
   });
 
-  const httpsOk = site.url.startsWith("https://");
-  const redirectWarn = site.finalUrl !== site.url;
+  const httpsOk = site.finalUrl.startsWith("https://");
+  const redirected = site.finalUrl !== site.url;
   results.push({
     ...byId("https"),
     status: httpsOk ? "ok" : "fail",
-    detail: `Protocole : ${new URL(site.finalUrl).protocol}// ${redirectWarn ? "(redirigé vers " + site.finalUrl + ")" : ""}`,
+    detail: `Protocole : ${new URL(site.finalUrl).protocol}//${redirected ? ` (redirigé vers ${site.finalUrl})` : ""}`,
   });
 
   const responseOk = site.status >= 200 && site.status < 300;

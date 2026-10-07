@@ -13,7 +13,7 @@ const effortLabel: Record<1 | 2 | 3, string> = {
 };
 
 export function computePriorities(checks: CheckResult[], limit = 3): Priority[] {
-  const notOk = checks.filter((c) => c.status !== "ok");
+  const notOk = checks.filter((c) => c.status !== "ok" && c.weight > 0);
   const sorted = notOk.sort((a, b) => {
     const impA = a.impact * (4 - a.effort);
     const impB = b.impact * (4 - b.effort);
