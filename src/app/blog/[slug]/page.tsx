@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Article from "@/components/Article";
 import { getArticle, getArticleSlugs, articleUrl } from "@/content/articles";
+import { getArticleMetadata } from "@/content/articleMetadata";
 
 export const dynamicParams = false;
 
@@ -17,10 +18,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!article) return {};
 
   const url = articleUrl(article.slug);
+  const snippet = getArticleMetadata(article);
 
   return {
-    title: article.title,
-    description: article.description,
+    title: snippet.title,
+    description: snippet.description,
     alternates: { canonical: `/blog/${article.slug}` },
     openGraph: {
       type: "article",

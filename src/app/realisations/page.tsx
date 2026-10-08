@@ -6,7 +6,7 @@ import { PageHero } from "@/components/PageHero";
 import { realisations } from "@/content/realisations";
 
 export const metadata: Metadata = {
-  title: "Réalisations web et SEO — SebWebSwiss",
+  title: "Réalisations web et SEO",
   description: "Découvrez les sites web créés et optimisés par SebWebSwiss, en Suisse romande comme à l’international.",
   alternates: { canonical: "/realisations" },
   openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/realisations" },

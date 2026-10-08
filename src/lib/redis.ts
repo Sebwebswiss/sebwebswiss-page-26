@@ -100,7 +100,11 @@ export async function saveAudit(audit: StoredAudit): Promise<void> {
     await memory.setAudit(audit.id, audit);
     return;
   }
-  await r.set(`audit:${audit.id}`, audit, { ex: AUDIT_TTL });
+  try {
+    await r.set(`audit:${audit.id}`, audit, { ex: AUDIT_TTL });
+  } catch {
+    throw new StorageUnavailableError();
+  }
 }
 
 export async function getAudit(id: string): Promise<StoredAudit | null> {
@@ -111,7 +115,7 @@ export async function getAudit(id: string): Promise<StoredAudit | null> {
     const data = await r.get<StoredAudit>(`audit:${id}`);
     return data ?? null;
   } catch {
-    return null;
+    throw new StorageUnavailableError();
   }
 }
 
@@ -122,7 +126,11 @@ export async function saveLead(lead: StoredLead): Promise<void> {
     await memory.setLead(lead.id, lead);
     return;
   }
-  await r.set(`lead:${lead.id}`, lead, { ex: LEAD_TTL });
+  try {
+    await r.set(`lead:${lead.id}`, lead, { ex: LEAD_TTL });
+  } catch {
+    throw new StorageUnavailableError();
+  }
 }
 
 export async function getLead(id: string): Promise<StoredLead | null> {
@@ -133,7 +141,7 @@ export async function getLead(id: string): Promise<StoredLead | null> {
     const data = await r.get<StoredLead>(`lead:${id}`);
     return data ?? null;
   } catch {
-    return null;
+    throw new StorageUnavailableError();
   }
 }
 
@@ -147,11 +155,15 @@ export async function consumeRate(ip: string, host: string, bucket: RateBucket):
   if (!r) {
     return memory.incrTrip(key, ttl * 1000);
   }
-  const count = await r.incr(key);
-  if (count === 1) {
-    await r.expire(key, ttl);
+  try {
+    const count = await r.incr(key);
+    if (count === 1) {
+      await r.expire(key, ttl);
+    }
+    return count;
+  } catch {
+    throw new StorageUnavailableError();
   }
-  return count;
 }
 
 export { redisIsConfigured };

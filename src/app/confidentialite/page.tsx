@@ -28,7 +28,7 @@ export default function Confidentialite() {
       <p>SebWebSwiss — {business.legalName}</p>
       <ul className="check-list">
         <li>{business.address}, {business.postalCode} {business.locality}, {business.country}</li>
-        <li>Google : {business.email}</li>
+        <li>E-mail : {business.email}</li>
         <li>Téléphone : {business.phoneDisplay}</li>
       </ul>
       <p>Pour toute question relative à vos données, écrivez-nous directement via notre <Link href="/contact">formulaire de contact</Link>.</p>
@@ -50,7 +50,8 @@ export default function Confidentialite() {
         <li>Données transmises : adresse IP, navigation, identifiant du cookie</li>
         <li>Aucune donnée n’est utilisée à des fins publicitaires ni revendue</li>
       </ul>
-      <p><strong>Opt-out :</strong> vous pouvez empêcher la mesure Google Analytics en installant l’extension Google Analytics Opt-out Add-on ou en désactivant les cookies dans votre navigateur.</p>
+      <p>La mesure d’audience est activée uniquement après votre accord via le bouton « Accepter ». Si vous refusez, aucun événement Google Analytics n’est envoyé.</p>
+      <p><strong>Gérer votre choix :</strong> utilisez « Gérer les cookies » dans le pied de page pour retirer votre accord ou choisir à nouveau. Vous pouvez également utiliser l’extension Google Analytics Opt-out Add-on.</p>
       <p>Google peut transférer les données vers les États-Unis. Le transfert repose sur les clauses contractuelles types de la Commission européenne. Des informations complémentaires sont disponibles dans la <a href="https://policies.google.com/privacy?hl=fr" target="_blank" rel="noreferrer">politique de confidentialité de Google</a>.</p>
     </div></section>
 

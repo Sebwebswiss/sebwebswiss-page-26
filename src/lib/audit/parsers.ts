@@ -6,6 +6,8 @@ export type ParsedPage = {
   h1Count: number;
   h2Count: number;
   h3Count: number;
+  questionHeadingCount?: number;
+  detailsCount?: number;
   canonical: string | null;
   robotsMeta: string | null;
   viewport: boolean;
@@ -13,6 +15,7 @@ export type ParsedPage = {
   ogCount: number;
   twitterCount: number;
   jsonLd: string[];
+  invalidJsonLdCount?: number;
   links: string[];
   text: string;
 };
@@ -24,77 +27,82 @@ const decodeEntities = (s: string) =>
     .replace(/&gt;/g, ">")
     .replace(/&quot;/g, '"')
     .replace(/&#0?39;/g, "'")
+    .replace(/&#(?:x([0-9a-f]+)|(\d+));/gi, (entity, hex: string | undefined, decimal: string | undefined) => {
+      const code = hex ? parseInt(hex, 16) : Number(decimal);
+      return code >= 0 && code <= 0x10ffff ? String.fromCodePoint(code) : entity;
+    })
     .replace(/&nbsp;/g, " ");
 
-function matchContent(html: string, re: RegExp): string | null {
-  const m = html.match(re);
-  return m ? (m[1] ?? "").trim() : null;
+function attribute(tag: string, name: string): string | null {
+  const match = tag.match(new RegExp(`(?:^|\\s)${name}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, "i"));
+  return match ? decodeEntities(match[1] ?? match[2] ?? match[3]) : null;
+}
+
+const tagAttributes = String.raw`(?:[^"'<>]|"[^"]*"|'[^']*')*`;
+
+function openingTags(markup: string, name: string): string[] {
+  return markup.match(new RegExp(`<${name}\\b${tagAttributes}>`, "gi")) ?? [];
+}
+
+function elements(markup: string, name: string): string[] {
+  return markup.match(new RegExp(`<${name}\\b${tagAttributes}>[\\s\\S]*?<\\/${name}>`, "gi")) ?? [];
 }
 
 export function parsePage(html: string): ParsedPage {
-  const lower = html.toLowerCase();
+  // Script payloads and comments are not rendered page metadata or headings.
+  const document = html.replace(/<!--[\s\S]*?-->/g, "");
+  const markup = document.replace(/<script\b[\s\S]*?<\/script>/gi, " ").replace(/<style\b[\s\S]*?<\/style>/gi, " ");
+  const metas = openingTags(markup, "meta");
+  const metaContent = (name: string) => {
+    const tag = metas.find(tag => attribute(tag, "name")?.toLowerCase() === name);
+    return tag ? attribute(tag, "content") : null;
+  };
 
-  const title = matchContent(html, /<title[^>]*>([\s\S]*?)<\/title>/i);
+  const titleBlock = elements(markup, "title")[0];
+  const title = titleBlock ? titleBlock.slice(openingTags(titleBlock, "title")[0].length).replace(/<\/title>$/i, "").trim() : null;
   const titleClean = title ? decodeEntities(title.replace(/\s+/g, " ").trim()) : null;
 
-  const metaDescription =
-    matchContent(
-      html,
-      /<meta[^>]+name=["']description["'][^>]*content=["']([^"']*)["'][^>]*>/i
-    ) ??
-    matchContent(
-      html,
-      /<meta[^>]+content=["']([^"']*)["'][^>]*name=["']description["'][^>]*>/i
-    );
+  const metaDescription = metaContent("description");
 
-  const canonical =
-    matchContent(
-      html,
-      /<link[^>]+rel=["']canonical["'][^>]*href=["']([^"']*)["']/i
-    ) ??
-    matchContent(
-      html,
-      /<link[^>]+href=["']([^"']*)["'][^>]*rel=["']canonical["'][^>]*>/i
-    );
+  const canonicalTag = openingTags(markup, "link")
+    .find(tag => attribute(tag, "rel")?.toLowerCase().split(/\s+/).includes("canonical"));
+  const canonical = canonicalTag ? attribute(canonicalTag, "href") : null;
 
-  const robotsMeta =
-    matchContent(
-      html,
-      /<meta[^>]+name=["']robots["'][^>]*content=["']([^"']*)["'][^>]*>/i
-    ) ??
-    matchContent(
-      html,
-      /<meta[^>]+content=["']([^"']*)["'][^>]*name=["']robots["'][^>]*>/i
-    );
+  const robotsMeta = [metaContent("robots"), metaContent("googlebot")].filter(Boolean).join(", ") || null;
 
-  const htmlLang = matchContent(html, /<html[^>]*lang=["']([^"']+)["']/i);
+  const htmlTag = openingTags(markup, "html")[0];
+  const htmlLang = htmlTag ? attribute(htmlTag, "lang") : null;
 
-  const viewport = /<meta[^>]+name=["']viewport["']/i.test(lower);
+  const viewport = metas.some(tag => attribute(tag, "name")?.toLowerCase() === "viewport");
 
-  const ogCount = (html.match(/property=["']og:[a-zA-Z0-9_:]+["']/gi) ?? []).length;
-  const twitterCount = (html.match(/name=["']twitter:[a-zA-Z0-9_:]+["']/gi) ?? []).length;
+  const ogCount = metas.filter(tag => attribute(tag, "property")?.startsWith("og:")).length;
+  const twitterCount = metas.filter(tag => attribute(tag, "name")?.startsWith("twitter:")).length;
 
-  const h1s = html.match(/<h1[^>]*>[\s\S]*?<\/h1>/gi) ?? [];
-  const h2s = html.match(/<h2[^>]*>[\s\S]*?<\/h2>/gi) ?? [];
-  const h3s = html.match(/<h3[^>]*>[\s\S]*?<\/h3>/gi) ?? [];
+  const h1s = elements(markup, "h1");
+  const h2s = elements(markup, "h2");
+  const h3s = elements(markup, "h3");
 
-  const jsonLdRaw =
-    html.match(
-      /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
-    ) ?? [];
-  const jsonLd = jsonLdRaw
-    .map((b) => b.replace(/<script[^>]*>/i, "").replace(/<\/script>/gi, "").trim())
+  const jsonLdRaw = elements(document, "script")
+    .filter(block => attribute(openingTags(block, "script")[0], "type")?.split(";")[0].trim().toLowerCase() === "application/ld+json");
+  const jsonLdBlocks = jsonLdRaw
+    .map((b) => b.slice(openingTags(b, "script")[0].length).replace(/<\/script>$/i, "").trim())
     .filter(Boolean);
+  const jsonLd = jsonLdBlocks.filter(block => {
+    try {
+      const value: unknown = JSON.parse(block);
+      return value !== null && typeof value === "object";
+    } catch {
+      return false;
+    }
+  });
 
-  const links = Array.from(html.matchAll(/<a[^>]+href=["']([^"']+)["']/gi))
-    .map((m) => m[1])
-    .filter(Boolean);
+  const links = openingTags(markup, "a")
+    .map(tag => attribute(tag, "href"))
+    .filter((link): link is string => Boolean(link));
 
-  const text = html
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+  const text = decodeEntities(markup
     .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/g, " ")
+    .replace(/<[^>]+>/g, " "))
     .replace(/\s+/g, " ")
     .trim();
 
@@ -106,6 +114,8 @@ export function parsePage(html: string): ParsedPage {
     h1Count: h1s.length,
     h2Count: h2s.length,
     h3Count: h3s.length,
+    questionHeadingCount: [...h1s, ...h2s, ...h3s].filter(heading => decodeEntities(heading.replace(/<[^>]*>/g, " ")).includes("?")).length,
+    detailsCount: (markup.match(/<details\b/gi) ?? []).length,
     canonical,
     robotsMeta,
     viewport,
@@ -113,6 +123,7 @@ export function parsePage(html: string): ParsedPage {
     ogCount,
     twitterCount,
     jsonLd,
+    invalidJsonLdCount: jsonLdBlocks.length - jsonLd.length,
     links,
     text,
   };
@@ -120,5 +131,38 @@ export function parsePage(html: string): ParsedPage {
 
 export function isRobotsBlockingIndex(robotsMeta: string | null): boolean {
   if (!robotsMeta) return false;
-  return /noindex/i.test(robotsMeta);
+  return /(?:^|[\s,])(?:noindex|none)(?:$|[\s,])/i.test(robotsMeta);
+}
+
+function* schemaObjects(blocks: string[]): Generator<Record<string, unknown>> {
+  for (const block of blocks) {
+    let root: unknown;
+    try { root = JSON.parse(block); } catch { continue; }
+    const pending: unknown[] = [root];
+    while (pending.length) {
+      const node = pending.pop();
+      if (!node || typeof node !== "object") continue;
+      if (Array.isArray(node)) {
+        for (const child of node) pending.push(child);
+        continue;
+      }
+      const object = node as Record<string, unknown>;
+      yield object;
+      for (const value of Object.values(object)) if (value && typeof value === "object") pending.push(value);
+    }
+  }
+}
+
+export function hasSchemaType(blocks: string[], types: string[]): boolean {
+  const wanted = new Set(types.map(type => type.toLowerCase()));
+  for (const object of schemaObjects(blocks)) {
+    const values = Array.isArray(object["@type"]) ? object["@type"] : [object["@type"]];
+    if (values.some(value => typeof value === "string" && wanted.has((value.split(/[\/#:]/).pop() ?? "").toLowerCase()))) return true;
+  }
+  return false;
+}
+
+export function hasSchemaProperty(blocks: string[], key: string): boolean {
+  for (const object of schemaObjects(blocks)) if (Object.hasOwn(object, key)) return true;
+  return false;
 }

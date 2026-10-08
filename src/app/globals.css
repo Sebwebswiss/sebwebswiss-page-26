@@ -22,6 +22,9 @@ a { color:inherit; text-decoration:none; } .site-header { width:min(1440px,100%)
 .expertise-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;margin-top:68px;border:1px solid rgba(17,21,29,.16);background:rgba(17,21,29,.16)}
 .expertise-grid article{min-height:300px;padding:34px;background:#f2efe8;transition:background .25s ease,color .25s ease}.expertise-grid article:hover{background:#151922;color:#f4f2ed}.expertise-grid span{display:block;color:#b64e00;font-size:.75rem;font-weight:800;letter-spacing:.12em}.expertise-grid h3{max-width:440px;margin:82px 0 13px;font-size:clamp(1.5rem,2.5vw,2.4rem);letter-spacing:-.055em;line-height:1.02}.expertise-grid p{max-width:510px;margin:0;color:#555b64;font-size:.96rem;line-height:1.65}.expertise-grid article:hover p{color:#b8c0cb}
 .coverage{display:grid;grid-template-columns:.72fr 1.28fr;gap:50px;margin-top:46px;padding-top:28px;border-top:1px solid rgba(17,21,29,.16)}.coverage>p{margin:0;color:#b64e00;font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.coverage div{display:flex;flex-wrap:wrap;gap:10px}.coverage span{padding:9px 13px;border:1px solid rgba(17,21,29,.18);border-radius:999px;color:#292e36;font-size:.86rem;font-weight:600}
+/* Keep small orange text above 4.5:1 contrast on the light expertise surface. */
+.expertise .section-kicker,.expertise-grid span,.coverage>p{color:#a94700}
+.expertise-grid article:hover span{color:var(--orange)}
 @media(max-width:760px){.expertise{padding:80px 6vw}.expertise .section-heading,.coverage{grid-template-columns:1fr;gap:20px}.expertise-grid{grid-template-columns:1fr;margin-top:44px}.expertise-grid article{min-height:250px;padding:28px}.expertise-grid h3{margin-top:55px}}
 
 
@@ -91,6 +94,7 @@ body:has(.menu-details[open]){overflow:hidden}
 .audit-hero{max-width:1440px;margin:auto;padding:180px 5vw 70px;background:radial-gradient(circle at 85% 30%,rgba(255,122,26,.14),transparent 25%)}
 .audit-hero h1{font-size:clamp(3rem,6vw,6.2rem);max-width:1100px}
 .audit-hero-result{min-height:auto;padding:160px 5vw 40px}
+.audit-hero-result h1{font-size:clamp(2rem,4vw,3.8rem);line-height:1.1;margin:16px 0 24px}
 .audit-app{max-width:1440px;margin:auto;padding:0 5vw 60px}
 .audit-form{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:34px;display:flex;flex-direction:column;gap:18px}
 .audit-input-row{display:grid;grid-template-columns:1fr 190px;gap:14px}
@@ -108,6 +112,7 @@ body:has(.menu-details[open]){overflow:hidden}
 .audit-result{display:flex;flex-direction:column;gap:52px}
 .audit-result-head{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:34px}
 .audit-result-url{color:var(--orange);font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:.78rem}
+.audit-result-url{overflow-wrap:anywhere}
 .score-ring-wrap{position:relative;width:190px;height:190px}
 .score-ring-text{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .score-ring-text strong{font-size:3.4rem;line-height:.95;letter-spacing:-.06em}
@@ -131,6 +136,7 @@ body:has(.menu-details[open]){overflow:hidden}
 .audit-priorities li{padding:22px 0;border-bottom:1px solid var(--line)}
 .audit-priorities li:last-child{border-bottom:0}
 .audit-priority-head{display:flex;align-items:center;gap:14px}
+.audit-priority-head{flex-wrap:wrap}
 .audit-effort{font-size:.72rem;font-weight:800;background:rgba(255,122,26,.12);color:var(--orange);padding:5px 10px;border-radius:999px;white-space:nowrap}
 .audit-priority-head h3{margin:0;font-size:1.3rem;letter-spacing:-.03em}
 .audit-priority-why,.audit-priority-fix{color:var(--muted);line-height:1.65;font-size:.96rem;max-width:760px}
@@ -154,12 +160,16 @@ body:has(.menu-details[open]){overflow:hidden}
 .audit-score-static em{font-style:normal;color:var(--muted);font-size:.9rem;margin-top:6px}
 .audit-result-shared{padding:0 5vw 60px;display:flex;flex-direction:column;gap:52px}
 .audit-details{max-width:1440px;margin:0 auto;padding:36px 36px;background:var(--surface);border:1px solid var(--line);border-radius:24px}
+.audit-details{width:100%;min-width:0;overflow-x:auto}
 .audit-details summary{cursor:pointer;font-weight:700;font-size:1.05rem;display:flex;justify-content:space-between}
 .audit-details summary span{color:var(--orange)}
 .audit-table{width:100%;border-collapse:collapse;margin-top:22px;font-size:.92rem}
 .audit-table th{text-align:left;color:var(--muted);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);padding:10px 8px}
 .audit-table td{padding:13px 8px;border-bottom:1px solid var(--line);color:var(--muted);line-height:1.5;vertical-align:top}
 .audit-table td:first-child{color:var(--text);font-weight:600}
+.audit-table td{overflow-wrap:anywhere}
+.audit-table td.audit-status-ok{color:#6ad487}.audit-table td.audit-status-warn{color:#ffc36b}.audit-table td.audit-status-fail{color:#ff8f8f}
+.audit-repeat{align-self:flex-start;cursor:pointer}
 .audit-feature-grid{max-width:1440px;margin:auto;padding:110px 5vw 130px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
 .audit-feature-grid article{border-top:1px solid var(--line);padding-top:20px}
 .audit-feature-grid h2{font-size:clamp(1.6rem,2.6vw,2.4rem)}

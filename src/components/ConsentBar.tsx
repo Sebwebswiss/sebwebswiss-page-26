@@ -2,18 +2,15 @@
 
 import Link from "next/link";
 import { useSyncExternalStore } from "react";
-import { readConsent, sendPageView, setConsent, subscribeConsent } from "@/lib/ga";
-
-const UNKNOWN = " unknown";
+import { readConsent, serverConsentSnapshot, setConsent, subscribeConsent } from "@/lib/ga";
 
 export function ConsentBar() {
-  const stored = useSyncExternalStore(subscribeConsent, readConsent, () => UNKNOWN);
+  const stored = useSyncExternalStore(subscribeConsent, readConsent, serverConsentSnapshot);
 
   if (stored !== "") return null;
 
   function choose(value: "granted" | "denied") {
     setConsent(value);
-    if (value === "granted") sendPageView();
   }
 
   return (

@@ -14,9 +14,14 @@ const escapeHtml = (value: string) =>
     .replace(/'/g, "&#039;");
 
 export async function POST(request: Request) {
+  let body;
   try {
-    const body = await request.json();
-
+    body = await request.json();
+    if (!body || typeof body !== "object" || Array.isArray(body)) throw new Error("Invalid body");
+  } catch {
+    return NextResponse.json({ error: "Requête invalide." }, { status: 400 });
+  }
+  try {
     // Honeypot: botovi često popune skriveno polje "website".
     if (body.website) {
       return NextResponse.json({ ok: true });

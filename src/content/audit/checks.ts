@@ -18,6 +18,9 @@ export type Check = {
 export type CheckResult = Check & {
   status: CheckStatus;
   detail?: string;
+  detailKey?: string;
+  detailParams?: Record<string, string | number>;
+  detailNotes?: string[];
   evidence?: string;
 };
 

@@ -6,7 +6,7 @@ import { PageHero } from "@/components/PageHero";
 import { JsonLd } from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "À propos de SebWebSwiss — Sébastien, créateur de sites web",
+  title: "Sébastien, créateur de sites web à Lausanne",
   description: "SebWebSwiss, c’est Sébastien : création de sites web et référencement SEO à Lausanne, un accès direct et des explications claires pour vos projets.",
   alternates: { canonical: "/a-propos" },
   openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/a-propos" },

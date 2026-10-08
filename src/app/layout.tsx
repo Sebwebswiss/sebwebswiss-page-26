@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
-import Script from "next/script";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import { JsonLd } from "@/components/JsonLd";
 import { RouteTracker } from "@/components/RouteTracker";
@@ -8,6 +6,7 @@ import { ConsentBar } from "@/components/ConsentBar";
 import { EventTracker } from "@/components/EventTracker";
 import { business } from "@/content/business";
 import { openGraphDefaults } from "@/content/metadata";
+import { GA_ID } from "@/lib/ga";
 import "./globals.css";
 
 const sans = DM_Sans({ variable: "--font-sans", subsets: ["latin"], display: "optional" });
@@ -58,13 +57,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <JsonLd data={organizationSchema} />
         <script
           dangerouslySetInnerHTML={{
-            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied'});gtag('js',new Date());var _dbg=location.search.indexOf('debug_mode')>-1;gtag('config','G-F0EX3JLZC0',_dbg?{send_page_view:false,debug_mode:true}:{send_page_view:false});`,
+            __html: `window['ga-disable-${GA_ID}']=true;window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});gtag('js',new Date());`,
           }}
         />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-F0EX3JLZC0" strategy="afterInteractive" />
-        <Suspense>
-          <RouteTracker />
-        </Suspense>
+        <RouteTracker />
         <ConsentBar />
         <EventTracker />
         {children}

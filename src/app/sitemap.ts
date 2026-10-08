@@ -27,7 +27,6 @@ const paths = [
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages: MetadataRoute.Sitemap = paths.map((path) => ({
     url: `${business.url}${path}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
   }));
 

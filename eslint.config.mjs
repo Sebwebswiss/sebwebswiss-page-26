@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Archived Astro export is not part of the active Next.js application.
+    "astro/**",
   ]),
 ]);
 

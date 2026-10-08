@@ -1,22 +1,46 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
-import { getConsent, sendPageView } from "@/lib/ga";
+import Script from "next/script";
+import { useEffect, useRef, useSyncExternalStore } from "react";
+import {
+  configureAnalytics,
+  GA_ID,
+  getConsent,
+  readConsent,
+  sendPageView,
+  serverConsentSnapshot,
+  subscribeConsent,
+  syncConsent,
+} from "@/lib/ga";
 
 export function RouteTracker() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const lastUrl = useRef<string | null>(null);
+  const consent = useSyncExternalStore(subscribeConsent, readConsent, serverConsentSnapshot);
+  const initialViewSent = useRef(false);
 
   useEffect(() => {
-    const query = searchParams?.toString();
-    const url = query ? `${pathname}?${query}` : pathname;
-    if (lastUrl.current === url || getConsent() !== "granted") return;
+    syncConsent();
+    if (consent !== "granted") {
+      initialViewSent.current = false;
+      return;
+    }
+    configureAnalytics();
+  }, [consent]);
 
-    lastUrl.current = url;
+  function onReady() {
+    if (getConsent() !== "granted" || initialViewSent.current) return;
+    syncConsent();
+    configureAnalytics();
+    initialViewSent.current = true;
     sendPageView();
-  }, [pathname, searchParams]);
+  }
 
-  return null;
+  // Prvi prikaz šaljemo nakon privole i učitavanja taga. SPA navigaciju prati
+  // GA4 Enhanced Measurement (history events); drugi ručni izvor bi duplirao hitove.
+  return consent === "granted" ? (
+    <Script
+      src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+      strategy="afterInteractive"
+      onReady={onReady}
+    />
+  ) : null;
 }

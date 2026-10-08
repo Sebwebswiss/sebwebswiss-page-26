@@ -1,5 +1,6 @@
 import { lookup } from "node:dns/promises";
 import type { LookupAddress } from "node:dns";
+import { isIP } from "node:net";
 
 export const MAX_BYTES = 2 * 1024 * 1024;
 export const MAX_REDIRECTS = 3;
@@ -30,56 +31,22 @@ function parseIPv4(s: string): number | null {
 }
 
 function parseIPv6(s: string): bigint | null {
-  const str = s.replace(/^\[|\]$/g, "");
-
-  // IPv4-mapped/in-addr IPv6: ::ffff:192.168.1.1 or ::192.168.1.1
-  const v4Tail = str.match(/^(.+):(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$/);
-  let v4part: number | null = null;
-  let head: string;
+  let str = s.replace(/^\[|\]$/g, "");
+  if (isIP(str) !== 6) return null;
+  const v4Tail = str.match(/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})$/);
   if (v4Tail) {
-    v4part = parseIPv4(v4Tail[2]);
+    const v4part = parseIPv4(v4Tail[1]);
     if (v4part === null) return null;
-    head = v4Tail[1];
-  } else {
-    head = str;
+    str = str.slice(0, -v4Tail[1].length) + `${(v4part >>> 16).toString(16)}:${(v4part & 0xffff).toString(16)}`;
   }
-
-  const halves = head.split("::");
-  if (halves.length > 2) return null;
-
-  const parseGroups = (part: string): string[] | null => {
-    if (part === "") return [];
-    const groups = part.split(":");
-    if (groups.length === 0) return null;
-    for (const g of groups) {
-      if (g.length > 4 || !/^[0-9a-fA-F]{1,4}$/.test(g)) return null;
-    }
-    return groups.map((g) => g.toUpperCase().padStart(4, "0"));
-  };
-
-  const isCompressed = str.includes("::");
-  let left: string[] = [];
-  let right: string[] = [];
-  if (halves.length === 2) {
-    left = parseGroups(halves[0]) ?? [];
-    right = parseGroups(halves[1]) ?? [];
-  } else {
-    left = parseGroups(head) ?? [];
-  }
-
-  if (parseGroups(head) === null) return null;
-  const totalKnown = left.length + right.length;
-  if (isCompressed && totalKnown >= IPV6_GROUPS) return null;
-  if (!isCompressed && totalKnown !== IPV6_GROUPS) return null;
-  const fill = IPV6_GROUPS - totalKnown;
-
+  const [leftPart, rightPart] = str.split("::");
+  const left = leftPart ? leftPart.split(":") : [];
+  const right = rightPart ? rightPart.split(":") : [];
+  const fill = IPV6_GROUPS - left.length - right.length;
   let n = BigInt(0);
-  const all = [...left, ...Array(fill).fill("0000"), ...right];
+  const all = [...left, ...Array(fill).fill("0"), ...right];
   for (const group of all) {
     n = (n << B16) | BigInt("0x" + group);
-  }
-  if (v4part !== null) {
-    n = (n & BigInt(0xffffffffffffffffffffffff00000000)) | BigInt(v4part);
   }
   return n;
 }
@@ -125,7 +92,7 @@ function isPrivateIPv6(n: bigint): boolean {
   return false;
 }
 
-async function resolveAndCheck(host: string): Promise<void> {
+async function resolveAndCheck(host: string, signal: AbortSignal): Promise<void> {
   const clean = host.replace(/^\[|\]$/g, "");
 
   // Literal IPv4
@@ -145,22 +112,33 @@ async function resolveAndCheck(host: string): Promise<void> {
   }
 
   let addresses: LookupAddress[];
+  let onAbort = () => {};
   try {
-    addresses = await lookup(clean, { all: true, verbatim: true });
+    signal.throwIfAborted();
+    const aborted = new Promise<never>((_, reject) => {
+      onAbort = () => reject(signal.reason);
+      signal.addEventListener("abort", onAbort, { once: true });
+    });
+    addresses = await Promise.race([lookup(clean, { all: true, verbatim: true }), aborted]);
   } catch {
+    signal.throwIfAborted();
     throw new FetchError("Impossible de résoudre le domaine.");
+  } finally {
+    signal.removeEventListener("abort", onAbort);
   }
 
   for (const a of addresses) {
     if (a.family === 4) {
       const v4 = parseIPv4(a.address);
-      if (v4 !== null && isPrivateIPv4(v4)) {
+      if (v4 === null) throw new FetchError("Adresse IPv4 invalide dans le DNS.");
+      if (isPrivateIPv4(v4)) {
         throw new SsrfError(`Adresse interne interdite : ${a.address}`);
       }
     }
     if (a.family === 6) {
       const ipv6n = parseIPv6(a.address);
-      if (ipv6n !== null && isPrivateIPv6(ipv6n)) {
+      if (ipv6n === null) throw new FetchError("Adresse IPv6 invalide dans le DNS.");
+      if (isPrivateIPv6(ipv6n)) {
         throw new SsrfError(`Adresse interne interdite : ${a.address}`);
       }
     }
@@ -198,6 +176,8 @@ export async function fetchSite(inputUrl: string, timeoutMs: number = FETCH_TIME
   let status = 0;
   let finalUrl = current;
   const startedAt = Date.now();
+  // Une seule limite pour toute la chaîne, pas 8 secondes par redirection.
+  const signal = AbortSignal.timeout(timeoutMs);
 
   for (let redirects = 0; redirects <= MAX_REDIRECTS; redirects++) {
     let parsed: URL;
@@ -214,12 +194,14 @@ export async function fetchSite(inputUrl: string, timeoutMs: number = FETCH_TIME
     )
       throw new SsrfError("Nom d’hôte interne interdit.");
     if (parsed.username || parsed.password) throw new SsrfError("URL avec identifiants interdite.");
-    await resolveAndCheck(parsed.hostname);
+    signal.throwIfAborted();
+    await resolveAndCheck(parsed.hostname, signal);
+    signal.throwIfAborted();
 
     const res = await fetch(current, {
       redirect: "manual",
       headers: { "user-agent": USER_AGENT, accept: "text/html,application/xhtml+xml,*/*" },
-      signal: AbortSignal.timeout(timeoutMs),
+      signal,
     });
 
     status = res.status;

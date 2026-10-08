@@ -1,14 +1,13 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
-import { randomUUID } from "node:crypto";
+import { createHash } from "node:crypto";
 import { getAudit, saveLead, StorageUnavailableError } from "@/lib/redis";
 import type { StoredLead } from "@/lib/redis";
 import { buildReportHtml } from "@/lib/audit/report";
+import { normalizeLang, t } from "@/content/audit/translations";
 
 export const runtime = "nodejs";
 export const maxDuration = 20;
-
-const LANGS = ["fr", "de", "it", "en"];
 
 const emailIsValid = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
@@ -16,44 +15,57 @@ export async function POST(req: Request) {
   let body: { auditId?: unknown; email?: unknown; consent?: unknown; lang?: unknown };
   try {
     body = await req.json();
+    if (!body || typeof body !== "object" || Array.isArray(body)) throw new Error("Invalid body");
   } catch {
-    return NextResponse.json({ error: "Requête invalide." }, { status: 400 });
+    return NextResponse.json({ error: t("fr").errorRequest }, { status: 400 });
   }
 
+  const lang = normalizeLang(body.lang);
+  const ui = t(lang);
+
   if (typeof body.auditId !== "string" || !body.auditId) {
-    return NextResponse.json({ error: "Résultat introuvable." }, { status: 400 });
+    return NextResponse.json({ error: ui.errorResult }, { status: 400 });
   }
-  if (typeof body.email !== "string" || !emailIsValid(body.email.trim())) {
-    return NextResponse.json({ error: "Veuillez indiquer une adresse e-mail valide." }, { status: 400 });
+  if (typeof body.email !== "string" || body.email.trim().length > 254 || !emailIsValid(body.email.trim())) {
+    return NextResponse.json({ error: ui.errorEmail }, { status: 400 });
   }
   if (body.consent !== true) {
-    return NextResponse.json({ error: "Votre consentement est nécessaire pour recevoir le rapport." }, { status: 400 });
+    return NextResponse.json({ error: ui.errorConsent }, { status: 400 });
   }
 
   const email = body.email.trim().toLowerCase().slice(0, 254);
-  const lang = typeof body.lang === "string" && LANGS.includes(body.lang) ? body.lang : "fr";
 
   let audit;
   try {
     audit = await getAudit(body.auditId);
   } catch (error) {
     if (error instanceof StorageUnavailableError) {
-      return NextResponse.json({ error: "Service temporairement indisponible." }, { status: 503 });
+      return NextResponse.json({ error: ui.errorService }, { status: 503 });
     }
     throw error;
   }
   if (!audit) {
-    return NextResponse.json({ error: "Ce résultat n’est plus disponible." }, { status: 404 });
+    return NextResponse.json({ error: ui.errorResult }, { status: 404 });
   }
 
-  if (typeof process.env.RESEND_API_KEY !== "string") {
-    return NextResponse.json({ error: "Configuration e-mail manquante." }, { status: 500 });
+  if (!process.env.RESEND_API_KEY?.trim()) {
+    return NextResponse.json({ error: ui.errorMailConfig }, { status: 503 });
   }
 
   const resend = new Resend(process.env.RESEND_API_KEY);
+  const deliveryId = createHash("sha256").update(`${audit.id}:${email}:${lang}`).digest("hex");
+  const resultUrl = `https://sebwebswiss.ch/check-up-site-web/r/${encodeURIComponent(audit.id)}?lang=${lang}`;
+  const message = {
+    from: "SebWebSwiss <contact@sebwebswiss.ch>",
+    to: [email],
+    subject: ui.emailSubject.replace("{score}", String(audit.score.total)),
+    html: buildReportHtml({ ...audit, lang }),
+    text: ui.emailText.replace("{score}", String(audit.score.total)).replace("{url}", resultUrl),
+  };
+  const messageId = createHash("sha256").update(JSON.stringify(message)).digest("hex");
 
   const lead: StoredLead = {
-    id: randomUUID(),
+    id: deliveryId,
     auditId: audit.id,
     email,
     consent: true,
@@ -61,23 +73,18 @@ export async function POST(req: Request) {
     createdAt: new Date().toISOString(),
   };
 
-  const { error } = await resend.emails.send({
-    from: "SebWebSwiss <contact@sebwebswiss.ch>",
-    to: [email],
-    subject: `Votre check-up SEO & visibilité locale — ${audit.score.total}/100`,
-    html: buildReportHtml(audit),
-    text: `Votre score : ${audit.score.total}/100.\n\nConsultez le rapport détaillé sur https://sebwebswiss.ch/check-up-site-web/r/${audit.id}\n\nSebWebSwiss — Lausanne · Suisse romande`,
-  });
-
-  if (error) {
-    return NextResponse.json({ error: "L’envoi a échoué. Veuillez réessayer." }, { status: 502 });
+  try {
+    const { error } = await resend.emails.send(message, { idempotencyKey: `checkup-report-${messageId}` });
+    if (error) throw new Error("Email delivery failed");
+  } catch {
+    return NextResponse.json({ error: ui.errorMailDelivery }, { status: 502 });
   }
 
   try {
     await saveLead(lead);
   } catch (storageError) {
     if (storageError instanceof StorageUnavailableError) {
-      return NextResponse.json({ error: "Service temporairement indisponible." }, { status: 503 });
+      return NextResponse.json({ error: ui.errorService }, { status: 503 });
     }
     throw storageError;
   }

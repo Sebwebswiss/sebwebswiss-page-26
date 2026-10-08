@@ -1,44 +1,58 @@
 import type { Metadata } from "next";
+import { cache } from "react";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import type { Lang } from "@/content/audit/checks";
 import { getAudit, StorageUnavailableError } from "@/lib/redis";
-import { moduleMeta } from "@/content/audit/checks";
-import { t } from "@/content/audit/translations";
+import { normalizeLang, statusLabel, t } from "@/content/audit/translations";
+import { localizeCheck } from "@/content/audit/checkTranslations";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
-export const metadata: Metadata = {
-  title: "Résultat du check-up site web",
-  description: "Score et priorités du check-up SEO & visibilité locale.",
-  robots: { index: false, follow: false },
-};
+type Props = { params: Promise<{ id: string }>; searchParams: Promise<{ lang?: string | string[] }> };
+const loadAudit = cache(getAudit);
 
-const statusLabel: Record<string, string> = { ok: "OK", warn: "À vérifier", fail: "À corriger" };
 const statusClass: Record<string, string> = { ok: "audit-status-ok", warn: "audit-status-warn", fail: "audit-status-fail" };
-const gradeColor: Record<string, string> = { bad: "#b42318", fair: "#b76e00", good: "#1a7f37", excellent: "#1a7f37" };
+const gradeColor: Record<string, string> = { bad: "#ff8f8f", fair: "#ffc36b", good: "#6ad487", excellent: "#6ad487" };
 
-export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { id } = await params;
+  const query = await searchParams;
+  let lang = normalizeLang(query.lang);
+  try {
+    const audit = await loadAudit(id);
+    lang = normalizeLang(query.lang, normalizeLang(audit?.lang));
+  } catch (error) {
+    if (!(error instanceof StorageUnavailableError)) throw error;
+  }
+  const ui = t(lang);
+  return { title: ui.resultHeading, description: ui.reportDescription, robots: { index: false, follow: false } };
+}
+
+export default async function Page({ params, searchParams }: Props) {
+  const { id } = await params;
+  const query = await searchParams;
   let audit;
   try {
-    audit = await getAudit(id);
+    audit = await loadAudit(id);
   } catch (error) {
     if (error instanceof StorageUnavailableError) {
+      const lang = normalizeLang(query.lang);
+      const ui = t(lang);
       return (
         <>
           <Header />
-          <main>
+          <main lang={lang}>
             <section className="audit-hero audit-hero-result">
-              <p className="eyebrow"><span /> RESULTAT DU CHECK-UP</p>
-              <p className="audit-result-url">Service temporairement indisponible</p>
+              <p className="eyebrow"><span /> {ui.checkedBy}</p>
+              <h1>{ui.resultHeading}</h1>
             </section>
             <section className="audit-result audit-result-shared">
-              <p className="audit-all-ok">Réessayez dans quelques minutes.</p>
+              <p className="audit-error" role="alert">{ui.errorService}</p>
               <div className="audit-result-cta">
-                <a className="button primary" href="/check-up-site-web">Refaire un check-up <span>↗</span></a>
+                <Link className="button primary" href="/check-up-site-web">{ui.repeatCheckup} <span>↗</span></Link>
               </div>
             </section>
           </main><Footer />
@@ -49,15 +63,20 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   }
   if (!audit) notFound();
 
-  const lang: Lang = ["fr", "de", "it", "en"].includes(audit.lang) ? (audit.lang as Lang) : "fr";
+  const lang = normalizeLang(query.lang, normalizeLang(audit.lang));
   const ui = t(lang);
+  const checks = audit.checks.map(check => localizeCheck(check, lang));
+  const legacy = lang !== "fr" && audit.checks.some(check => !check.detailKey && check.detail);
+  const priorities = audit.priorities.map(priority => ({ ...priority, check: localizeCheck(priority.check, lang) }));
 
   return (
     <>
       <Header />
-      <main>
+      <main lang={lang}>
         <section className="audit-hero audit-hero-result">
-          <p className="eyebrow"><span /> RESULTAT DU CHECK-UP</p>
+          <p className="eyebrow"><span /> {ui.checkedBy}</p>
+          <h1>{ui.resultHeading}</h1>
+          {legacy && <p className="audit-note">{ui.legacyReport}</p>}
           <p className="audit-result-url">{audit.url.replace(/^https:\/\//, "").replace(/\/$/, "")}</p>
           <div className="audit-score-static" style={{ "--grade-color": gradeColor[audit.score.grade] } as React.CSSProperties}>
             <strong>{audit.score.total}</strong>
@@ -68,10 +87,11 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
         <section className="audit-result audit-result-shared">
           <div className="audit-modules">
+            <h2 className="sr-only">{ui.modulesTitle}</h2>
             {audit.score.modules.map((m) => (
               <article className="audit-module" key={m.module}>
                 <div>
-                  <p className="audit-module-kicker">{moduleMeta[m.module].title}</p>
+                  <p className="audit-module-kicker">{ui.modules[m.module]}</p>
                   <h3>{m.points}<small>/{m.max}</small></h3>
                 </div>
                 <span className={`audit-module-status ${m.status === "ok" ? "audit-status-ok" : m.status === "warn" ? "audit-status-warn" : "audit-status-fail"}`}>
@@ -82,14 +102,14 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           </div>
 
           <div className="audit-priorities-block">
-            <p className="section-kicker">PRIORITÉS</p>
+            <p className="section-kicker">{ui.prioritiesKicker}</p>
             <h2>{ui.prioritiesTitle}</h2>
-            {audit.priorities.length ? (
+            {priorities.length ? (
               <ol className="audit-priorities">
-                {audit.priorities.map((p) => (
+                {priorities.map((p) => (
                   <li key={p.check.id}>
                     <div className="audit-priority-head">
-                      <span className="audit-effort">{p.effortLabel}</span>
+                      <span className="audit-effort">{ui.efforts[p.check.effort]}</span>
                       <h3>{p.check.label}</h3>
                     </div>
                     <p className="audit-priority-why">{ui.priority.why} : {p.check.detail}</p>
@@ -103,15 +123,15 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
           </div>
 
           <details className="audit-details">
-            <summary>Toutes les vérifications <span>+</span></summary>
+            <summary>{ui.checksTitle} <span>+</span></summary>
             <table className="audit-table">
-              <thead><tr><th>Vérification</th><th>Détail</th><th>Statut</th></tr></thead>
+              <thead><tr><th>{ui.checkColumn}</th><th>{ui.detailColumn}</th><th>{ui.statusColumn}</th></tr></thead>
               <tbody>
-                {audit.checks.map((c) => (
+                {checks.map((c) => (
                   <tr key={c.id}>
                     <td>{c.label}</td>
                     <td>{c.detail ?? ""}</td>
-                    <td className={statusClass[c.status] ?? ""}>{statusLabel[c.status] ?? ""}</td>
+                    <td className={statusClass[c.status] ?? ""}>{statusLabel(c.status, lang)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -123,7 +143,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
 
           <div className="audit-result-cta">
             <p>{ui.ctaTitle}</p>
-            <a className="button primary" href="/contact">{ui.ctaButton} <span>↗</span></a>
+            <Link className="button primary" href="/contact">{ui.ctaButton} <span>↗</span></Link>
           </div>
         </section>
       </main><Footer />

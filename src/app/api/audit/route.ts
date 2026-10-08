@@ -9,12 +9,11 @@ import { computeScore } from "@/lib/audit/score";
 import { computePriorities } from "@/lib/audit/prioritize";
 import { consumeRate, saveAudit, StorageUnavailableError } from "@/lib/redis";
 import type { CheckResult } from "@/content/audit/checks";
-import { t } from "@/content/audit/translations";
+import { normalizeLang, t } from "@/content/audit/translations";
+import { localizeCheck } from "@/content/audit/checkTranslations";
 
 export const runtime = "nodejs";
 export const maxDuration = 20;
-
-const LANGS = ["fr", "de", "it", "en"];
 
 function getClientIp(req: Request): string {
   const forwarded = req.headers.get("x-vercel-forwarded-for") ?? req.headers.get("x-forwarded-for");
@@ -43,15 +42,15 @@ function normalizeHost(url: string): string {
   }
 }
 
-async function fetchOptionalText(url: string): Promise<string | null> {
+async function fetchOptionalText(url: string): Promise<{ text: string | null; status: number | null }> {
   try {
     const res = await fetchSite(url, 4000);
-    if (res.status !== 200) return null;
+    if (res.status !== 200) return { text: null, status: res.status };
     const type = res.headers["content-type"] ?? "";
-    if (/text\/html/i.test(type)) return null;
-    return res.html.slice(0, 200_000);
+    if (/text\/html/i.test(type)) return { text: null, status: res.status };
+    return { text: res.html.slice(0, 200_000), status: res.status };
   } catch {
-    return null;
+    return { text: null, status: null };
   }
 }
 
@@ -59,20 +58,22 @@ export async function POST(req: Request) {
   let body: { url?: unknown; lang?: unknown };
   try {
     body = await req.json();
+    if (!body || typeof body !== "object" || Array.isArray(body)) throw new Error("Invalid body");
   } catch {
     return NextResponse.json({ error: t("fr").errorUrl }, { status: 400 });
   }
 
+  const lang = normalizeLang(body.lang);
+  const ui = t(lang);
   if (typeof body.url !== "string") {
-    return NextResponse.json({ error: t("fr").errorUrl }, { status: 400 });
+    return NextResponse.json({ error: ui.errorUrl }, { status: 400 });
   }
 
   const url = normalizeUrl(body.url);
   if (!url) {
-    return NextResponse.json({ error: t("fr").errorUrl }, { status: 400 });
+    return NextResponse.json({ error: ui.errorUrl }, { status: 400 });
   }
 
-  const lang = typeof body.lang === "string" && LANGS.includes(body.lang) ? body.lang : "fr";
   const host = normalizeHost(url);
   const ip = getClientIp(req);
 
@@ -85,7 +86,7 @@ export async function POST(req: Request) {
       hour = 0;
     }
     if (hour > 5) {
-      return NextResponse.json({ error: t("fr").errorRate }, { status: 429 });
+      return NextResponse.json({ error: ui.errorRate }, { status: 429 });
     }
     let day: number;
     try {
@@ -95,11 +96,11 @@ export async function POST(req: Request) {
       day = 0;
     }
     if (day > 20) {
-      return NextResponse.json({ error: t("fr").errorRate }, { status: 429 });
+      return NextResponse.json({ error: ui.errorRateDay }, { status: 429 });
     }
   } catch (error) {
     if (error instanceof StorageUnavailableError) {
-      return NextResponse.json({ error: t("fr").errorService }, { status: 503 });
+      return NextResponse.json({ error: ui.errorService }, { status: 503 });
     }
     // never hard-fail on rate limiter unavailability
   }
@@ -114,9 +115,13 @@ export async function POST(req: Request) {
       fetchOptionalText(`${origin}/llms.txt`),
     ]);
 
-    const checks: CheckResult[] = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, { robotsTxt, llmsTxt })];
+    const checks: CheckResult[] = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, {
+      robotsTxt: robotsTxt.text,
+      robotsStatus: robotsTxt.status,
+      llmsTxt: llmsTxt.text,
+    })].map(check => localizeCheck(check, lang));
     const score = computeScore(checks);
-    const priorities = computePriorities(checks, 3);
+    const priorities = computePriorities(checks, 3).map(priority => ({ ...priority, effortLabel: ui.efforts[priority.check.effort] }));
 
     const id = randomUUID();
     const audit = {
@@ -143,9 +148,8 @@ export async function POST(req: Request) {
     });
   } catch (error) {
     if (error instanceof StorageUnavailableError) {
-      return NextResponse.json({ error: t("fr").errorService }, { status: 503 });
+      return NextResponse.json({ error: ui.errorService }, { status: 503 });
     }
-    const message = error instanceof Error ? error.message : t("fr").errorGeneric;
-    return NextResponse.json({ error: message }, { status: 422 });
+    return NextResponse.json({ error: ui.errorGeneric }, { status: 422 });
   }
 }
