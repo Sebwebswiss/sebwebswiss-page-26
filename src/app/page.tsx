@@ -54,7 +54,7 @@ export default function Home() {
         closes: business.hours.closes,
       },
     ],
-    sameAs: [business.social.facebook, business.social.youtube, business.social.tiktok],
+    sameAs: [business.social.linkedin, business.social.x, business.social.facebook, business.social.youtube, business.social.tiktok],
   };
 
   return (

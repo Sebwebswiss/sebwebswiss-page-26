@@ -49,7 +49,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       addressLocality: business.locality,
       addressCountry: business.country,
     },
-    sameAs: [business.social.facebook, business.social.youtube, business.social.tiktok],
+    sameAs: [business.social.linkedin, business.social.x, business.social.facebook, business.social.youtube, business.social.tiktok],
   };
   return (
     <html lang="fr" className={`${sans.variable} ${serif.variable}`}>

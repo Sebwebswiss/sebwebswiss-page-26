@@ -8,7 +8,10 @@ import { articles } from "@/content/articles";
 export const metadata: Metadata = {
   title: "Blog : conseils SEO et création web",
   description: "Guides pratiques sur le référencement SEO, la création de sites web et la performance, rédigés par Sébastien pour les entreprises de Suisse romande.",
-  alternates: { canonical: "/blog" },
+  alternates: {
+    canonical: "/blog",
+    types: { "application/rss+xml": [{ url: "/blog/feed.xml", title: "Blog SebWebSwiss" }] },
+  },
   openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/blog" },
 };
 

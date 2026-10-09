@@ -187,3 +187,21 @@ body:has(.menu-details[open]){overflow:hidden}
 .audit-privacy-note{margin:14px 0 0;color:#8b93a1;font-size:.8rem;line-height:1.55}
 .audit-privacy-note a{color:var(--orange);text-decoration:underline}
 @media(max-width:760px){.consent-bar{flex-direction:column;align-items:flex-start;gap:12px;padding:14px 6vw}.consent-actions{width:100%}.consent-actions button{flex:1}}
+
+/* ===== Blog : author box + follow block (B3/B1) ===== */
+.author-box{max-width:860px;margin:auto;padding:30px 5vw 70px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px}
+.author-box .author-name{margin:0;font-size:1.35rem;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.author-box .author-name span{color:var(--muted);font-weight:600}
+.author-box .author-bio{margin:0;color:var(--muted);line-height:1.75;font-size:1rem;max-width:74ch}
+.author-box .author-links{margin:8px 0 0;display:flex;gap:20px}
+.author-box .author-links a{color:var(--orange);font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:2px}
+.article-follow{max-width:860px;margin:auto;padding:0 5vw 90px}
+.article-follow>div{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:26px 28px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px}
+.article-follow .follow-title{margin:0;font-weight:800;letter-spacing:-.02em;font-size:1.15rem}
+.article-follow .follow-note{margin:3px 0 0;color:var(--muted);font-size:.88rem}
+.article-follow .follow-links{display:flex;flex-wrap:wrap;gap:10px}
+.article-follow .follow-links a{border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:.78rem;font-weight:700;color:var(--text);text-decoration:none}
+.article-follow .follow-links a:hover{border-color:var(--orange);color:var(--orange)}
+@media(max-width:760px){.author-box{padding:30px 6vw 55px}.article-follow{padding:0 6vw 75px}.article-follow>div{flex-direction:column;align-items:flex-start;padding:22px 20px}}
+/* Uski ekrani (<400px): najduže riječi u hero H1 (npr. «référencement») ne staju pri 3.1rem bez horizontalnog overflowa */
+@media(max-width:400px){.page-hero h1{font-size:2.6rem}}

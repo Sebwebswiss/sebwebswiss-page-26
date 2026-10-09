@@ -23,7 +23,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: snippet.title,
     description: snippet.description,
-    alternates: { canonical: `/blog/${article.slug}` },
+    alternates: {
+      canonical: `/blog/${article.slug}`,
+      types: { "application/rss+xml": [{ url: "/blog/feed.xml", title: "Blog SebWebSwiss" }] },
+    },
     openGraph: {
       type: "article",
       siteName: "SebWebSwiss",

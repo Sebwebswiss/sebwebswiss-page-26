@@ -2038,6 +2038,345 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "consultant-seo-ou-agence-seo-lausanne",
+    kicker: "CONSULTANT VS AGENCE",
+    title: "Consultant SEO ou agence SEO : que choisir à Lausanne en 2026 ?",
+    description: "Consultant ou agence SEO à Lausanne : différences concrètes, budgets, quand l’un est préférable à l’autre et les points à vérifier avant de signer un devis.",
+    intro: "Réponse courte : choisissez un consultant SEO indépendant si vous voulez un interlocuteur unique, un budget maîtrisé et des décisions rapides ; choisissez une agence si vous devez mener de front plusieurs chantiers — développement, contenu, netlinking — avec une équipe complète. Le reste du choix, et il compte, se joue sur vos objectifs et l’état de votre site.",
+    excerpt: "Interlocuteur unique et budget maîtrisé contre capacité de traitement d’une équipe : les différences concrètes entre consultant et agence SEO, et comment trancher pour une PME de Lausanne.",
+    datePublished: "2026-10-09",
+    dateModified: "2026-10-09",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-consultant-vs-agence-seo.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Un consultant est une personne, une agence est une équipe. Le premier gagne en proximité, en réactivité et en coût ; la seconde en capacité de traitement simultané. Pour une PME locale, le consultant couvre la majorité des besoins ; l’agence devient pertinente quand le volume de travail dépasse ce qu’une personne peut suivre seule." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Quelle est la différence concrète entre un consultant et une agence ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Un consultant SEO indépendant, c’est une seule et même personne qui analyse votre site, décide des actions et les réalise — ou vous explique exactement pourquoi elle délègue une pièce précise du travail. Une agence, c’est une équipe : un chef de projet qui coordonne, un profil technique, un rédacteur, parfois un profil netlinking et un analyste." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La conséquence n’est ni théorique ni anecdotique : chez un consultant, la personne qui vous parle est celle qui travaille ; dans une agence, la personne qui vous parle coordonne celles qui travaillent. Les deux modèles peuvent très bien faire le travail — mais pas pour les mêmes besoins." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Quand un consultant SEO est-il le meilleur choix ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Dans la majorité des situations d’une PME de Suisse romande : un site vitrine ou un petit catalogue, un budget à maîtriser et un besoin de résultats mesurés plutôt que massifs. Le consultant est le bon niveau d’accompagnement quand :" },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "vous voulez un interlocuteur unique : la même personne du premier audit au suivi, sans transmission de dossier",
+          "votre budget doit rester lisible : pas de couche de coordination à financer en plus du travail lui-même",
+          "vos priorités bougent : le plan s’ajuste dans la foulée, sans réunion d’équipe",
+          "vous voulez comprendre ce qui est fait : un consultant explique ses choix directement, sans intermédiaire",
+          "votre site est un site vitrine ou un petit e-commerce — le cœur du besoin est la technique et le contenu, pas le volume",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Quand une agence SEO est-elle préférable ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "L’agence reprend l’avantage quand le volume ou la simultanéité dépasse une personne. Pensez agence quand :" },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "un e-commerce de plusieurs centaines ou milliers de pages doit être traité en profondeur et en parallèle",
+          "vous visez plusieurs marchés ou plusieurs langues en même temps, avec des contenus distincts",
+          "les mentions extérieures doivent être produites en volume — campagnes, partenariats, relations presse",
+          "vous avez déjà une équipe interne : il faut coordonner développeurs, marketing et prestataires",
+          "vous sortez d’une pénalité ou d’une chute de trafic qui demande plusieurs spécialistes mobilisés en même temps",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Et le prix : qui coûte moins cher, le consultant ou l’agence ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "À périmètre égal, le consultant est généralement moins cher — il n’a pas de structure d’équipe à couvrir. Mais attention à la comparaison : un devis d’agence couvre parfois un périmètre plus large que un devis de consultant, et un périmètre plus large coûte plus, quel que soit le modèle. Comparez des devis ligne par ligne, jamais des étiquettes." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Les fourchettes détaillées — audit ponctuel, SEO local, accompagnement mensuel, refonte — sont dans l’article " },
+          { text: "Combien coûte le référencement SEO en Suisse en 2026 ?", link: "/blog/combien-coute-referencement-seo-suisse" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que je constate chez les PME de Lausanne et du canton de Vaud",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La plupart des entreprises que je rencontre dans la région n’ont pas un problème de volume : elles ont un problème de base. Un site techniquement propre, des pages qui répondent aux vraies questions des clients, une fiche Google Business Profile tenue à jour — et les demandes arrivent déjà davantage. C’est le cœur du travail d’un " },
+          { text: "consultant SEO à Lausanne", link: "/services/consultant-seo-lausanne" },
+          { text: " : des fondations solides et un suivi régulier, pas une usine à contenu." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est aussi pour cela que la question « consultant ou agence » se répond mal à froid. La vraie question est : qu’est-ce qui bloque aujourd’hui ? Un " },
+          { text: "check-up gratuit", link: "/check-up-site-web" },
+          { text: " donne cette réponse en quelques minutes, bien avant de comparer des devis." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Comment vérifier un prestataire avant de signer, consultant ou agence ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le modèle compte moins que la méthode. Quel que soit l’interlocuteur, vérifiez ces points avant de vous engager — ils séparent le travail sérieux de la prestation standardisée." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "des livrables nommés : ce que vous recevez, en combien de temps, écrit noir sur blanc",
+          "une méthode de mesure : Search Console, impressions, positions — et un point de suivi régulier",
+          "des exemples de situations comparables à la vôtre, avec ce qui a été fait concrètement",
+          "des réponses claires à vos questions techniques — la transparence sur les limites vaut mieux qu’une assurance totale",
+          "un audit initial avant tout engagement de fond : personne ne peut promettre un plan sérieux sans avoir regardé votre site",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Si vous hésitez encore entre les deux formules, " },
+          { text: "posez-moi la question directement", link: "/contact" },
+          { text: " — avec votre site sous les yeux, la réponse tient en dix minutes." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Un consultant SEO seul peut-il rivaliser avec une agence ?", "Sur le périmètre d’une PME locale — technique, contenu, recherche locale — oui : une personne expérimentée couvre l’essentiel. L’écart se joue sur le volume simultané : sur un gros e-commerce multi-marchés, l’équipe garde l’avantage."],
+          ["Une agence est-elle forcément plus chère qu’un consultant ?", "Pas forcément, mais à périmètre égal, une structure d’équipe se paie. Comparez toujours les devis ligne par ligne : le moins cher n’est pas un problème si les livrables sont nommés ; le plus cher doit se justifier par un périmètre plus large."],
+          ["Que se passe-t-il si mon consultant SEO arrête son activité ?", "Un prestataire sérieux documente son travail : accès aux outils, historique des actions, plan écrit. Avant de signer, demandez ce qui vous reste si la collaboration s’arrête — la réponse doit être « tout » : vos comptes, vos données, votre plan."],
+          ["Comment savoir si mon prestataire travaille vraiment ?", "Par la mesure et par la transparence : impressions dans Search Console, positions sur les requêtes cibles, actions listées à chaque point. Une prestation sans indicateur suivi ni compte-rendu n’est pas mesurable — donc pas vérifiable."],
+          ["Faut-il un prestataire à Lausanne ou à distance ?", "Le travail technique se fait très bien à distance ; la connaissance du marché romand, elle, se sent dans le contenu et dans les recommandations locales. L’idéal est un interlocuteur qui connaît la région et mesure aussi proprement qu’un prestataire à distance."],
+          ["Un petit budget exclut-il le SEO ?", "Non. Un audit ponctuel suivi de corrections ciblées est souvent le meilleur premier pas, bien avant un accompagnement mensuel. Commencez par savoir où vous en êtes — le reste se planifie avec un budget juste."],
+        ],
+      },
+    ],
+  },
+  {
+    slug: "combien-coute-referencement-seo-suisse",
+    kicker: "BUDGET SEO",
+    title: "Combien coûte le référencement SEO en Suisse en 2026 ? Prix, budgets et exemples",
+    description: "Les fourchettes réelles du SEO en Suisse : audit ponctuel, SEO local, accompagnement mensuel, refonte optimisée, ce qui fait varier les devis et comment les comparer.",
+    intro: "Réponse courte : comptez environ 500 à 2 500 CHF pour un audit SEO ponctuel, 300 à 800 CHF par mois pour un SEO local, 800 à 3 000 CHF par mois pour un accompagnement complet et à partir de 3 000 CHF pour une refonte optimisée SEO. L’écart dans chaque fourchette ne vient pas d’un mystère : il vient de l’état de votre site, de vos objectifs et du volume de travail.",
+    excerpt: "Audit ponctuel, SEO local, accompagnement mensuel, refonte : les fourchettes de prix du référencement en Suisse, ce qui fait varier les devis et comment les lire.",
+    datePublished: "2026-10-09",
+    dateModified: "2026-10-09",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-prix-seo-suisse.png",
+    sections: [
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Audit ponctuel : environ 500 à 2 500 CHF. SEO local : 300 à 800 CHF par mois. Accompagnement mensuel complet : 800 à 3 000 CHF par mois. Refonte optimisée SEO : à partir de 3 000 CHF. Ces fourchettes sont indicatives et observées sur le marché suisse — un devis sérieux se construit sur votre site, pas sur une grille toute faite." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Que payez-vous exactement quand vous achetez du référencement ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Derrière le mot « SEO » se cachent des prestations très différentes. Un devis sérieux les décompose : le diagnostic — où en êtes-vous réellement —, la technique — indexation, vitesse, structure —, le contenu — des pages qui répondent aux recherches réelles —, la réputation — mentions, annuaires sérieux, partenaires — et la mesure — positions, impressions, suivi." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est la première chose à comprendre : vous n’achetez pas « du SEO », vous achetez une combinaison de ces cinq briques. C’est leur dosage qui explique presque tous les écarts de prix entre deux devis." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Combien coûte un audit SEO ponctuel en Suisse ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Comptez généralement entre 500 et 2 500 CHF pour un audit digne de ce nom. En dessous, vous achetez presque toujours un rapport automatique — des dizaines de pages générées par un outil, sans analyse ni plan. Au-dessus, c’est soit un très grand site, soit un périmètre élargi, par exemple une stratégie complète livrée avec l’audit." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Un audit sérieux contient : l’analyse technique complète — indexation, vitesse, HTTPS, structure, balisage —, l’examen du contenu face à la concurrence, la lecture des signaux locaux et, surtout, un plan d’action priorisé : ce que vous corrigez d’abord, et pourquoi. C’est ce plan qui fait la valeur — sans lui, l’audit est une liste, pas une décision." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Combien coûte un SEO local à Lausanne ou en Suisse romande ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le travail local — fiche Google Business Profile, citations locales, pages par localité — se situe typiquement entre 300 et 800 CHF par mois. La fourchette dépend surtout de l’état de départ : une base saine demande de l’entretien, un site négligé demande d’abord des corrections." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pourquoi ce budget se justifie : la recherche locale convertit plus vite que la requête générique pour une PME régionale. Le parcours détaillé est dans " },
+          { text: "le guide du SEO local à Lausanne", link: "/blog/seo-local-lausanne" },
+          { text: ", et les actions concrètes sur la fiche dans " },
+          { text: "l’article dédié à Google Business Profile", link: "/blog/optimiser-fiche-google-business-profile-lausanne" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Combien coûte un accompagnement SEO mensuel ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Entre 800 et 3 000 CHF par mois pour une PME, au-delà pour les sites importants. Ce qui fait monter la note : le volume de contenu produit, le nombre de marchés ou de langues, la production de mentions extérieures et la taille technique du site." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce qu’un accompagnement sérieux doit contenir, quel que soit son prix : un plan écrit, des actions listées chaque mois, une mesure suivie — positions, impressions, Search Console — et un point régulier. Un accompagnement sans compte-rendu ni indicateurs n’est pas un accompagnement : c’est un prélèvement." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Combien coûte une refonte de site avec SEO intégré ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "À partir de 3 000 CHF pour un site vitrine, couramment jusqu’à 15 000 CHF et au-delà pour un catalogue ou un e-commerce. Intégrer le SEO à la refonte coûte moins cher que de le rattraper après : redirections, conservation du contenu qui fonctionne, structure pensée pour les recherches dès le départ." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le détail des budgets de création est dans l’article " },
+          { text: "Combien coûte un site internet à Lausanne en 2026 ?", link: "/blog/combien-coute-un-site-internet-lausanne" },
+          { text: " — la ligne SEO d’une refonte s’y lit mieux une fois le reste du budget posé." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Pourquoi les devis varient autant d’un prestataire à l’autre ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Six facteurs expliquent l’essentiel des écarts — les mêmes qui expliquent pourquoi « ça dépend » est à la fois vrai et inutile comme réponse :" },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "l’état de votre site : reprendre une base saine et rattraper trois ans de négligence ne se paie pas pareil",
+          "la concurrence visée : un marché local et un marché national ne demandent ni le même contenu ni le même volume",
+          "le volume de contenu : deux pages par mois ou dix, c’est la ligne qui change le plus le total",
+          "les mentions extérieures : quelques annuaires solides ou une campagne complète, l’écart est net",
+          "le type de prestataire : un consultant indépendant et une agence n’ont pas la même structure de coûts — voir l’article sur le choix entre consultant et agence",
+          "le niveau de mesure : un suivi sérieux prend du temps, et ce temps se retrouve forcément quelque part dans le devis",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Comment repérer un devis SEO douteux ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Avant de comparer les prix, éliminez les devis qui portent ces signaux — ils coûtent plus cher que leur facture, en temps perdu :" },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "une garantie de première place sur Google : personne de sérieux ne la donne",
+          "la « soumission » à des centaines d’annuaires : en 2026, c’est au mieux inutile, au pire nuisible",
+          "des livrables non nommés : si vous ne savez pas ce que vous recevez, vous ne recevrez rien de vérifiable",
+          "un prix anormalement bas sur plusieurs mois : le travail existe, mais il est ailleurs — souvent automatisé",
+          "aucune mention de mesure ni de Search Console : sans mesure, aucune prestation ne peut prouver quoi que ce soit",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Quel budget pour une PME de Suisse romande en 2026 ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La séquence la plus rentable est presque toujours la même : d’abord savoir où vous en êtes, ensuite corriger la base, puis accompagner. Concrètement : un audit — ou un " },
+          { text: "check-up gratuit", link: "/check-up-site-web" },
+          { text: " pour la base technique et locale —, puis quelques corrections ciblées, puis un accompagnement mensuel proportionné aux résultats." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Une précision utile pour les jeunes entreprises : dans le cadre du " },
+          { text: "Programme Fondateur", link: "/offre-lancement" },
+          { text: ", dix entreprises retenues obtiennent site et référencement à CHF 0 la première année. Le budget SEO peut donc attendre que le business le justifie — pas que la base technique traîne." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Pourquoi le SEO coûte-t-il plus cher en Suisse qu’à l’étranger ?", "Pour les mêmes raisons que tous les services : les coûts de structure et de vie y sont plus élevés, et l’expertise locale — langue, marché, usages — se paie. Un prestataire à distance peut être moins cher ; il est rarement aussi pertinent sur le contenu romand."],
+          ["Un accompagnement à 200 CHF par mois, c’est sérieux ?", "À ce prix, personne ne peut consacrer à votre site le temps d’un travail réel. Ce qui existe à ce niveau : des outils automatisés avec un peu de supervision. Ça aide à ne rien casser ; ça ne fait pas avancer un site."],
+          ["Combien de temps dois-je m’engager ?", "Un engagement de 3 à 6 mois est raisonnable : le SEO a des délais physiques. Au-delà de 12 mois d’engagement imposé, restez vigilant — un prestataire confiant accepte des points réguliers et des sorties propres."],
+          ["Le SEO est-il moins cher que Google Ads ?", "Ce n’est pas le même objet. Les Ads sont un flux : vous payez, ça marche ; vous arrêtez, ça s’arrête. Le SEO est un actif : le travail s’arrête, les positions restent un temps. Sur deux ans, le SEO coûte presque toujours moins cher par contact obtenu."],
+          ["Que contient concrètement un accompagnement mensuel ?", "En principe : le suivi de mesure, les corrections techniques au fil de l’eau, la production ou l’optimisation de contenu, les actions locales et externes, et un point mensuel avec le plan du mois suivant. Le dosage varie d’un site à l’autre — la transparence sur ce dosage, non."],
+          ["Puis-je commencer petit puis augmenter ?", "Oui, et c’est souvent la meilleure approche : un audit ponctuel, les corrections prioritaires, puis un accompagnement quand la base est saine. Investir gros sur une base cassée revient à payer deux fois le même travail."],
+        ],
+      },
+    ],
+  },
 ];
 
 export const getArticle = (slug: string): Article | undefined =>

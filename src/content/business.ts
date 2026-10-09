@@ -17,6 +17,8 @@ export const business = {
     display: "Lundi au samedi : 08:00 – 17:00 · Dimanche : fermé",
   },
   social: {
+    x: "https://x.com/SebWebSwiss",
+    linkedin: "https://www.linkedin.com/company/146648718/",
     facebook: "https://www.facebook.com/sebwebswiss",
     youtube: "https://www.youtube.com/@sebwebswiss-designdesitewe7799",
     tiktok: "https://www.tiktok.com/@sebwebswiss",

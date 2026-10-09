@@ -41,6 +41,14 @@ const snippets: Record<string, { title: string; description?: string }> = {
     title: "Délais SEO : quand voir les résultats ?",
     description: "Délais du SEO : premiers signaux, progression des positions et résultats durables. Découvrez les facteurs clés et un plan d’action sur 90 jours.",
   },
+  "consultant-seo-ou-agence-seo-lausanne": {
+    title: "Consultant SEO ou agence à Lausanne ?",
+    description: "Différences concrètes entre consultant et agence SEO : quand choisir l’un ou l’autre, impact sur le budget et les points à vérifier avant de signer un devis.",
+  },
+  "combien-coute-referencement-seo-suisse": {
+    title: "Prix du SEO en Suisse en 2026",
+    description: "Prix du référencement en Suisse : fourchettes pour un audit ponctuel, du SEO local, un accompagnement mensuel ou une refonte, et ce qui fait varier les devis.",
+  },
 };
 
 export function getArticleMetadata(article: Article) {
