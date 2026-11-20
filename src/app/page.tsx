@@ -57,9 +57,22 @@ export default function Home() {
     sameAs: [business.social.linkedin, business.social.x, business.social.facebook, business.social.youtube, business.social.tiktok],
   };
 
+  // Site name preference for Google Search results (home page only).
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://sebwebswiss.ch/#website",
+    url: "https://sebwebswiss.ch/",
+    name: business.name,
+    alternateName: ["sebwebswiss.ch"],
+    inLanguage: "fr-CH",
+    publisher: { "@id": "https://sebwebswiss.ch/#organization" },
+  };
+
   return (
     <main>
       <JsonLd data={jsonLd} />
+      <JsonLd data={websiteSchema} />
       <Header />
 
       <section className="hero">
