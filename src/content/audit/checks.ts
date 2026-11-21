@@ -1,4 +1,4 @@
-export type CheckModule = "tech" | "local" | "ai";
+export type CheckModule = "tech" | "local" | "ai" | "privacy";
 export type ModuleId = "tech" | "local" | "privacy" | "lang" | "ai";
 
 export type CheckStatus = "ok" | "warn" | "fail";
@@ -276,14 +276,80 @@ export const aiChecks: Check[] = [
   },
 ];
 
+export const privacyChecks: Check[] = [
+  {
+    id: "privacy-link",
+    module: "privacy",
+    label: "Lien vers la politique de confidentialité",
+    weight: 10,
+    impact: 3,
+    effort: 1,
+    howToFix: "Ajoutez un lien clairement identifiable vers votre politique de confidentialité dans le pied de page et, si possible, dans le menu principal.",
+  },
+  {
+    id: "privacy-page",
+    module: "privacy",
+    label: "Page de confidentialité accessible",
+    weight: 8,
+    impact: 3,
+    effort: 2,
+    howToFix: "Publiez une page dédiée, accessible en HTTP 200 et lisible sans JavaScript. Une politique hébergée hors du site reste valable, mais elle ne peut pas être analysée automatiquement.",
+  },
+  {
+    id: "privacy-content",
+    module: "privacy",
+    label: "Mentions essentielles dans la politique",
+    weight: 14,
+    impact: 3,
+    effort: 2,
+    howToFix: "Complétez la politique : responsable du traitement, finalités, données collectées, durée de conservation, droits, cookies, tiers, transferts et date de mise à jour.",
+  },
+  {
+    id: "privacy-rights",
+    module: "privacy",
+    label: "Droits des personnes et contact",
+    weight: 6,
+    impact: 2,
+    effort: 2,
+    howToFix: "Indiquez comment exercer les droits d’accès, de rectification et d’effacement, avec une adresse e-mail ou un contact dédié à la protection des données.",
+  },
+  {
+    id: "privacy-consent",
+    module: "privacy",
+    label: "Consentement et traceurs",
+    weight: 8,
+    impact: 3,
+    effort: 3,
+    howToFix: "Si vous utilisez des traceurs (analytics, publicité), affichez un mécanisme de consentement avant leur chargement et proposez un refus aussi simple que l’acceptation.",
+  },
+  {
+    id: "privacy-forms",
+    module: "privacy",
+    label: "Formulaires et information sur les données",
+    weight: 4,
+    impact: 2,
+    effort: 2,
+    howToFix: "Pour chaque formulaire, ajoutez un lien vers la politique de confidentialité et, lorsque c’est requis, une case de consentement explicite.",
+  },
+  {
+    id: "privacy-law",
+    module: "privacy",
+    label: "Référence à la loi suisse (informationnel)",
+    weight: 0,
+    impact: 1,
+    effort: 1,
+    howToFix: "Informationnel : mentionner la LPD/nLPD et la juridiction suisse clarifie le cadre, sans effet sur le score. Cela ne remplace pas un avis juridique.",
+  },
+];
+
 export const MAX_MODULE_POINTS = 50;
 
-export const SCORED_MODULES: CheckModule[] = ["tech", "local", "ai"];
+export const SCORED_MODULES: CheckModule[] = ["tech", "local", "ai", "privacy"];
 
 export const moduleMeta: Record<ModuleId, { title: string; short: string; available: boolean }> = {
   tech: { title: "Technique", short: "Technique", available: true },
   local: { title: "Informations locales sur le site", short: "Local", available: true },
   ai: { title: "Visibilité IA — préparation technique", short: "IA", available: true },
-  privacy: { title: "Confidentialité & nDSG", short: "nDSG", available: false },
+  privacy: { title: "Confidentialité & nDSG", short: "nDSG", available: true },
   lang: { title: "Multilinguisme", short: "Langues", available: false },
 };

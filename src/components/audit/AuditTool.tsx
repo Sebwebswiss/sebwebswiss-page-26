@@ -36,7 +36,7 @@ function isAuditPayload(value: unknown): value is AuditPayload {
       [1, 2, 3].includes(priority.check.effort));
 }
 
-const PROGRESS_STEPS = ["connect", "tech", "local", "ai", "score", "priorities"];
+const PROGRESS_STEPS = ["connect", "tech", "local", "ai", "privacy", "score", "priorities"];
 
 const gradeColor: Record<string, string> = { bad: "#ff8f8f", fair: "#ffc36b", good: "#6ad487", excellent: "#6ad487" };
 
@@ -266,7 +266,7 @@ export function AuditTool({ lang, onLangChange }: { lang: Lang; onLangChange: (l
             {result.score.modules.map((m) => (
               <ModuleCard key={m.module} score={m} lang={result.lang} />
             ))}
-            {(["privacy", "lang"] as const).map((m) => (
+            {(["lang"] as const).map((m) => (
               <article className="audit-module audit-module-soon" key={m}>
                 <div><p className="audit-module-kicker">{ui.moduleShorts[m]}</p><h3>{ui.modules[m]}</h3></div>
                 <span className="audit-badge-soon">{t(result.lang).comingSoon}</span>

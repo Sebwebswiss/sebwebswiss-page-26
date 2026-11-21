@@ -57,7 +57,8 @@ test("robots rules respect specificity, merged groups and Allow precedence", () 
 });
 
 test("informational llms.txt cannot reduce scores or enter priorities", () => {
-  const checks = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, { robotsTxt: "", robotsStatus: 200, llmsTxt: null })].map(check => ({ ...check, status: check.id === "ai-llms-txt" ? "warn" : "ok" }));
+  const privacy = privacyChecks.map(check => ({ ...check, status: "ok" }));
+  const checks = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, { robotsTxt: "", robotsStatus: 200, llmsTxt: null }), ...privacy].map(check => ({ ...check, status: check.id === "ai-llms-txt" ? "warn" : "ok" }));
   assert.equal(computeScore(checks).total, 100);
   assert.ok(computeScore(checks).modules.every(module => module.status === "ok"));
   assert.equal(computePriorities(checks).length, 0);
@@ -124,4 +125,102 @@ test("redirects share one timeout budget and oversized responses are rejected", 
     globalThis.fetch = async () => new Response("large", { headers: { "content-length": String(MAX_BYTES + 1) } });
     await assert.rejects(fetchSite("https://8.8.8.8/"), /volumineuse/);
   } finally { globalThis.fetch = original; }
+});
+
+// --- nDSG / privacy module ---
+
+import { assessPrivacy, findPrivacyLink } from "../src/lib/audit/assessPrivacy.ts";
+import { privacyChecks } from "../src/content/audit/checks.ts";
+
+const privacyHome = `<html lang="fr"><body>
+<footer><a href="/confidentialite">Politique de confidentialité</a></footer>
+<div class="consent-bar"><button>Refuser</button><button>Accepter</button></div>
+<form><input type="checkbox" required><span>J’accepte la politique</span><button>Envoyer</button></form>
+</body></html>`;
+
+const privacyPolicy = `<html lang="fr"><body>
+<h1>Politique de confidentialité</h1>
+<p>Responsable du traitement : Example SA.</p>
+<p>Finalités : répondre aux demandes.</p>
+<p>Données personnelles collectées : nom, e-mail.</p>
+<p>Durée de conservation : 12 mois.</p>
+<p>Droit d’accès, de rectification et d’effacement.</p>
+<p>Cookies et traceurs.</p>
+<p>Sous-traitants : hébergeur.</p>
+<p>Transfert hors de Suisse possible.</p>
+<p>Dernière mise à jour : 1er novembre 2026.</p>
+<p>Contact : privacy@example.ch. LPD applicable.</p>
+</body></html>`;
+
+const privacySite = (body) => ({ url: "https://example.ch/", finalUrl: "https://example.ch/", status: 200, html: body, headers: {}, timeMs: 10 });
+
+test("privacy link detection prefers same-origin policy pages and ignores mailto", () => {
+  assert.equal(findPrivacyLink(privacyHome, "https://example.ch/"), "https://example.ch/confidentialite");
+  assert.equal(findPrivacyLink(`<a href="mailto:privacy@example.ch">Privacy</a>`, "https://example.ch/"), null);
+  assert.equal(findPrivacyLink(`<a href="https://iubenda.example/policy">Privacy policy</a>`, "https://example.ch/"), "https://iubenda.example/policy");
+});
+
+test("nDSG module passes a complete policy with a custom consent banner", () => {
+  const results = assessPrivacy({}, privacySite(privacyHome), {
+    policyHtml: privacyPolicy,
+    policyUrl: "https://example.ch/confidentialite",
+    policyStatus: 200,
+  });
+  const byId = Object.fromEntries(results.map((check) => [check.id, check]));
+  assert.equal(byId["privacy-link"].status, "ok");
+  assert.equal(byId["privacy-page"].status, "ok");
+  assert.equal(byId["privacy-content"].status, "ok");
+  assert.equal(byId["privacy-rights"].status, "ok");
+  assert.equal(byId["privacy-consent"].status, "ok");
+  assert.equal(byId["privacy-forms"].status, "ok");
+  assert.equal(byId["privacy-law"].status, "ok");
+  const points = results.reduce((sum, check) => sum + (check.status === "ok" ? check.weight : check.status === "warn" ? Math.round(check.weight * 0.5) : 0), 0);
+  assert.equal(points, 50);
+});
+
+test("nDSG module flags trackers without consent and a missing policy", () => {
+  const html = `<html><body><script src="https://www.googletagmanager.com/gtag/js?id=G-ABC123456"></script><a href="/privacy">Privacy</a></body></html>`;
+  const results = assessPrivacy({}, privacySite(html), {
+    policyHtml: null,
+    policyUrl: "https://example.ch/privacy",
+    policyStatus: 200,
+  });
+  const byId = Object.fromEntries(results.map((check) => [check.id, check]));
+  assert.equal(byId["privacy-consent"].status, "fail");
+  assert.equal(byId["privacy-page"].status, "fail");
+  assert.equal(byId["privacy-content"].status, "warn");
+
+  const noPolicy = assessPrivacy({}, privacySite("<html><body><p>Hello</p></body></html>"), {
+    policyHtml: null,
+    policyUrl: null,
+    policyStatus: null,
+  });
+  assert.equal(noPolicy.find((check) => check.id === "privacy-link").status, "fail");
+  assert.equal(noPolicy.find((check) => check.id === "privacy-page").status, "fail");
+});
+
+test("nDSG module marks an external policy as partially verifiable", () => {
+  const results = assessPrivacy({}, privacySite(privacyHome), {
+    policyHtml: null,
+    policyUrl: "https://iubenda.example/policy",
+    policyStatus: null,
+    policyExternal: true,
+  });
+  const byId = Object.fromEntries(results.map((check) => [check.id, check]));
+  assert.equal(byId["privacy-link"].status, "ok");
+  assert.equal(byId["privacy-page"].status, "warn");
+  assert.equal(byId["privacy-content"].status, "warn");
+});
+
+test("score includes the privacy module in the denominator", () => {
+  const results = assessPrivacy({}, privacySite(privacyHome), {
+    policyHtml: privacyPolicy,
+    policyUrl: "https://example.ch/confidentialite",
+    policyStatus: 200,
+  });
+  const score = computeScore(results);
+  assert.equal(score.modules.length, 4);
+  assert.equal(score.max, 100);
+  assert.equal(score.total, 25);
+  assert.deepEqual(score.modules.map((m) => m.module), ["tech", "local", "ai", "privacy"]);
 });

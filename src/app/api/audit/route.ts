@@ -5,6 +5,7 @@ import { parsePage } from "@/lib/audit/parsers";
 import { assessTech } from "@/lib/audit/assessTech";
 import { assessLocal } from "@/lib/audit/assessLocal";
 import { assessAi } from "@/lib/audit/assessAi";
+import { assessPrivacy, findPrivacyLink } from "@/lib/audit/assessPrivacy";
 import { computeScore } from "@/lib/audit/score";
 import { computePriorities } from "@/lib/audit/prioritize";
 import { consumeRate, saveAudit, StorageUnavailableError } from "@/lib/redis";
@@ -51,6 +52,18 @@ async function fetchOptionalText(url: string): Promise<{ text: string | null; st
     return { text: res.html.slice(0, 200_000), status: res.status };
   } catch {
     return { text: null, status: null };
+  }
+}
+
+async function fetchOptionalHtml(url: string): Promise<{ html: string | null; status: number | null }> {
+  try {
+    const res = await fetchSite(url, 4000);
+    if (res.status !== 200) return { html: null, status: res.status };
+    const type = res.headers["content-type"] ?? "";
+    if (!/text\/html/i.test(type)) return { html: null, status: res.status };
+    return { html: res.html.slice(0, 300_000), status: res.status };
+  } catch {
+    return { html: null, status: null };
   }
 }
 
@@ -110,15 +123,31 @@ export async function POST(req: Request) {
     const page = parsePage(site.html);
 
     const origin = new URL(site.finalUrl).origin;
-    const [robotsTxt, llmsTxt] = await Promise.all([
+    const privacyUrl = findPrivacyLink(site.html, site.finalUrl);
+    let privacySameOrigin = false;
+    try {
+      privacySameOrigin = Boolean(privacyUrl && new URL(privacyUrl).origin === origin);
+    } catch {
+      privacySameOrigin = false;
+    }
+
+    const [robotsTxt, llmsTxt, privacyPage] = await Promise.all([
       fetchOptionalText(`${origin}/robots.txt`),
       fetchOptionalText(`${origin}/llms.txt`),
+      privacySameOrigin && privacyUrl
+        ? fetchOptionalHtml(privacyUrl)
+        : Promise.resolve({ html: null, status: null }),
     ]);
 
     const checks: CheckResult[] = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, {
       robotsTxt: robotsTxt.text,
       robotsStatus: robotsTxt.status,
       llmsTxt: llmsTxt.text,
+    }), ...assessPrivacy(page, site, {
+      policyHtml: privacyPage.html,
+      policyUrl: privacyUrl,
+      policyStatus: privacyPage.status,
+      policyExternal: Boolean(privacyUrl && !privacySameOrigin),
     })].map(check => localizeCheck(check, lang));
     const score = computeScore(checks);
     const priorities = computePriorities(checks, 3).map(priority => ({ ...priority, effortLabel: ui.efforts[priority.check.effort] }));

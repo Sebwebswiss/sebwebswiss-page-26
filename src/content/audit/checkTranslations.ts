@@ -1,4 +1,4 @@
-import { aiChecks, localChecks, techChecks, type CheckResult, type Lang } from "./checks";
+import { aiChecks, localChecks, privacyChecks, techChecks, type CheckResult, type Lang } from "./checks";
 import { auditLangs } from "./translations";
 
 type Text = [fr: string, de: string, it: string, en: string];
@@ -77,6 +77,26 @@ const details = {
   "ai.qa.absent": ["Aucun bloc questions-réponses visible détecté.", "Kein sichtbarer Frage-Antwort-Block erkannt.", "Nessun blocco domanda-risposta visibile rilevato.", "No visible question-and-answer block detected."],
   "ai.llms.present": ["Fichier /llms.txt présent.", "Die Datei /llms.txt ist vorhanden.", "File /llms.txt presente.", "The /llms.txt file is present."],
   "ai.llms.absent": ["Aucun /llms.txt détecté (optionnel, sans gain garanti).", "Keine /llms.txt-Datei erkannt; optional, ohne garantierten Nutzen.", "Nessun file /llms.txt rilevato; facoltativo, senza benefici garantiti.", "No /llms.txt file detected; optional, with no guaranteed benefit."],
+  "privacy.link.found": ["Lien détecté : {url}", "Link erkannt: {url}", "Link rilevato: {url}", "Link detected: {url}"],
+  "privacy.link.absent": ["Aucun lien vers une politique de confidentialité détecté sur la page d’accueil.", "Kein Link zu einer Datenschutzerklärung auf der Startseite erkannt.", "Nessun link a un’informativa sulla privacy rilevato nella pagina iniziale.", "No privacy policy link detected on the homepage."],
+  "privacy.page.absent": ["Aucune page de confidentialité à vérifier.", "Keine Datenschutzseite zum Prüfen vorhanden.", "Nessuna pagina privacy da verificare.", "No privacy page to check."],
+  "privacy.page.ok": ["Politique accessible (HTTP {status}).", "Datenschutzerklärung erreichbar (HTTP {status}).", "Informativa accessibile (HTTP {status}).", "Privacy policy reachable (HTTP {status})."],
+  "privacy.page.external": ["Politique hébergée hors du site ({url}) — contenu non analysé.", "Datenschutzerklärung extern gehostet ({url}); Inhalt nicht analysiert.", "Informativa ospitata fuori dal sito ({url}); contenuto non analizzato.", "Policy hosted outside the site ({url}); content not analysed."],
+  "privacy.page.unreachable": ["Politique non vérifiable (délai ou erreur réseau).", "Datenschutzerklärung nicht prüfbar (Zeitüberschreitung oder Netzwerkfehler).", "Informativa non verificabile (timeout o errore di rete).", "Policy could not be verified (timeout or network error)."],
+  "privacy.page.status": ["Politique inaccessible (HTTP {status}).", "Datenschutzerklärung nicht erreichbar (HTTP {status}).", "Informativa non accessibile (HTTP {status}).", "Policy not reachable (HTTP {status})."],
+  "privacy.content.result": ["Sections détectées : {found}/{total} · manquantes : {missingCount}.", "Erkannte Abschnitte: {found}/{total} · fehlend: {missingCount}.", "Sezioni rilevate: {found}/{total} · mancanti: {missingCount}.", "Sections detected: {found}/{total} · missing: {missingCount}."],
+  "privacy.content.none": ["Politique non analysée : contenu indisponible.", "Datenschutzerklärung nicht analysiert: Inhalt nicht verfügbar.", "Informativa non analizzata: contenuto non disponibile.", "Policy not analysed: content unavailable."],
+  "privacy.rights.ok": ["Droits des personnes et contact pour la protection des données détectés.", "Betroffenenrechte und Datenschutzkontakt erkannt.", "Diritti degli interessati e contatto privacy rilevati.", "Data subject rights and privacy contact detected."],
+  "privacy.rights.partial": ["Un seul des deux éléments détecté (droits ou contact).", "Nur eines der beiden Elemente erkannt (Rechte oder Kontakt).", "Rilevato solo uno dei due elementi (diritti o contatto).", "Only one of the two elements detected (rights or contact)."],
+  "privacy.rights.absent": ["Ni droits des personnes ni contact pour la protection des données détectés.", "Weder Betroffenenrechte noch Datenschutzkontakt erkannt.", "Né diritti degli interessati né contatto privacy rilevati.", "Neither data subject rights nor a privacy contact detected."],
+  "privacy.consent.none": ["Aucun traceur analytique ou publicitaire détecté dans le HTML initial.", "Kein Analyse- oder Werbetracker im ursprünglichen HTML erkannt.", "Nessun tracker analitico o pubblicitario rilevato nell’HTML iniziale.", "No analytics or advertising tracker detected in the initial HTML."],
+  "privacy.consent.ok": ["Consentement détecté ({cmp}). Traceurs : {trackers}.", "Einwilligung erkannt ({cmp}). Tracker: {trackers}.", "Consenso rilevato ({cmp}). Tracker: {trackers}.", "Consent detected ({cmp}). Trackers: {trackers}."],
+  "privacy.consent.fail": ["Traceurs détectés sans mécanisme de consentement : {trackers}.", "Tracker ohne Einwilligungsmechanismus erkannt: {trackers}.", "Tracker rilevati senza meccanismo di consenso: {trackers}.", "Trackers detected without a consent mechanism: {trackers}."],
+  "privacy.forms.none": ["Aucun formulaire détecté sur la page d’accueil.", "Kein Formular auf der Startseite erkannt.", "Nessun modulo rilevato nella pagina iniziale.", "No form detected on the homepage."],
+  "privacy.forms.ok": ["Les formulaires mentionnent la confidentialité ou demandent un consentement.", "Die Formulare verweisen auf den Datenschutz oder verlangen eine Einwilligung.", "I moduli citano la privacy o richiedono un consenso.", "Forms mention privacy or ask for consent."],
+  "privacy.forms.warn": ["Formulaire(s) sans lien vers la politique ni consentement explicite.", "Formular(e) ohne Datenschutzlink oder ausdrückliche Einwilligung.", "Modulo/i senza link alla privacy né consenso esplicito.", "Form(s) without a policy link or explicit consent."],
+  "privacy.law.found": ["Référence à la loi suisse sur la protection des données détectée.", "Verweis auf das Schweizer Datenschutzgesetz erkannt.", "Riferimento alla legge svizzera sulla protezione dei dati rilevato.", "Reference to the Swiss data protection law detected."],
+  "privacy.law.absent": ["Aucune référence explicite à la LPD/nLPD (informationnel).", "Kein ausdrücklicher Verweis auf das DSG (informativ).", "Nessun riferimento esplicito alla LPD (informativo).", "No explicit reference to the FADP (informational)."],
 } satisfies Record<string, Text>;
 
 export type DetailKey = keyof typeof details;
@@ -111,6 +131,13 @@ const de: Record<string, Copy> = {
   "ai-headings": ["Inhaltsstruktur (H2/H3)", "Gliedern Sie die Seite mit klaren H2- und H3-Überschriften, die die Inhalte sinnvoll beschreiben."],
   "ai-qa": ["Frage-Antwort-Inhalte", "Ergänzen Sie sichtbare Antworten auf häufige Kundenfragen, zum Beispiel als Fragenüberschriften oder aufklappbare Inhalte."],
   "ai-llms-txt": ["llms.txt-Datei (Hinweis)", "Optional können Sie wichtige Inhalte in llms.txt zusammenfassen. Diese vorgeschlagene Konvention garantiert keinen Sichtbarkeitsgewinn und beeinflusst den Punktestand nicht."],
+  "privacy-link": ["Link zur Datenschutzerklärung", "Fügen Sie im Fussbereich und nach Möglichkeit auch im Hauptmenü einen gut sichtbaren Link zur Datenschutzerklärung ein."],
+  "privacy-page": ["Datenschutzseite erreichbar", "Veröffentlichen Sie eine eigene Seite, die mit HTTP 200 und ohne JavaScript lesbar ist. Eine extern gehostete Erklärung bleibt gültig, kann aber nicht automatisch analysiert werden."],
+  "privacy-content": ["Wesentliche Angaben in der Datenschutzerklärung", "Ergänzen Sie Verantwortlichen, Zwecke, bearbeitete Daten, Aufbewahrungsdauer, Rechte, Cookies, Dienstleister, Übermittlungen und das Datum der letzten Aktualisierung."],
+  "privacy-rights": ["Betroffenenrechte und Kontakt", "Erklären Sie, wie Auskunfts-, Berichtigungs- und Löschrechte ausgeübt werden können, mit einer E-Mail-Adresse oder einem Datenschutzkontakt."],
+  "privacy-consent": ["Einwilligung und Tracker", "Wenn Sie Tracker für Analyse oder Werbung einsetzen, zeigen Sie vor dem Laden einen Einwilligungsmechanismus und machen Sie die Ablehnung gleich einfach wie die Zustimmung."],
+  "privacy-forms": ["Formulare und Datenschutzhinweis", "Fügen Sie jedem Formular einen Link zur Datenschutzerklärung und, falls nötig, eine ausdrückliche Einwilligungs-Checkbox hinzu."],
+  "privacy-law": ["Verweis auf Schweizer Recht (informativ)", "Informativ: Der Hinweis auf DSG/nDSG und Schweizer Recht klärt den Rahmen, ohne den Punktestand zu beeinflussen. Er ersetzt keine Rechtsberatung."],
 };
 
 const it: Record<string, Copy> = {
@@ -141,6 +168,13 @@ const it: Record<string, Copy> = {
   "ai-headings": ["Struttura del contenuto (H2/H3)", "Organizza la pagina con titoli H2 e H3 chiari che descrivano le diverse sezioni."],
   "ai-qa": ["Contenuti domanda-risposta", "Aggiungi risposte visibili alle domande frequenti dei clienti, con titoli formulati come domande o blocchi espandibili."],
   "ai-llms-txt": ["File llms.txt (informativo)", "Puoi facoltativamente riassumere i contenuti importanti in llms.txt. Questa convenzione proposta non garantisce maggiore visibilità e non influisce sul punteggio."],
+  "privacy-link": ["Link all’informativa sulla privacy", "Aggiungi nel piè di pagina e, se possibile, nel menu principale un link chiaramente identificabile all’informativa sulla privacy."],
+  "privacy-page": ["Pagina privacy accessibile", "Pubblica una pagina dedicata, accessibile con HTTP 200 e leggibile senza JavaScript. Un’informativa ospitata fuori dal sito resta valida, ma non può essere analizzata automaticamente."],
+  "privacy-content": ["Informazioni essenziali nell’informativa", "Completa l’informativa: titolare del trattamento, finalità, dati trattati, durata di conservazione, diritti, cookie, fornitori, trasferimenti e data di aggiornamento."],
+  "privacy-rights": ["Diritti degli interessati e contatto", "Indica come esercitare i diritti di accesso, rettifica e cancellazione, con un indirizzo e-mail o un contatto dedicato alla privacy."],
+  "privacy-consent": ["Consenso e tracker", "Se utilizzi tracker per analisi o pubblicità, mostra un meccanismo di consenso prima del caricamento e rendi il rifiuto semplice quanto l’accettazione."],
+  "privacy-forms": ["Moduli e informativa sui dati", "Per ogni modulo aggiungi un link all’informativa e, quando necessario, una casella di consenso esplicito."],
+  "privacy-law": ["Riferimento al diritto svizzero (informativo)", "Informativo: citare la LPD/nLPD e il diritto svizzero chiarisce il quadro, senza incidere sul punteggio. Non sostituisce un parere legale."],
 };
 
 const en: Record<string, Copy> = {
@@ -171,10 +205,17 @@ const en: Record<string, Copy> = {
   "ai-headings": ["Content structure (H2/H3)", "Organise the page with clear H2 and H3 headings that describe its sections."],
   "ai-qa": ["Question-and-answer content", "Add visible answers to common customer questions, using question headings or expandable content."],
   "ai-llms-txt": ["llms.txt file (informational)", "Optionally summarise important content in llms.txt. This proposed convention does not guarantee visibility gains and does not affect the score."],
+  "privacy-link": ["Link to the privacy policy", "Add a clearly identifiable link to your privacy policy in the footer and, where possible, in the main menu."],
+  "privacy-page": ["Privacy page reachable", "Publish a dedicated page that returns HTTP 200 and is readable without JavaScript. A policy hosted outside the site remains valid, but it cannot be analysed automatically."],
+  "privacy-content": ["Essential information in the policy", "Complete the policy: controller, purposes, data collected, retention period, rights, cookies, third parties, transfers and last update date."],
+  "privacy-rights": ["Data subject rights and contact", "Explain how to exercise access, rectification and erasure rights, with a dedicated email address or privacy contact."],
+  "privacy-consent": ["Consent and trackers", "If you use analytics or advertising trackers, show a consent mechanism before they load and make rejection as easy as acceptance."],
+  "privacy-forms": ["Forms and data notice", "For each form, add a link to the privacy policy and, where required, an explicit consent checkbox."],
+  "privacy-law": ["Reference to Swiss law (informational)", "Informational: mentioning the FADP/nFADP and Swiss jurisdiction clarifies the framework without affecting the score. It does not replace legal advice."],
 };
 
 const copies = { de, it, en };
-const sourceChecks = [...techChecks, ...localChecks, ...aiChecks];
+const sourceChecks = [...techChecks, ...localChecks, ...aiChecks, ...privacyChecks];
 
 function fill(template: string, values: Values) {
   return template.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ""));

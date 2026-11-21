@@ -1,13 +1,14 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createHash } from "node:crypto";
-import { techChecks, localChecks, aiChecks } from "../src/content/audit/checks.ts";
+import { techChecks, localChecks, aiChecks, privacyChecks } from "../src/content/audit/checks.ts";
 import { auditLangs, normalizeLang, t } from "../src/content/audit/translations.ts";
 import { describe, detailKeys, formatDetail, localizeCheck, translatedCheckIds } from "../src/content/audit/checkTranslations.ts";
 import { hasSchemaProperty, hasSchemaType, parsePage } from "../src/lib/audit/parsers.ts";
 import { assessTech } from "../src/lib/audit/assessTech.ts";
 import { assessLocal } from "../src/lib/audit/assessLocal.ts";
 import { assessAi } from "../src/lib/audit/assessAi.ts";
+import { assessPrivacy } from "../src/lib/audit/assessPrivacy.ts";
 import { computeScore } from "../src/lib/audit/score.ts";
 import { computePriorities } from "../src/lib/audit/prioritize.ts";
 import { buildReportHtml } from "../src/lib/audit/report.ts";
@@ -21,13 +22,14 @@ const { POST: leadPost } = await import("../src/app/api/lead/route.ts");
 const html = `<html lang="fr-CH"><head><title>Example company services in Lausanne</title><meta name="description" content="A company in Lausanne offering professional services with clear contact information and local opening hours."><meta name="robots" content="index, follow"><meta name="viewport" content="width=device-width"><link rel="canonical" href="https://example.com/"><meta property="og:title" content="Example"><meta property="og:description" content="Services"><meta property="og:image" content="image.png"><meta property="og:url" content="https://example.com/"><script type="application/ld+json">{"@type":"LocalBusiness","name":"Example","telephone":"+41 21 559 19 33","address":{"streetAddress":"Rue Example 1","postalCode":"1000","addressLocality":"Lausanne"},"sameAs":["https://example.com/profile"]}</script></head><body><h1>Services in Lausanne</h1><h2>What do we offer?</h2><h2>How can you contact us?</h2><h3>Local services</h3><p>${"Useful local service information. ".repeat(100)} Lundi au samedi 08:00</p><a href="/a-propos">About</a><a href="/contact">Contact</a><a href="tel:+41215591933">Phone</a><a href="/confidentialite">Privacy</a></body></html>`;
 const site = { url: "https://example.com/", finalUrl: "https://example.com/", status: 200, html, headers: {}, timeMs: 25 };
 const page = parsePage(html);
-const checks = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, { robotsTxt: "User-agent: *\nAllow: /\nUser-agent: GPTBot\nDisallow: /", robotsStatus: 200, llmsTxt: null })];
+const policyHtml = `<html><body><p>Responsable du traitement : Example SA. Finalités : répondre aux demandes. Données personnelles collectées : nom, e-mail. Durée de conservation : 12 mois. Droit d’accès, de rectification et d’effacement. Cookies et traceurs. Sous-traitants : hébergeur. Transfert hors de Suisse possible. Dernière mise à jour : 1er novembre 2026. Contact : privacy@example.ch. LPD applicable.</p></body></html>`;
+const checks = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, { robotsTxt: "User-agent: *\nAllow: /\nUser-agent: GPTBot\nDisallow: /", robotsStatus: 200, llmsTxt: null }), ...assessPrivacy(page, site, { policyHtml, policyUrl: "https://example.com/confidentialite", policyStatus: 200 })];
 const audit = { id: "translation-regression", url: site.url, lang: "fr", score: computeScore(checks), checks, priorities: computePriorities(checks), createdAt: "2026-10-08T09:00:00Z" };
 
-test("all 27 checks have complete translated labels, recommendations and structured details", () => {
-  const expected = [...techChecks, ...localChecks, ...aiChecks].map(check => check.id).sort();
+test("all 34 checks have complete translated labels, recommendations and structured details", () => {
+  const expected = [...techChecks, ...localChecks, ...aiChecks, ...privacyChecks].map(check => check.id).sort();
   assert.deepEqual(translatedCheckIds.sort(), expected);
-  assert.equal(checks.length, 27);
+  assert.equal(checks.length, 34);
   for (const lang of auditLangs) {
     const localized = checks.map(check => localizeCheck(check, lang));
     assert.deepEqual(computeScore(localized), audit.score, "translation must not alter scoring");
