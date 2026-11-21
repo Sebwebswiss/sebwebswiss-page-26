@@ -19,7 +19,7 @@ const faqs = [
   ["SEO ou Google Ads ?", "Cela dépend de votre objectif. Le SEO construit une visibilité durable ; Google Ads donne des résultats rapides mais payants. Je vous aide à choisir selon votre situation."],
   ["Travaillez-vous avec une équipe ?", "J’interviens en direct : un seul interlocuteur, de l’analyse à la mise en place. Vous savez toujours qui travaille sur votre projet."],
   ["Puis-je voir ce que vous faites ?", "Oui. Je m’appuie sur des données réelles (Search Console), avec des priorités claires expliquées tout au long de l’accompagnement."],
-  ["Combien coûte le SEO ?", "Comptez environ 500 à 2 500 CHF pour un audit, 300 à 800 CHF par mois pour du SEO local et 800 à 3 000 CHF par mois pour un accompagnement complet. Ces fourchettes sont indicatives et dépendent du périmètre."],
+  ["Combien coûte le SEO ?", "Un audit démarre à 199 CHF, le SEO local à 149 CHF par mois et un accompagnement complet à 399 CHF par mois. Le tarif final dépend du périmètre : volume de contenu, état du site et travail de mentions extérieures."],
   ["Quelle différence entre une agence SEO et un consultant SEO ?", "Le consultant offre un interlocuteur unique et un budget souvent plus direct ; l’agence apporte une équipe et traite plusieurs chantiers en parallèle. Le bon choix dépend de votre besoin réel, pas de la taille du prestataire."],
   ["Travaillez-vous dans toute la Suisse romande ?", "Oui. L’accompagnement se fait depuis Lutry, près de Lausanne, pour des entreprises du canton de Vaud et de toute la Suisse romande. Les échanges peuvent être sur place ou à distance."],
 ];
@@ -56,9 +56,9 @@ export default function Page() {
 
     <section className="content-section"><div className="content-label">BUDGET</div><div>
       <h2>Combien coûte une<br/><em>agence SEO à Lausanne ?</em></h2>
-      <p>Les fourchettes observées sur le marché suisse sont larges, et c’est normal : un audit ponctuel ne demande pas le même travail qu’un accompagnement mensuel. Voici les ordres de grandeur que nous voyons, à titre indicatif.</p>
-      <ul className="check-list"><li>Audit SEO ponctuel : environ 500 à 2 500 CHF</li><li>SEO local (fiche Google, citations, pages locales) : 300 à 800 CHF par mois</li><li>Accompagnement mensuel complet : 800 à 3 000 CHF par mois</li><li>Refonte optimisée SEO : à partir de 3 000 CHF</li></ul>
-      <p>Ces montants dépendent du volume de contenu, du nombre de marchés ou de langues, de l’état technique du site et du travail de mentions extérieures. Un devis sérieux se construit sur votre site, pas sur une grille toute faite. Nous détaillons les facteurs dans le guide sur le <Link className="text-link" href="/blog/combien-coute-referencement-seo-suisse">prix du référencement SEO en Suisse</Link>.</p>
+      <p>Les tarifs de départ sont volontairement simples : un audit dès 199 CHF, un accompagnement local dès 149 CHF par mois, un suivi complet dès 399 CHF par mois. Le prix final dépend ensuite du volume de contenu, du nombre de marchés ou de langues, de l’état technique du site et du travail de mentions extérieures.</p>
+      <ul className="check-list"><li>Audit SEO ponctuel : à partir de 199 CHF</li><li>SEO local (fiche Google, citations, pages locales) : à partir de 149 CHF par mois</li><li>Accompagnement mensuel complet : à partir de 399 CHF par mois</li><li>Refonte optimisée SEO : à partir de 399 CHF</li><li>Boutique en ligne optimisée SEO : à partir de 1 290 CHF</li></ul>
+      <p>Un devis sérieux se construit sur votre site, pas sur une grille toute faite. Nous détaillons les facteurs dans le guide sur le <Link className="text-link" href="/blog/combien-coute-referencement-seo-suisse">prix du référencement SEO en Suisse</Link>.</p>
     </div></section>
 
     <section className="content-section"><div className="content-label">L’APPROCHE</div><div>

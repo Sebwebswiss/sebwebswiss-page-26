@@ -21,7 +21,7 @@ const faqs = [
   ["Le référencement est-il inclus ?", "Le site est construit avec des bases SEO solides : structure des pages, titres, performances, liens internes, indexation et sitemap. Une stratégie SEO continue peut être mise en place séparément selon vos objectifs."],
   ["Dois-je prendre votre hébergement ?", "Non. Vous restez libre de conserver votre hébergement actuel. Si vous le souhaitez, SebWebSwiss peut gérer l’hébergement, les sauvegardes et le suivi technique après la mise en ligne."],
   ["Puis-je faire évoluer mon site plus tard ?", "Oui. Nous privilégions une structure claire et des solutions adaptées à l’évolution de votre activité, afin d’ajouter des pages, des contenus ou des fonctionnalités de manière cohérente."],
-  ["Combien coûte un site web à Lausanne ?", "Un site vitrine professionnel commence généralement autour de 3 000 CHF, et la fourchette observée monte couramment jusqu’à 15 000 CHF pour un projet complet. Le devis dépend des pages, des contenus, des fonctionnalités et de l’accompagnement souhaité."],
+  ["Combien coûte un site web à Lausanne ?", "Un site vitrine de 5 à 7 pages commence à 399 CHF. Le devis final dépend des pages, des contenus, des fonctionnalités et de l’accompagnement souhaité ; une boutique en ligne démarre à 1 290 CHF."],
   ["Combien de temps faut-il pour créer un site internet ?", "Quelques semaines pour un site vitrine dont les contenus sont prêts, davantage pour une refonte, une boutique en ligne ou un projet dont la structure doit être construite. Le calendrier est fixé avant le démarrage, avec les étapes principales."],
   ["Travaillez-vous aussi en dehors de Lausanne ?", "Oui. Nous accompagnons des entreprises à Lausanne, Lutry, Pully, Morges, Vevey, Montreux, Nyon et dans le reste du canton de Vaud, ainsi qu’en Suisse romande. Les échanges peuvent se faire sur place ou à distance."],
 ];
@@ -57,8 +57,8 @@ export default function Page() {
 
     <section className="content-section"><div className="content-label">PRIX ET DÉLAIS</div><div>
       <h2>Combien coûte<br/><em>un site web à Lausanne ?</em></h2>
-      <p>Un site vitrine professionnel commence généralement autour de 3 000 CHF. La fourchette observée sur le marché suisse monte couramment jusqu’à 15 000 CHF pour un projet plus complet, et au-delà pour un catalogue ou une boutique en ligne. Le prix dépend de ce que le site doit réellement faire — pas du seul nombre de pages.</p>
-      <ul className="check-list"><li>Site vitrine de 5 à 8 pages : à partir de 3 000 CHF</li><li>Refonte avec migration et conservation du référencement : à partir de 3 000 CHF</li><li>Boutique en ligne ou catalogue : sur devis, couramment jusqu’à 15 000 CHF et au-delà</li><li>Accompagnement SEO après la mise en ligne : 300 à 3 000 CHF par mois selon le périmètre</li></ul>
+      <p>Un site vitrine de 5 à 7 pages commence à 399 CHF. Le tarif final dépend ensuite du nombre de pages, de la rédaction, des fonctionnalités et de l’accompagnement souhaité — pas d’une grille fixe. Pour un catalogue ou une boutique en ligne, comptez à partir de 1 290 CHF.</p>
+      <ul className="check-list"><li>Site vitrine de 5 à 7 pages : à partir de 399 CHF</li><li>Refonte avec migration et conservation du référencement : à partir de 399 CHF</li><li>Boutique en ligne ou catalogue : à partir de 1 290 CHF</li><li>Accompagnement SEO après la mise en ligne : à partir de 149 CHF par mois en local, ou 399 CHF par mois pour un accompagnement complet</li></ul>
       <p>Les délais suivent la même logique : un site vitrine dont les contenus sont prêts demande généralement quelques semaines, une refonte ou un projet e-commerce davantage. Un devis sérieux détaille le périmètre, les étapes et ce qui est inclus. Nous détaillons les fourchettes et les facteurs de prix dans notre guide sur le <Link className="text-link" href="/blog/combien-coute-un-site-internet-lausanne">prix d’un site internet à Lausanne</Link>.</p>
     </div></section>
 

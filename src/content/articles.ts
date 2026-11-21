@@ -233,7 +233,7 @@ export const articles: Article[] = [
       {
         kind: "faq",
         items: [
-          ["Combien coûte un site web pour une PME à Lausanne ?", "Tout dépend de la structure et des fonctionnalités : un site vitrine soigné ne se joue pas à quelques centaines de francs, et une boutique change beaucoup la facture. Un échange direct permet de clarifier le budget selon votre besoin."],
+          ["Combien coûte un site web pour une PME à Lausanne ?", "Un site vitrine de 5 à 7 pages démarre à 399 CHF. Le budget dépend ensuite de la structure, de la rédaction et des fonctionnalités ; une boutique en ligne change beaucoup la facture. Un échange direct permet de clarifier le périmètre et le prix."],
           ["Mieux vaut une agence ou un indépendant ?", "L’important n’est pas la taille du prestataire mais la personne qui travaille réellement sur votre projet. Posez à l’un et à l’autre les questions de cet article et comparez les réponses."],
           ["Combien de temps faut-il pour créer un site ?", "Pour un site vitrine, comptez en général quelques semaines entre le premier échange et la mise en ligne. Le délai dépend beaucoup de la rapidité de vos retours sur les maquettes et les textes."],
           ["Peut-on changer d’agence plus tard ?", "Oui, si le domaine, l’hébergement et le code sont à votre nom. C’est précisément pour cela que cette question figure dans la liste de cet article."],
@@ -674,7 +674,7 @@ export const articles: Article[] = [
     kicker: "BUDGET WEB",
     title: "Combien coûte un site internet à Lausanne en 2026 ?",
     description: "Ce qui fait réellement varier le prix d’un site web à Lausanne : type de projet, pages, rédaction, SEO, fonctionnalités, maintenance. Et les questions à poser avant tout devis.",
-    intro: "Le prix d’un site internet se joue à plusieurs étages : projet, pages, contenus, techniques. Voici comment comprendre ce que vous payez vraiment pour un site à Lausanne, sans fourchettes magiques.",
+    intro: "Réponse courte : un site vitrine de 5 à 7 pages commence à 399 CHF chez SebWebSwiss. Le prix final dépend du nombre de pages, de la rédaction, des fonctionnalités et de l’accompagnement — une boutique en ligne démarre à 1 290 CHF. Voici comment comprendre ce que vous payez vraiment pour un site à Lausanne.",
     excerpt: "Site vitrine, boutique en ligne ou sur-mesure : ce que vous payez vraiment, ce qui fait varier la facture et les questions à poser avant de signer.",
     datePublished: "2026-09-14",
     dateModified: "2026-09-14",
@@ -697,7 +697,7 @@ export const articles: Article[] = [
       {
         kind: "p",
         content: [
-          { text: "Une chose est sûre : un prix « à partir de » quelques centaines de francs cache presque toujours un périmètre minimaliste, qui ne répondra pas à vos besoins une fois complété. Mieux vaut comprendre le contenu du devis avant de comparer des montants." },
+          { text: "Un prix de départ bas ne veut rien dire tant que le périmètre n’est pas écrit. Chez nous, les 399 CHF correspondent à un site vitrine de 5 à 7 pages, avec la structure, l’intégration et les bases SEO. Ce qui fait monter la facture ensuite : la rédaction, les fonctionnalités spécifiques, les pages supplémentaires et l’accompagnement après la mise en ligne." },
         ],
       },
       {
@@ -780,12 +780,21 @@ export const articles: Article[] = [
       },
       {
         kind: "h2",
-        text: "Pourquoi je ne publie pas de prix fixes ici",
+        text: "Pourquoi nous publions un prix de départ",
       },
       {
         kind: "p",
         content: [
-          { text: "Pour rester cohérent avec ma manière de travailler, je ne publie pas de fourchettes de prix sur ce site : chaque projet mérite un premier échange avant de devenir un devis précis. Publier des chiffres sans connaître votre besoin vous donnerait une impression de précision qui n’existe pas." },
+          { text: "Un prix de départ donne un repère utile, à condition de dire ce qu’il couvre. Les 399 CHF concernent un site vitrine de 5 à 7 pages : structure, intégration responsive, bases SEO et mise en ligne. La rédaction, les fonctionnalités sur mesure, les pages supplémentaires et l’accompagnement sont chiffrés séparément, dans le devis." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "site vitrine de 5 à 7 pages : à partir de 399 CHF",
+          "refonte d’un site existant : à partir de 399 CHF",
+          "boutique en ligne ou catalogue : à partir de 1 290 CHF",
+          "rédaction, fonctionnalités et pages supplémentaires : chiffrées dans le devis",
         ],
       },
       {
@@ -798,12 +807,12 @@ export const articles: Article[] = [
       },
       {
         kind: "h2",
-        text: "Le piège des devis « à partir de »",
+        text: "Le piège des devis « à partir de » sans périmètre",
       },
       {
         kind: "p",
         content: [
-          { text: "Un prix « à partir de » annoncé sur le site d’une agence signifie souvent que plusieurs postes essentiels ne sont pas dans le devis : rédaction, SEO, pages supplémentaires, maintenance. Avant de comparer deux propositions, vérifiez le contenu de chacune." },
+          { text: "Un prix « à partir de » n’est pas un problème en soi — à condition que le périmètre soit écrit noir sur blanc. Sans cette liste, plusieurs postes essentiels peuvent rester hors devis : rédaction, SEO, pages supplémentaires, maintenance. Avant de comparer deux propositions, vérifiez le contenu de chacune." },
         ],
       },
       {
@@ -875,12 +884,12 @@ export const articles: Article[] = [
           [
             "Combien coûte un site vitrine à Lausanne ?",
             [
-              { text: "Le prix dépend notamment du nombre de pages, du niveau de personnalisation, de la rédaction, des fonctionnalités et de l’accompagnement prévu après la mise en ligne. C’est pourquoi je préfère établir une proposition à partir du besoin réel plutôt qu’annoncer un tarif unique qui ne correspondrait pas à tous les projets. SebWebSwiss propose également ponctuellement des offres spécifiques, comme le " },
+              { text: "Un site vitrine de 5 à 7 pages commence à 399 CHF. Le prix dépend ensuite du nombre de pages, de la rédaction, des fonctionnalités et de l’accompagnement prévu après la mise en ligne. Le devis détaille ce qui est inclus. SebWebSwiss propose également ponctuellement des offres spécifiques, comme le " },
               { text: "Programme Fondateur", link: "/offre-lancement" },
               { text: ", avec des conditions distinctes : elles ne représentent pas le tarif standard d’un projet web." },
             ],
           ],
-          ["Combien coûte une boutique en ligne ?", "Une boutique en ligne exige un travail nettement plus important : catalogue, gestion des commandes, paiement, expédition, sécurité. Un échange direct est nécessaire pour cadrer le besoin avant toute estimation."],
+          ["Combien coûte une boutique en ligne ?", "Une boutique en ligne démarre à 1 290 CHF. Le prix dépend du catalogue, de la gestion des commandes, du paiement, de l’expédition et de la sécurité. Un échange direct reste nécessaire pour cadrer le besoin avant le devis."],
           ["Pourquoi les prix varient-ils autant entre agences ?", "Parce que le contenu des devis varie autant que leur montant. Deux propositions au même prix peuvent inclure des choses totalement différentes. Comparez le périmètre, pas seulement le chiffre."],
           ["L’hébergement coûte-t-il cher ?", "Le coût de l’hébergement, du domaine et de la maintenance est un poste récurrent à prévoir chaque année. Ce n’est pas un détail du budget total, mais un engagement qui doit être explicite avant la signature."],
           ["Le référencement est-il inclus dans le prix du site ?", "Les bases SEO peuvent l’être : structure, titres, vitesse, indexation. La visibilité durable, elle, est un accompagnement séparé et suivi dans le temps. Posez la question avant de signer."],
@@ -2244,7 +2253,7 @@ export const articles: Article[] = [
     kicker: "BUDGET SEO",
     title: "Combien coûte le référencement SEO en Suisse en 2026 ? Prix, budgets et exemples",
     description: "Les fourchettes réelles du SEO en Suisse : audit ponctuel, SEO local, accompagnement mensuel, refonte optimisée, ce qui fait varier les devis et comment les comparer.",
-    intro: "Réponse courte : comptez environ 500 à 2 500 CHF pour un audit SEO ponctuel, 300 à 800 CHF par mois pour un SEO local, 800 à 3 000 CHF par mois pour un accompagnement complet et à partir de 3 000 CHF pour une refonte optimisée SEO. L’écart dans chaque fourchette ne vient pas d’un mystère : il vient de l’état de votre site, de vos objectifs et du volume de travail.",
+    intro: "Réponse courte : chez SebWebSwiss, un audit SEO ponctuel commence à 199 CHF, le SEO local à 149 CHF par mois, un accompagnement complet à 399 CHF par mois et une refonte optimisée SEO à 399 CHF. À l’échelle du marché suisse, les fourchettes restent plus larges : le prix dépend de l’état de votre site, de vos objectifs et du volume de travail.",
     excerpt: "Audit ponctuel, SEO local, accompagnement mensuel, refonte : les fourchettes de prix du référencement en Suisse, ce qui fait varier les devis et comment les lire.",
     datePublished: "2026-10-09",
     dateModified: "2026-10-09",
@@ -2258,7 +2267,7 @@ export const articles: Article[] = [
         kind: "callout",
         title: "À retenir",
         content: [
-          { text: "Audit ponctuel : environ 500 à 2 500 CHF. SEO local : 300 à 800 CHF par mois. Accompagnement mensuel complet : 800 à 3 000 CHF par mois. Refonte optimisée SEO : à partir de 3 000 CHF. Ces fourchettes sont indicatives et observées sur le marché suisse — un devis sérieux se construit sur votre site, pas sur une grille toute faite." },
+          { text: "Chez SebWebSwiss : audit dès 199 CHF, SEO local dès 149 CHF par mois, accompagnement complet dès 399 CHF par mois, refonte dès 399 CHF. À l’échelle du marché suisse, les fourchettes sont plus larges (audit 500 à 2 500 CHF, mensuel 800 à 3 000 CHF) — un devis sérieux se construit sur votre site, pas sur une grille toute faite." },
         ],
       },
       {
@@ -2284,7 +2293,7 @@ export const articles: Article[] = [
       {
         kind: "p",
         content: [
-          { text: "Comptez généralement entre 500 et 2 500 CHF pour un audit digne de ce nom. En dessous, vous achetez presque toujours un rapport automatique — des dizaines de pages générées par un outil, sans analyse ni plan. Au-dessus, c’est soit un très grand site, soit un périmètre élargi, par exemple une stratégie complète livrée avec l’audit." },
+          { text: "Un audit de départ commence à 199 CHF : il cible les points bloquants et se termine par un plan d’action priorisé. Sur un site plus important ou avec un périmètre élargi — concurrence, contenu, local —, le travail peut monter jusqu’à 2 500 CHF. En dessous de 199 CHF, on trouve surtout des rapports automatiques, sans analyse ni plan d’action." },
         ],
       },
       {
@@ -2300,7 +2309,7 @@ export const articles: Article[] = [
       {
         kind: "p",
         content: [
-          { text: "Le travail local — fiche Google Business Profile, citations locales, pages par localité — se situe typiquement entre 300 et 800 CHF par mois. La fourchette dépend surtout de l’état de départ : une base saine demande de l’entretien, un site négligé demande d’abord des corrections." },
+          { text: "Le travail local — fiche Google Business Profile, citations locales, pages par localité — commence à 149 CHF par mois chez SebWebSwiss. Sur le marché, la fourchette monte plutôt de 300 à 800 CHF par mois. Le prix dépend surtout de l’état de départ : une base saine demande de l’entretien, un site négligé demande d’abord des corrections." },
         ],
       },
       {
@@ -2320,7 +2329,7 @@ export const articles: Article[] = [
       {
         kind: "p",
         content: [
-          { text: "Entre 800 et 3 000 CHF par mois pour une PME, au-delà pour les sites importants. Ce qui fait monter la note : le volume de contenu produit, le nombre de marchés ou de langues, la production de mentions extérieures et la taille technique du site." },
+          { text: "Un accompagnement complet démarre à 399 CHF par mois. Sur le marché suisse, comptez plutôt entre 800 et 3 000 CHF par mois pour une PME, et au-delà pour les sites importants. Ce qui fait monter la note : le volume de contenu produit, le nombre de marchés ou de langues, la production de mentions extérieures et la taille technique du site." },
         ],
       },
       {
@@ -2336,7 +2345,7 @@ export const articles: Article[] = [
       {
         kind: "p",
         content: [
-          { text: "À partir de 3 000 CHF pour un site vitrine, couramment jusqu’à 15 000 CHF et au-delà pour un catalogue ou un e-commerce. Intégrer le SEO à la refonte coûte moins cher que de le rattraper après : redirections, conservation du contenu qui fonctionne, structure pensée pour les recherches dès le départ." },
+          { text: "Une refonte optimisée SEO démarre à 399 CHF pour un site vitrine, et à 1 290 CHF pour une boutique en ligne. Sur un projet plus grand, la fourchette monte couramment jusqu’à 15 000 CHF et au-delà. Intégrer le SEO à la refonte coûte moins cher que de le rattraper après : redirections, conservation du contenu qui fonctionne, structure pensée pour les recherches dès le départ." },
         ],
       },
       {
@@ -2384,7 +2393,7 @@ export const articles: Article[] = [
           "une garantie de première place sur Google : personne de sérieux ne la donne",
           "la « soumission » à des centaines d’annuaires : en 2026, c’est au mieux inutile, au pire nuisible",
           "des livrables non nommés : si vous ne savez pas ce que vous recevez, vous ne recevrez rien de vérifiable",
-          "un prix anormalement bas sur plusieurs mois : le travail existe, mais il est ailleurs — souvent automatisé",
+          "un prix bas sans périmètre écrit : ce qui n’est pas listé ne sera pas fait — ou sera facturé plus tard",
           "aucune mention de mesure ni de Search Console : sans mesure, aucune prestation ne peut prouver quoi que ce soit",
         ],
       },
@@ -2420,7 +2429,7 @@ export const articles: Article[] = [
         kind: "faq",
         items: [
           ["Pourquoi le SEO coûte-t-il plus cher en Suisse qu’à l’étranger ?", "Pour les mêmes raisons que tous les services : les coûts de structure et de vie y sont plus élevés, et l’expertise locale — langue, marché, usages — se paie. Un prestataire à distance peut être moins cher ; il est rarement aussi pertinent sur le contenu romand."],
-          ["Un accompagnement à 200 CHF par mois, c’est sérieux ?", "À ce prix, personne ne peut consacrer à votre site le temps d’un travail réel. Ce qui existe à ce niveau : des outils automatisés avec un peu de supervision. Ça aide à ne rien casser ; ça ne fait pas avancer un site."],
+          ["Un accompagnement à 399 CHF par mois, c’est suffisant ?", "Pour une PME dont le site est déjà sain, oui : le suivi technique, les priorités mensuelles et quelques contenus ciblés tiennent dans ce budget. Si le site demande une refonte ou un volume de contenu important, le budget doit suivre — sinon l’accompagnement se limite à l’entretien."],
           ["Combien de temps dois-je m’engager ?", "Un engagement de 3 à 6 mois est raisonnable : le SEO a des délais physiques. Au-delà de 12 mois d’engagement imposé, restez vigilant — un prestataire confiant accepte des points réguliers et des sorties propres."],
           ["Le SEO est-il moins cher que Google Ads ?", "Ce n’est pas le même objet. Les Ads sont un flux : vous payez, ça marche ; vous arrêtez, ça s’arrête. Le SEO est un actif : le travail s’arrête, les positions restent un temps. Sur deux ans, le SEO coûte presque toujours moins cher par contact obtenu."],
           ["Que contient concrètement un accompagnement mensuel ?", "En principe : le suivi de mesure, les corrections techniques au fil de l’eau, la production ou l’optimisation de contenu, les actions locales et externes, et un point mensuel avec le plan du mois suivant. Le dosage varie d’un site à l’autre — la transparence sur ce dosage, non."],
