@@ -2377,6 +2377,480 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: "ai-overviews-suisse-pme-2026",
+    kicker: "VISIBILITÉ IA",
+    title: "AI Overviews et AI Mode en Suisse : ce qui change pour les PME romandes",
+    description: "Les AI Overviews et l’AI Mode sont actifs en Suisse. Ce qui change pour les PME romandes, comment mesurer sa visibilité et quelles pages préparer.",
+    intro: "Réponse courte : les AI Overviews et l’AI Mode sont bien actifs en Suisse, mais ils n’exigent aucune optimisation spéciale. Une page doit être indexée, autorisée à afficher un snippet et répondre clairement à une question. Le vrai changement est ailleurs : depuis le 31 août 2026, Search Console montre les impressions issues des fonctions IA.",
+    excerpt: "Ce que Google affiche réellement en Suisse, comment lire le nouveau rapport Search Console et quelles pages préparent une citation — sans mythes ni recettes miracles.",
+    datePublished: "2026-11-21",
+    dateModified: "2026-11-21",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-ai-overviews-suisse.png",
+    sections: [
+      {
+        kind: "h2",
+        text: "Les AI Overviews et l’AI Mode sont-ils actifs en Suisse ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Oui, et depuis plus longtemps qu’on ne le croit souvent. Les AI Overviews — le résumé généré affiché au-dessus des résultats classiques — sont apparus en Suisse fin mars 2025. L’AI Mode, le mode de recherche conversationnel de Google, y est disponible depuis le 8 octobre 2025, en allemand, en français et en italien." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Toutes les requêtes ne déclenchent pas de résumé : Google décide au cas par cas si la réponse apporte quelque chose de plus que les liens classiques. Une étude d’AlgorithmWatch Suisse, menée sur 170 000 requêtes entre avril et mai 2026, a relevé un AI Overview sur environ 43 % des recherches Google testées — avec de fortes différences selon la langue : près de 56 % en français, 33 % en allemand et 23 % en italien." },
+        ],
+      },
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Les deux fonctions sont actives en Suisse, en français comme en allemand et en italien. Google ne garantit aucune citation, même pour une page bien positionnée. Et aucun fichier ni balisage spécial n’est nécessaire pour y figurer." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Faut-il un réglage spécial pour apparaître dans les réponses IA ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Non. La documentation de Google est explicite : il n’existe aucune exigence technique supplémentaire pour apparaître dans les AI Overviews ou l’AI Mode, et aucune optimisation spécifique n’est nécessaire. Une page doit simplement être indexée et autorisée à s’afficher avec un snippet dans la recherche classique." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce qui compte reste donc le SEO fondamental : crawl autorisé dans robots.txt, contenu important présent en texte, maillage interne, données structurées cohérentes avec la page, fiche Business Profile à jour. Google ajoute un point utile : ni fichier llms.txt, ni schéma spécial, ni découpage artificiel du contenu ne sont requis." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Si votre site n’apparaît nulle part, le problème est presque toujours en amont : c’est le sujet de notre guide " },
+          { text: "site absent de Google", link: "/blog/site-internet-pas-visible-google" },
+          { text: ". Et pour la partie assistants (ChatGPT, Gemini, Perplexity), le fonctionnement est proche mais pas identique : voir " },
+          { text: "la visibilité sur les moteurs IA", link: "/blog/etre-visible-chatgpt-gemini-moteurs-ia" },
+          { text: "." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Comment savoir si votre site est cité dans les réponses IA ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Depuis le 31 août 2026, le rapport « Performances de l’IA générative » est déployé dans Search Console pour tous les sites. Il montre les impressions de vos URL dans les AI Overviews et l’AI Mode, avec les pages, les pays, les appareils et les dates." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Deux limites à connaître. Le rapport ne fournit que des impressions : ni clics, ni taux de clic, ni requêtes. Et il n’apparaît que si le site a généré assez d’impressions dans ces fonctions. Son absence ne prouve donc pas que vous êtes exclu." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "ouvrir le rapport des performances de l’IA générative dans Search Console",
+          "comparer les pages citées avec celles qui rapportent déjà des demandes de devis",
+          "vérifier le réglage « IA générative dans la recherche », activé par défaut",
+          "croiser avec les conversions, pas seulement avec les positions",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Pourquoi les clics baissent-ils alors que les impressions montent ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est le paradoxe des réponses IA : votre page est affichée plus souvent, mais elle est moins cliquée. Les données disponibles vont dans ce sens, avec des nuances importantes." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "Le Temps a mesuré, sur son propre corpus, une part de clics divisée par deux sur les requêtes informationnelles concernées : de 6,8 % à 3,3 %. Les requêtes de marque restaient, elles, affichées sans résumé dans 97,3 % des cas.",
+          "Seer Interactive a observé, sur des requêtes informatives, environ 3,3 % de clics sans AI Overview, 2,1 % avec citation et 0,9 % sans citation.",
+          "e-dialog a mesuré une baisse du trafic organique suisse de 18,7 % au premier semestre 2026 — mais de 3,5 % seulement après exclusion de certains outliers. La méthodologie n’est pas publique : à prendre comme un signal, pas comme une preuve.",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La lecture raisonnable : les pages informationnelles souffrent, les requêtes de marque et les intentions commerciales sont beaucoup moins touchées. La bonne réponse n’est pas de paniquer, mais de mesurer par intention — et de garder la tête froide face aux chiffres spectaculaires." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Quelles pages préparent réellement une citation ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Google ne donne pas de recette, et toute liste de « facteurs de classement IA » est une déduction. Ce qui ressort des recommandations officielles et de l’observation :" },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "une réponse directe dans les premières lignes, avant le contexte",
+          "des H2 qui posent de vraies questions, avec une réponse par question",
+          "des données que personne d’autre ne publie : prix pratiqués, délais observés, erreurs fréquentes",
+          "des sources citées, datées et vérifiables",
+          "une identité cohérente : nom, adresse et téléphone identiques sur le site, la fiche Google et les annuaires",
+          "un auteur identifiable et une date de mise à jour visible",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "À l’inverse, empiler des FAQ génériques ou multiplier les pages villes sans contenu propre ne produit rien de durable — ni pour Google, ni pour les assistants." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Que faire concrètement dans une PME à Lausanne ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le travail se joue sur trois niveaux, dans cet ordre." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "technique : indexation, vitesse, sitemap, robots.txt, données structurées valides",
+          "contenu : une page par offre et par intention, avec une réponse claire en tête",
+          "confiance : fiche Google Business Profile complète, avis récents, mentions locales sérieuses",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ensuite, une routine mensuelle suffit : dix minutes dans le rapport IA de Search Console, une page à améliorer, une question client à transformer en contenu. C’est ce rythme qui construit la visibilité, pas une intervention ponctuelle." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Quels mythes coûtent du temps et de l’argent ?",
+      },
+      {
+        kind: "list",
+        items: [
+          "« il faut un fichier llms.txt » : Google indique explicitement le contraire",
+          "« il faut un schéma spécial pour l’IA » : aucun balisage spécifique n’est requis",
+          "« il faut découper chaque paragraphe en petits morceaux » : Google ne demande pas de format particulier",
+          "« acheter des mentions suffit » : les mentions artificielles relèvent du spam",
+          "« bloquer les robots IA protège mon contenu » : cela vous retire aussi des réponses où vous pourriez être cité",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ces mythes ont un coût réel : ils détournent du travail qui, lui, fonctionne." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce que nous observons sur les sites de PME suisses",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Sur les sites que nous suivons en Suisse romande, trois schémas reviennent. Les requêtes de marque restent stables et souvent sans résumé IA. Les pages services progressent lentement, parce qu’elles demandent des mises à jour régulières. Et les pages qui répondent à une question précise — prix, délai, procédure — sont les plus souvent reprises, parce qu’elles apportent une information que le résumé ne peut pas inventer." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "C’est cohérent avec ce que nous voyons sur le " },
+          { text: "référencement local à Lausanne", link: "/blog/seo-local-lausanne" },
+          { text: " : les signaux de proximité et de confiance pèsent autant que la technique." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Un plan de 90 jours pour une PME romande",
+      },
+      {
+        kind: "list",
+        items: [
+          "jours 1 à 15 : vérifier l’indexation, les snippets, robots.txt et la fiche Google",
+          "jours 16 à 45 : réécrire les trois pages qui reçoivent déjà des impressions, avec une réponse directe en tête",
+          "jours 46 à 75 : publier une page par question fréquente, avec des chiffres réels",
+          "jours 76 à 90 : comparer les impressions IA, les clics et les demandes entrantes, puis ajuster",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce plan correspond au déroulé d’un " },
+          { text: "audit SEO", link: "/services/audit-seo" },
+          { text: ", avec une différence : la mesure des fonctions IA fait désormais partie du suivi normal." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Les AI Overviews sont-ils disponibles en Suisse ?", "Oui. Les résumés IA apparaissent en Suisse depuis fin mars 2025, et l’AI Mode y est disponible depuis le 8 octobre 2025 en allemand, français et italien."],
+          ["Faut-il créer un fichier llms.txt ?", "Non. Google indique qu’aucun fichier ni balisage spécial n’est nécessaire pour apparaître dans ses fonctions IA. Un llms.txt peut servir à d’autres outils, mais ce n’est pas un levier Google."],
+          ["Comment voir si mon site est cité ?", "Dans Search Console, rapport des performances de l’IA générative, déployé pour tous les sites depuis le 31 août 2026. Il montre les impressions, pas les clics."],
+          ["Les réponses IA vont-elles tuer mon trafic ?", "Elles réduisent les clics sur les requêtes informationnelles, moins sur les requêtes de marque et commerciales. L’effet dépend de votre secteur et de vos intentions de recherche : il se mesure, il ne se devine pas."],
+          ["Faut-il bloquer les robots IA ?", "En général non. Bloquer les crawlers de recherche vous retire des réponses où vous pourriez être cité. La décision dépend de votre modèle économique, pas d’une mode."],
+          ["Combien de temps avant de voir un effet ?", "Quelques semaines à quelques mois. Les pages déjà indexées peuvent être reprises rapidement après une réécriture ; une nouvelle page doit d’abord être crawlée et évaluée."],
+        ],
+      },
+      {
+        kind: "callout",
+        title: "Sources",
+        content: [
+          { text: "Google Search Central, « AI features and your website », consulté le 21 novembre 2026. Google Search Central Blog, « Introducing Search Generative AI performance reports », 3 juin 2026, déploiement mondial au 31 août 2026. Search Console Help, « Generative AI performance report » et « Search generative AI control ». AlgorithmWatch Suisse, étude sur les aperçus IA (170 000 requêtes), 18 juin 2026. Le Temps / Blog du Modérateur, mesure de l’impact des AI Overviews, 28 juillet 2026. Seer Interactive, étude CTR et AI Overviews, avril 2026. e-dialog, évolution du trafic organique DACH, 2026 — cité avec réserves méthodologiques." },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "loi-ia-suisse-pme-2026",
+    kicker: "IA & DROIT",
+    title: "Loi sur l’IA en Suisse : ce que les PME doivent faire maintenant",
+    description: "Pas encore de loi IA en Suisse, mais des règles s’appliquent déjà. Ce que le Conseil fédéral a décidé le 28 octobre 2026 et ce qu’une PME doit mettre en place.",
+    intro: "Réponse courte : il n’existe pas encore de loi suisse spécifique à l’IA. Le Conseil fédéral a pris acte, le 28 octobre 2026, de l’avancement des travaux ; la consultation est prévue au printemps 2027. En attendant, la loi sur la protection des données s’applique déjà à vos traitements assistés par IA — et c’est là que se joue le risque réel.",
+    excerpt: "Ce que la Suisse a réellement décidé le 28 octobre 2026, ce qui s’applique déjà aujourd’hui, et le mini-code IA qu’une PME peut mettre en place en trois heures.",
+    datePublished: "2026-11-21",
+    dateModified: "2026-11-21",
+    author: {
+      name: "Sébastien",
+      url: `${business.url}/a-propos`,
+    },
+    image: "https://sebwebswiss.ch/og-blog-loi-ia-suisse.png",
+    sections: [
+      {
+        kind: "h2",
+        text: "Y a-t-il une loi sur l’IA en Suisse en novembre 2026 ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Non. La Suisse n’a pas de loi générale consacrée à l’intelligence artificielle. Le 12 février 2025, le Conseil fédéral a décidé de ratifier la convention du Conseil de l’Europe sur l’IA et de l’intégrer au droit suisse, avec une approche volontairement sectorielle plutôt qu’un texte unique calqué sur l’AI Act européen." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Deux voies avancent en parallèle. Des mesures contraignantes, préparées par l’Office fédéral de la justice — transparence, protection des données, non-discrimination, surveillance, analyse des risques — dont la consultation est annoncée pour le printemps 2027. Et des mesures non contraignantes coordonnées par l’OFCOM : lignes directrices, normes sectorielles et engagements volontaires." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Que s’est-il passé le 28 octobre 2026 ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le Conseil fédéral a pris connaissance de l’état des travaux et publié deux documents. Un rapport sur les mesures sectorielles déjà en cours dans l’administration fédérale. Et surtout un « Guide pour l’élaboration d’un code en matière d’IA », destiné aux associations et aux entreprises : une boîte à outils, pas une certification." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le guide propose une structure en dix articles, chacun avec des modules de texte à trois niveaux de détail. Il couvre l’objectif du code, son champ d’application, les définitions, les principes, les rôles et responsabilités, les personnes concernées, la mise en œuvre, la gestion des incidents et la maintenance du code." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Le guide de l’OFCOM est-il obligatoire ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Non. L’engagement est volontaire. Une fois adopté, un code peut en revanche devenir contraignant à l’interne, pour les collaborateurs ou les membres d’une association. Et le guide précise lui-même qu’il ne constitue pas une preuve de conformité aux exigences légales : chaque organisation reste responsable de vérifier ce qui s’applique à elle." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pour une PME, l’intérêt n’est pas administratif. C’est un cadre simple pour répondre à trois questions que les clients posent déjà : quels outils utilisez-vous, quelles données passent dedans, et qui relit ce qui est publié." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Quelles règles s’appliquent déjà aujourd’hui ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "L’absence de loi spécifique ne signifie pas absence de règles. Quatre blocs s’appliquent dès maintenant." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "la LPD : le Préposé fédéral à la protection des données et à la transparence rappelle depuis 2023, avec une mise à jour du 8 mai 2025, que la loi est directement applicable aux traitements fondés sur l’IA — transparence sur la finalité, le fonctionnement et les sources, droit de savoir si l’on parle à une machine, analyse d’impact en cas de risque élevé",
+          "le droit des contrats et la responsabilité : une décision reste imputable à une personne, jamais à un système",
+          "les règles sectorielles : santé, finance, formation et emploi ont leurs propres exigences",
+          "l’AI Act européen, si vous avez des clients ou des utilisateurs dans l’UE : les obligations de transparence de l’article 50 s’appliquent depuis le 2 août 2026",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ce dernier point est souvent oublié. Un chatbot qui interagit avec des personnes dans l’UE doit indiquer qu’il est une IA. Les contenus générés doivent être marqués de façon lisible par machine, et les deepfakes signalés. Les textes publiés sur des sujets d’intérêt public sans relecture humaine sont également concernés — sauf s’ils ont fait l’objet d’une révision éditoriale assumée." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Que risque une PME qui utilise l’IA sans cadre ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Pas une amende « pour usage d’IA » : ce risque n’existe pas en droit suisse aujourd’hui. Les risques réels sont ailleurs, et ils sont plus concrets." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "protection des données : un chatbot qui collecte des données personnelles sans information claire, ou un outil qui les envoie à un fournisseur sans base légale",
+          "publicité trompeuse : présenter un contenu généré comme une expertise vérifiée, ou promettre un résultat que personne ne peut garantir",
+          "droit d’auteur et droit à l’image : photos de clients ou d’employés utilisées dans un générateur d’images",
+          "décisions automatisées : tri de candidatures ou scoring client sans intervention humaine",
+          "réputation : une erreur factuelle publiée sous votre nom coûte plus cher qu’un retard de publication",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Que faire concrètement en 90 minutes ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Un mini-code IA utile tient sur deux pages. Voici la version que nous recommandons à une PME romande." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "inventaire : listez les outils IA réellement utilisés, par qui, pour quoi",
+          "données : définissez ce qui ne doit jamais entrer dans un outil externe — données clients, RH, contrats",
+          "transparence : indiquez clairement quand un chatbot répond et comment joindre un humain",
+          "relecture : aucune publication client sans validation humaine",
+          "contenus : règles pour les images, les voix et les textes générés, y compris le marquage si vous visez l’UE",
+          "traçabilité : un registre simple des usages et des incidents",
+          "contrats : vérifiez ce que le fournisseur fait de vos données et où elles sont hébergées",
+        ],
+      },
+      {
+        kind: "callout",
+        title: "À retenir",
+        content: [
+          { text: "Un code IA n’est pas un document de communication. S’il n’est pas appliqué, il devient une preuve de négligence." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Et pour votre site web ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Trois changements suffisent dans la plupart des cas." },
+        ],
+      },
+      {
+        kind: "list",
+        items: [
+          "politique de confidentialité : mentionner les outils IA utilisés et les sous-traitants concernés",
+          "chatbot ou formulaire assisté : afficher clairement la nature automatisée de la réponse et proposer un contact humain",
+          "contenus : dater les mises à jour et assumer la responsabilité éditoriale, ce qui est aussi un signal de qualité pour Google",
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Inutile, en revanche, de bloquer les robots IA par défaut : cela vous retirerait des réponses où votre entreprise pourrait être citée. La décision se prend outil par outil, pas par réflexe. Notre " },
+          { text: "politique de confidentialité", link: "/confidentialite" },
+          { text: " et le " },
+          { text: "check-up de site", link: "/check-up-site-web" },
+          { text: " donnent un point de départ concret." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Faut-il attendre la loi avant d’agir ?",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Non, pour trois raisons. La LPD s’applique déjà. Vos clients européens relèvent déjà de l’AI Act. Et vos propres clients vous posent déjà la question, souvent dans le premier échange commercial. Attendre 2027, c’est répondre « je ne sais pas » pendant deux ans à une question de confiance." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "La loi à venir devrait rester sectorielle : elle ne transformera pas du jour au lendemain les obligations d’une PME de Lausanne. Le vrai travail est organisationnel, et il peut commencer cette semaine." },
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Ce qu’il ne faut pas faire",
+      },
+      {
+        kind: "list",
+        items: [
+          "copier l’AI Act européen mot pour mot : ce n’est pas le droit applicable en Suisse",
+          "interdire l’IA à toute l’entreprise : vos concurrents ne le feront pas",
+          "publier un code IA sans l’appliquer",
+          "mettre « 100 % IA » en argument commercial : cela pose plus de questions que ça n’en résout",
+          "cacher l’usage de l’IA : la transparence est justement ce que la LPD exige",
+        ],
+      },
+      {
+        kind: "h2",
+        text: "Notre recommandation pour une PME romande",
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Commencez par un inventaire honnête, puis un mini-code de deux pages, puis une mise à jour de la politique de confidentialité et des mentions du site. Trois heures de travail, pas trois mois de conseil." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Si vous voulez un point de départ mesurable, le check-up vérifie déjà une partie des signaux utiles : HTTPS, en-têtes de sécurité, données structurées, lisibilité par les robots IA. Le reste se joue dans vos processus, pas dans un plugin." },
+        ],
+      },
+      {
+        kind: "faq",
+        items: [
+          ["Une loi sur l’IA va-t-elle voir le jour en Suisse ?", "Oui. Le Conseil fédéral a décidé de ratifier la convention du Conseil de l’Europe sur l’IA. La consultation sur le projet de loi est annoncée pour le printemps 2027, avec une approche sectorielle plutôt qu’un texte général."],
+          ["Le guide de l’OFCOM est-il une certification ?", "Non. C’est une boîte à outils pour rédiger un engagement volontaire. Le guide précise lui-même qu’il ne prouve pas la conformité aux exigences légales."],
+          ["Suis-je concerné si j’utilise ChatGPT pour rédiger ?", "Oui, dès que des données personnelles entrent dans l’outil, ou si un texte est publié sans relecture. La LPD s’applique indépendamment de l’outil utilisé."],
+          ["Mon chatbot doit-il dire qu’il est une IA ?", "La LPD impose la transparence sur les traitements automatisés. Si des utilisateurs sont dans l’UE, l’article 50 de l’AI Act l’exige aussi depuis le 2 août 2026."],
+          ["Dois-je bloquer les robots IA ?", "En général non. Bloquer les crawlers de recherche vous retire des réponses où vous pourriez être cité. Décidez outil par outil, selon votre modèle économique."],
+          ["Que faire si un client demande une garantie de conformité ?", "Aucune certification « IA » n’existe en Suisse. Vous pouvez décrire précisément vos mesures : inventaire, règles de données, relecture humaine, transparence. C’est plus crédible qu’un logo."],
+        ],
+      },
+      {
+        kind: "callout",
+        title: "Sources",
+        content: [
+          { text: "BAKOM/OFCOM, « Intelligence artificielle : état des lieux et approches réglementaires », 28 octobre 2026. Conseil fédéral, communiqué « Le Conseil fédéral prend connaissance de l’avancement de la réglementation en matière d’IA », 28 octobre 2026. OFCOM, « Guide pour l’élaboration d’un code en matière d’IA », octobre 2026. Conseil fédéral, communiqué du 12 février 2025 sur la ratification de la convention du Conseil de l’Europe. PFPDT, « La loi actuelle sur la protection des données est directement applicable à l’IA », mise à jour du 8 mai 2025. Commission européenne, obligations de transparence de l’article 50 de l’AI Act, applicables depuis le 2 août 2026. LPD, RS 235.1." },
+        ],
+      },
+    ],
+  },
 ];
 
 export const getArticle = (slug: string): Article | undefined =>

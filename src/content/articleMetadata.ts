@@ -49,6 +49,14 @@ const snippets: Record<string, { title: string; description?: string }> = {
     title: "Prix du SEO en Suisse en 2026",
     description: "Prix du référencement en Suisse : fourchettes pour un audit ponctuel, du SEO local, un accompagnement mensuel ou une refonte, et ce qui fait varier les devis.",
   },
+  "ai-overviews-suisse-pme-2026": {
+    title: "AI Overviews en Suisse : le guide PME",
+    description: "AI Overviews et AI Mode sont actifs en Suisse : comment mesurer votre visibilité et quelles pages préparent une citation, sans mythes.",
+  },
+  "loi-ia-suisse-pme-2026": {
+    title: "Loi IA en Suisse : ce qu’il faut faire",
+    description: "Pas encore de loi IA en Suisse, mais des règles s’appliquent déjà. Ce que le Conseil fédéral a décidé le 28 octobre 2026, et quoi faire maintenant.",
+  },
 };
 
 export function getArticleMetadata(article: Article) {
