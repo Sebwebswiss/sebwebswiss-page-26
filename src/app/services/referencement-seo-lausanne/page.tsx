@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { openGraphDefaults } from "@/content/metadata";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -7,8 +8,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { business } from "@/content/business";
 
 export const metadata: Metadata = {
-  title: "Référencement SEO à Lausanne",
-  description: "Consultant SEO à Lausanne : audit, stratégie de contenu, optimisation technique et accompagnement pour améliorer votre visibilité organique.",
+  title: "Agence SEO et référencement à Lausanne",
+  description: "Agence SEO à Lausanne et en Suisse romande : audit, stratégie de contenu, optimisation technique et accompagnement pour améliorer votre visibilité organique.",
   alternates: { canonical: "/services/referencement-seo-lausanne" },
   openGraph: { ...openGraphDefaults, url: "https://sebwebswiss.ch/services/referencement-seo-lausanne" },
 };
@@ -18,7 +19,9 @@ const faqs = [
   ["SEO ou Google Ads ?", "Cela dépend de votre objectif. Le SEO construit une visibilité durable ; Google Ads donne des résultats rapides mais payants. Je vous aide à choisir selon votre situation."],
   ["Travaillez-vous avec une équipe ?", "J’interviens en direct : un seul interlocuteur, de l’analyse à la mise en place. Vous savez toujours qui travaille sur votre projet."],
   ["Puis-je voir ce que vous faites ?", "Oui. Je m’appuie sur des données réelles (Search Console), avec des priorités claires expliquées tout au long de l’accompagnement."],
-  ["Combien coûte le SEO ?", "Chaque projet est différent. Après un premier échange, je propose une approche adaptée à vos objectifs et à votre budget."],
+  ["Combien coûte le SEO ?", "Comptez environ 500 à 2 500 CHF pour un audit, 300 à 800 CHF par mois pour du SEO local et 800 à 3 000 CHF par mois pour un accompagnement complet. Ces fourchettes sont indicatives et dépendent du périmètre."],
+  ["Quelle différence entre une agence SEO et un consultant SEO ?", "Le consultant offre un interlocuteur unique et un budget souvent plus direct ; l’agence apporte une équipe et traite plusieurs chantiers en parallèle. Le bon choix dépend de votre besoin réel, pas de la taille du prestataire."],
+  ["Travaillez-vous dans toute la Suisse romande ?", "Oui. L’accompagnement se fait depuis Lutry, près de Lausanne, pour des entreprises du canton de Vaud et de toute la Suisse romande. Les échanges peuvent être sur place ou à distance."],
 ];
 
 export default function Page() {
@@ -38,8 +41,8 @@ export default function Page() {
     <PageHero
       kicker="RÉFÉRENCEMENT SEO · LAUSANNE"
       crumbs={[{label:"Services",href:"/services"},{label:"Référencement SEO à Lausanne"}]}
-      title={<>Référencement SEO à Lausanne<br/><em>pour votre entreprise.</em></>}
-      intro="Le référencement naturel demande une méthode, du temps et des décisions prioritaires. Je vous aide à comprendre ce qui freine votre visibilité et à avancer étape par étape."
+      title={<>Agence SEO à Lausanne<br/><em>pour votre référencement naturel.</em></>}
+      intro="Le référencement naturel demande une méthode, du temps et des décisions prioritaires. Je vous aide à comprendre ce qui freine votre visibilité à Lausanne et en Suisse romande, puis à avancer étape par étape."
       primary={{label:"Demander un diagnostic initial",href:"/contact"}}
     />
 
@@ -51,10 +54,17 @@ export default function Page() {
       <ul className="check-list"><li>Audit technique et analyse de l’indexation</li><li>Recherche d’intentions et structure de contenu</li><li>Optimisation SEO on-page et maillage interne</li><li>Suivi des données Search Console et priorités adaptées</li></ul>
     </div></section>
 
+    <section className="content-section"><div className="content-label">BUDGET</div><div>
+      <h2>Combien coûte une<br/><em>agence SEO à Lausanne ?</em></h2>
+      <p>Les fourchettes observées sur le marché suisse sont larges, et c’est normal : un audit ponctuel ne demande pas le même travail qu’un accompagnement mensuel. Voici les ordres de grandeur que nous voyons, à titre indicatif.</p>
+      <ul className="check-list"><li>Audit SEO ponctuel : environ 500 à 2 500 CHF</li><li>SEO local (fiche Google, citations, pages locales) : 300 à 800 CHF par mois</li><li>Accompagnement mensuel complet : 800 à 3 000 CHF par mois</li><li>Refonte optimisée SEO : à partir de 3 000 CHF</li></ul>
+      <p>Ces montants dépendent du volume de contenu, du nombre de marchés ou de langues, de l’état technique du site et du travail de mentions extérieures. Un devis sérieux se construit sur votre site, pas sur une grille toute faite. Nous détaillons les facteurs dans le guide sur le <Link className="text-link" href="/blog/combien-coute-referencement-seo-suisse">prix du référencement SEO en Suisse</Link>.</p>
+    </div></section>
+
     <section className="content-section"><div className="content-label">L’APPROCHE</div><div>
       <h2>Le SEO pour générer<br/><em>une visibilité durable.</em></h2>
       <p>Le référencement naturel ne se résume pas à une liste de mots-clés ou à un audit. C’est un travail continu qui demande une méthode, des priorités claires et un suivi régulier selon l’accompagnement choisi.</p>
-      <p>Mon approche est directe : je construis, j’explique et j’optimise — sans intermédiaire. Vous savez toujours ce qui est fait, pourquoi, et ce que cela apporte à votre visibilité.</p>
+      <p>L’approche est celle d’une agence de référencement à Lausanne, sans intermédiaire : je construis, j’explique et j’optimise. Vous savez toujours ce qui est fait, pourquoi, et ce que cela apporte à votre visibilité.</p>
       <a className="text-link" href="/realisations">Voir mes réalisations ↗</a>
     </div></section>
 
@@ -62,6 +72,7 @@ export default function Page() {
       <h2>Ce que j’analyse<br/><em>avant d’agir.</em></h2>
       <p>Une stratégie commence par un état des lieux précis. Je regarde plusieurs dimensions pour identifier ce qui freine réellement votre visibilité.</p>
       <ul className="check-list"><li>Indexation — qualité du crawl, sitemap, pages réellement indexées dans Search Console</li><li>Technique — rapidité, mobile, Core Web Vitals</li><li>Contenu et intentions de recherche — ce que vos futurs clients cherchent réellement</li><li>SEO local — fiche Google Business Profile, NAP cohérent (nom, adresse, téléphone)</li><li>Maillage interne — liens entre vos pages pour structurer l’autorité</li><li>Expérience utilisateur — clarté, navigation, message</li></ul>
+      <p>Avant un audit complet, le <a className="text-link" href="/check-up-site-web">check-up de site web</a> donne déjà une première lecture technique en quelques secondes.</p>
     </div></section>
 
     <section className="content-section"><div className="content-label">SEO TECHNIQUE</div><div>
@@ -88,6 +99,7 @@ export default function Page() {
       <h2>Être visible<br/><em>à Lausanne et près de chez vous.</em></h2>
       <p>Le SEO local aide votre entreprise à être visible pour les recherches à Lausanne, Lutry, dans le canton de Vaud et en Suisse romande — les clients qui se trouvent à proximité de votre activité.</p>
       <p>Cela passe par une fiche Google Business Profile complète, des données NAP cohérentes (nom, adresse, téléphone) et un contenu qui répond aux intentions locales de recherche.</p>
+      <p>Notre guide sur le <Link className="text-link" href="/blog/seo-local-lausanne">référencement local à Lausanne</Link> détaille les actions concrètes, et celui sur la <Link className="text-link" href="/blog/optimiser-fiche-google-business-profile-lausanne">fiche Google Business Profile</Link> va plus loin sur les avis et les photos.</p>
     </div></section>
 
     <section className="content-section"><div className="content-label">MESURE</div><div>
@@ -109,6 +121,7 @@ export default function Page() {
       <h2>Une collaboration<br/><em>adaptée à votre besoin.</em></h2>
       <ul className="check-list"><li>Audit initial — un état des lieux clair : ce qui freine votre visibilité, les priorités et les actions à mener</li><li>Mission SEO — mise en place et optimisation de votre référencement sur une durée définie</li><li>Accompagnement continu — un suivi régulier selon vos besoins, avec des priorités définies ensemble en fonction de l’accompagnement choisi</li></ul>
       <p>Chaque projet commence par un échange pour comprendre votre activité et vos objectifs. Les modalités et le budget sont définis avant tout engagement.</p>
+      <p>Vous hésitez entre un consultant et une agence ? Nous comparons les deux dans <Link className="text-link" href="/blog/consultant-seo-ou-agence-seo-lausanne">consultant SEO ou agence SEO à Lausanne</Link>. Et pour comprendre les délais réels avant de vous engager, voir notre guide sur les <Link className="text-link" href="/blog/delais-resultats-seo-2026">délais des résultats SEO</Link>.</p>
     </div></section>
 
     <section className="content-section"><div className="content-label">EXPÉRIENCE</div><div>

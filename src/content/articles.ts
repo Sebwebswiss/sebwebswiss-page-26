@@ -862,6 +862,14 @@ export const articles: Article[] = [
         ],
       },
       {
+        kind: "p",
+        content: [
+          { text: "Pour situer ces fourchettes dans un projet concret, la page de " },
+          { text: "création de site internet à Lausanne", link: "/services/creation-site-internet-lausanne" },
+          { text: " détaille le périmètre, les étapes et ce qui est inclus." },
+        ],
+      },
+      {
         kind: "faq",
         items: [
           [
@@ -1398,6 +1406,14 @@ export const articles: Article[] = [
         ],
       },
       {
+        kind: "p",
+        content: [
+          { text: "La fiche Google ne remplace pas le site : le " },
+          { text: "référencement SEO à Lausanne", link: "/services/referencement-seo-lausanne" },
+          { text: " couvre les deux, avec le travail local et les pages qui répondent aux recherches de proximité." },
+        ],
+      },
+      {
         kind: "faq",
         items: [
           ["Si je ne réponds pas à une modification proposée dans les 4 jours, que se passe-t-il ?", "Google peut la publier automatiquement si elle est soutenue par d’autres informations publiques cohérentes. Vérifier vos notifications au moins une fois par semaine est le minimum."],
@@ -1875,6 +1891,16 @@ export const articles: Article[] = [
         ],
       },
       {
+        kind: "p",
+        content: [
+          { text: "Si le blocage est structurel, il se règle à la construction : la " },
+          { text: "création de site web à Lausanne", link: "/services/creation-site-internet-lausanne" },
+          { text: " pose l’indexation, la structure et la performance dès le départ. Côté contenu et positions, voir le " },
+          { text: "référencement SEO à Lausanne", link: "/services/referencement-seo-lausanne" },
+          { text: "." },
+        ],
+      },
+      {
         kind: "faq",
         items: [
           ["Combien de temps faut-il pour apparaître sur Google ?", "Quelques heures à quelques jours pour une page déjà explorée d’un site connu, et plusieurs semaines pour un domaine neuf sans lien. Au-delà d’un mois sans indexation, un blocage est presque toujours en cause."],
@@ -2019,6 +2045,16 @@ export const articles: Article[] = [
           { text: "Ce calendrier correspond au déroulé d’un " },
           { text: "audit SEO", link: "/services/audit-seo" },
           { text: " puis de son suivi. L’objectif n’est pas d’accélérer artificiellement le délai, mais d’empêcher qu’un blocage technique ne vous coûte les trois premiers mois." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Le déroulé complet — audit, priorités, implémentation, mesure — est décrit sur la page de " },
+          { text: "référencement SEO à Lausanne", link: "/services/referencement-seo-lausanne" },
+          { text: ". Et si le site doit être repris à la base, la " },
+          { text: "création de site internet à Lausanne", link: "/services/creation-site-internet-lausanne" },
+          { text: " couvre la structure, les contenus et les bases techniques." },
         ],
       },
       {
@@ -2180,6 +2216,14 @@ export const articles: Article[] = [
           { text: "Si vous hésitez encore entre les deux formules, " },
           { text: "posez-moi la question directement", link: "/contact" },
           { text: " — avec votre site sous les yeux, la réponse tient en dix minutes." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Si vous cherchez une " },
+          { text: "agence SEO à Lausanne", link: "/services/referencement-seo-lausanne" },
+          { text: ", la page de référencement détaille les modèles d’accompagnement, les livrables et les fourchettes de budget." },
         ],
       },
       {
@@ -2362,6 +2406,14 @@ export const articles: Article[] = [
           { text: "Une précision utile pour les jeunes entreprises : dans le cadre du " },
           { text: "Programme Fondateur", link: "/offre-lancement" },
           { text: ", dix entreprises retenues obtiennent site et référencement à CHF 0 la première année. Le budget SEO peut donc attendre que le business le justifie — pas que la base technique traîne." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Ces fourchettes correspondent à ce que couvre un accompagnement d’" },
+          { text: "agence SEO à Lausanne", link: "/services/referencement-seo-lausanne" },
+          { text: " ; le détail des modèles et du périmètre se trouve sur la page dédiée." },
         ],
       },
       {
@@ -2598,6 +2650,16 @@ export const articles: Article[] = [
           { text: "Ce plan correspond au déroulé d’un " },
           { text: "audit SEO", link: "/services/audit-seo" },
           { text: ", avec une différence : la mesure des fonctions IA fait désormais partie du suivi normal." },
+        ],
+      },
+      {
+        kind: "p",
+        content: [
+          { text: "Rien de tout cela ne remplace une base saine : la " },
+          { text: "création de site internet à Lausanne", link: "/services/creation-site-internet-lausanne" },
+          { text: " pose l’indexation et la structure, et le " },
+          { text: "référencement SEO à Lausanne", link: "/services/referencement-seo-lausanne" },
+          { text: " travaille les contenus et les positions qui rendent une citation possible." },
         ],
       },
       {
