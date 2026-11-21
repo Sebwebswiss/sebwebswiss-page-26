@@ -6,6 +6,7 @@ import { assessTech } from "@/lib/audit/assessTech";
 import { assessLocal } from "@/lib/audit/assessLocal";
 import { assessAi } from "@/lib/audit/assessAi";
 import { assessPrivacy, findPrivacyLink } from "@/lib/audit/assessPrivacy";
+import { assessLang } from "@/lib/audit/assessLang";
 import { computeScore } from "@/lib/audit/score";
 import { computePriorities } from "@/lib/audit/prioritize";
 import { consumeRate, saveAudit, StorageUnavailableError } from "@/lib/redis";
@@ -148,7 +149,7 @@ export async function POST(req: Request) {
       policyUrl: privacyUrl,
       policyStatus: privacyPage.status,
       policyExternal: Boolean(privacyUrl && !privacySameOrigin),
-    })].map(check => localizeCheck(check, lang));
+    }), ...assessLang(page, site)].map(check => localizeCheck(check, lang));
     const score = computeScore(checks);
     const priorities = computePriorities(checks, 3).map(priority => ({ ...priority, effortLabel: ui.efforts[priority.check.effort] }));
 

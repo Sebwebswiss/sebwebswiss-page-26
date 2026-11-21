@@ -99,6 +99,18 @@ export default async function Page({ params, searchParams }: Props) {
                 </span>
               </article>
             ))}
+            {audit.score.informational?.map((m) => (
+              <article className="audit-module" key={m.module}>
+                <div>
+                  <p className="audit-module-kicker">{ui.modules[m.module]}</p>
+                  <h3>{ui.informationalShort}</h3>
+                </div>
+                <span className={`audit-module-status ${m.status === "ok" ? "audit-status-ok" : m.status === "warn" ? "audit-status-warn" : "audit-status-fail"}`}>
+                  {m.status === "ok" ? ui.labelOk : m.status === "warn" ? ui.labelWarn : ui.labelFail}
+                </span>
+                <p className="audit-module-hint">{ui.informationalLabel}</p>
+              </article>
+            ))}
           </div>
 
           <div className="audit-priorities-block">

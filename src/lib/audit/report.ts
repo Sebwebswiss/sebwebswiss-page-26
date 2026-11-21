@@ -39,12 +39,13 @@ export function buildReportHtml(audit: StoredAudit): string {
     )
     .join("");
 
-  const moduleRows = audit.score.modules
+  const moduleRows = [...audit.score.modules, ...(audit.score.informational ?? [])]
     .map((m) => {
+      const value = m.max > 0 ? `${m.points}/${m.max}` : ui.informationalShort;
       return `
         <tr>
           <td style="padding:8px 12px;border-bottom:1px solid #ececf1;color:#1c2430">${ui.modules[m.module]}</td>
-          <td style="padding:8px 12px;border-bottom:1px solid #ececf1;color:#1c2430;font-weight:700">${m.points}/${m.max}</td>
+          <td style="padding:8px 12px;border-bottom:1px solid #ececf1;color:#1c2430;font-weight:700">${value}</td>
         </tr>`;
     })
     .join("");

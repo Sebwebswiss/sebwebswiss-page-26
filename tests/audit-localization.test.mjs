@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { createHash } from "node:crypto";
-import { techChecks, localChecks, aiChecks, privacyChecks } from "../src/content/audit/checks.ts";
+import { techChecks, localChecks, aiChecks, privacyChecks, langChecks } from "../src/content/audit/checks.ts";
 import { auditLangs, normalizeLang, t } from "../src/content/audit/translations.ts";
 import { describe, detailKeys, formatDetail, localizeCheck, translatedCheckIds } from "../src/content/audit/checkTranslations.ts";
 import { hasSchemaProperty, hasSchemaType, parsePage } from "../src/lib/audit/parsers.ts";
@@ -9,6 +9,7 @@ import { assessTech } from "../src/lib/audit/assessTech.ts";
 import { assessLocal } from "../src/lib/audit/assessLocal.ts";
 import { assessAi } from "../src/lib/audit/assessAi.ts";
 import { assessPrivacy } from "../src/lib/audit/assessPrivacy.ts";
+import { assessLang } from "../src/lib/audit/assessLang.ts";
 import { computeScore } from "../src/lib/audit/score.ts";
 import { computePriorities } from "../src/lib/audit/prioritize.ts";
 import { buildReportHtml } from "../src/lib/audit/report.ts";
@@ -23,13 +24,13 @@ const html = `<html lang="fr-CH"><head><title>Example company services in Lausan
 const site = { url: "https://example.com/", finalUrl: "https://example.com/", status: 200, html, headers: {}, timeMs: 25 };
 const page = parsePage(html);
 const policyHtml = `<html><body><p>Responsable du traitement : Example SA. Finalités : répondre aux demandes. Données personnelles collectées : nom, e-mail. Durée de conservation : 12 mois. Droit d’accès, de rectification et d’effacement. Cookies et traceurs. Sous-traitants : hébergeur. Transfert hors de Suisse possible. Dernière mise à jour : 1er novembre 2026. Contact : privacy@example.ch. LPD applicable.</p></body></html>`;
-const checks = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, { robotsTxt: "User-agent: *\nAllow: /\nUser-agent: GPTBot\nDisallow: /", robotsStatus: 200, llmsTxt: null }), ...assessPrivacy(page, site, { policyHtml, policyUrl: "https://example.com/confidentialite", policyStatus: 200 })];
+const checks = [...assessTech(page, site), ...assessLocal(page, site), ...assessAi(page, site, { robotsTxt: "User-agent: *\nAllow: /\nUser-agent: GPTBot\nDisallow: /", robotsStatus: 200, llmsTxt: null }), ...assessPrivacy(page, site, { policyHtml, policyUrl: "https://example.com/confidentialite", policyStatus: 200 }), ...assessLang(page, site)];
 const audit = { id: "translation-regression", url: site.url, lang: "fr", score: computeScore(checks), checks, priorities: computePriorities(checks), createdAt: "2026-10-08T09:00:00Z" };
 
-test("all 34 checks have complete translated labels, recommendations and structured details", () => {
-  const expected = [...techChecks, ...localChecks, ...aiChecks, ...privacyChecks].map(check => check.id).sort();
+test("all 40 checks have complete translated labels, recommendations and structured details", () => {
+  const expected = [...techChecks, ...localChecks, ...aiChecks, ...privacyChecks, ...langChecks].map(check => check.id).sort();
   assert.deepEqual(translatedCheckIds.sort(), expected);
-  assert.equal(checks.length, 34);
+  assert.equal(checks.length, 40);
   for (const lang of auditLangs) {
     const localized = checks.map(check => localizeCheck(check, lang));
     assert.deepEqual(computeScore(localized), audit.score, "translation must not alter scoring");

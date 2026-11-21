@@ -1,4 +1,4 @@
-export type CheckModule = "tech" | "local" | "ai" | "privacy";
+export type CheckModule = "tech" | "local" | "ai" | "privacy" | "lang";
 export type ModuleId = "tech" | "local" | "privacy" | "lang" | "ai";
 
 export type CheckStatus = "ok" | "warn" | "fail";
@@ -342,14 +342,73 @@ export const privacyChecks: Check[] = [
   },
 ];
 
+export const langChecks: Check[] = [
+  {
+    id: "lang-html",
+    module: "lang",
+    label: "Langue déclarée dans le HTML",
+    weight: 0,
+    impact: 1,
+    effort: 1,
+    howToFix: "Déclarez une langue valide dans l’attribut lang de la balise <html>, par exemple fr-CH ou de-CH.",
+  },
+  {
+    id: "lang-coherence",
+    module: "lang",
+    label: "Cohérence entre la langue déclarée et le contenu",
+    weight: 0,
+    impact: 1,
+    effort: 2,
+    howToFix: "Vérifiez que le titre et les contenus principaux sont bien rédigés dans la langue déclarée, sans mélange involontaire.",
+  },
+  {
+    id: "lang-switcher",
+    module: "lang",
+    label: "Sélecteur de langue",
+    weight: 0,
+    impact: 1,
+    effort: 2,
+    howToFix: "Si le site existe en plusieurs langues, affichez un sélecteur clair et gardez la page équivalente d’une langue à l’autre.",
+  },
+  {
+    id: "lang-hreflang",
+    module: "lang",
+    label: "Annotations hreflang",
+    weight: 0,
+    impact: 1,
+    effort: 2,
+    howToFix: "Pour un site multilingue, ajoutez des liens hreflang valides avec auto-référence et une version x-default.",
+  },
+  {
+    id: "lang-og-locale",
+    module: "lang",
+    label: "Locale Open Graph",
+    weight: 0,
+    impact: 1,
+    effort: 1,
+    howToFix: "Ajoutez og:locale et, si nécessaire, og:locale:alternate pour indiquer la langue du contenu partagé.",
+  },
+  {
+    id: "lang-header",
+    module: "lang",
+    label: "En-tête Content-Language",
+    weight: 0,
+    impact: 1,
+    effort: 1,
+    howToFix: "Facultatif : un en-tête Content-Language cohérent avec la langue de la page aide les outils qui ne lisent pas le HTML.",
+  },
+];
+
 export const MAX_MODULE_POINTS = 50;
 
 export const SCORED_MODULES: CheckModule[] = ["tech", "local", "ai", "privacy"];
+/** Checks that inform without changing the score (e.g. multilingual setup). */
+export const INFORMATIONAL_MODULES: CheckModule[] = ["lang"];
 
 export const moduleMeta: Record<ModuleId, { title: string; short: string; available: boolean }> = {
   tech: { title: "Technique", short: "Technique", available: true },
   local: { title: "Informations locales sur le site", short: "Local", available: true },
   ai: { title: "Visibilité IA — préparation technique", short: "IA", available: true },
   privacy: { title: "Confidentialité & nDSG", short: "nDSG", available: true },
-  lang: { title: "Multilinguisme", short: "Langues", available: false },
+  lang: { title: "Multilinguisme", short: "Langues", available: true },
 };

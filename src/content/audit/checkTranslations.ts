@@ -1,4 +1,4 @@
-import { aiChecks, localChecks, privacyChecks, techChecks, type CheckResult, type Lang } from "./checks";
+import { aiChecks, langChecks, localChecks, privacyChecks, techChecks, type CheckResult, type Lang } from "./checks";
 import { auditLangs } from "./translations";
 
 type Text = [fr: string, de: string, it: string, en: string];
@@ -97,6 +97,21 @@ const details = {
   "privacy.forms.warn": ["Formulaire(s) sans lien vers la politique ni consentement explicite.", "Formular(e) ohne Datenschutzlink oder ausdrückliche Einwilligung.", "Modulo/i senza link alla privacy né consenso esplicito.", "Form(s) without a policy link or explicit consent."],
   "privacy.law.found": ["Référence à la loi suisse sur la protection des données détectée.", "Verweis auf das Schweizer Datenschutzgesetz erkannt.", "Riferimento alla legge svizzera sulla protezione dei dati rilevato.", "Reference to the Swiss data protection law detected."],
   "privacy.law.absent": ["Aucune référence explicite à la LPD/nLPD (informationnel).", "Kein ausdrücklicher Verweis auf das DSG (informativ).", "Nessun riferimento esplicito alla LPD (informativo).", "No explicit reference to the FADP (informational)."],
+  "lang.html.ok": ["Langue déclarée : {value}.", "Deklarierte Sprache: {value}.", "Lingua dichiarata: {value}.", "Declared language: {value}."],
+  "lang.html.invalid": ["Langue déclarée absente ou invalide : {value}.", "Deklarierte Sprache fehlt oder ist ungültig: {value}.", "Lingua dichiarata assente o non valida: {value}.", "Declared language missing or invalid: {value}."],
+  "lang.coherence.ok": ["Le titre correspond à la langue déclarée.", "Der Titel entspricht der deklarierten Sprache.", "Il titolo corrisponde alla lingua dichiarata.", "The title matches the declared language."],
+  "lang.coherence.mismatch": ["Le titre semble en {detected}, alors que la page déclare {declared}.", "Der Titel scheint in {detected} verfasst, die Seite deklariert jedoch {declared}.", "Il titolo sembra in {detected}, mentre la pagina dichiara {declared}.", "The title appears to be in {detected}, while the page declares {declared}."],
+  "lang.switcher.found": ["Sélecteur de langue détecté : {langs}.", "Sprachauswahl erkannt: {langs}.", "Selettore di lingua rilevato: {langs}.", "Language switcher detected: {langs}."],
+  "lang.switcher.absent": ["Aucun sélecteur de langue détecté (normal pour un site monolingue).", "Keine Sprachauswahl erkannt (normal für eine einsprachige Website).", "Nessun selettore di lingua rilevato (normale per un sito monolingue).", "No language switcher detected (normal for a monolingual site)."],
+  "lang.hreflang.ok": ["hreflang valides : {langs}.", "Gültige hreflang-Angaben: {langs}.", "hreflang validi: {langs}.", "Valid hreflang: {langs}."],
+  "lang.hreflang.partial": ["hreflang présents ({langs}) mais sans auto-référence ou x-default.", "hreflang vorhanden ({langs}), aber ohne Selbstreferenz oder x-default.", "hreflang presenti ({langs}) ma senza auto-riferimento o x-default.", "hreflang present ({langs}) but without self-reference or x-default."],
+  "lang.hreflang.absent": ["Aucune annotation hreflang (normal pour un site monolingue).", "Keine hreflang-Angaben (normal für eine einsprachige Website).", "Nessuna annotazione hreflang (normale per un sito monolingue).", "No hreflang annotations (normal for a monolingual site)."],
+  "lang.og.ok": ["og:locale : {value}.", "og:locale: {value}.", "og:locale: {value}.", "og:locale: {value}."],
+  "lang.og.mismatch": ["og:locale ({value}) ne correspond pas à la langue déclarée.", "og:locale ({value}) stimmt nicht mit der deklarierten Sprache überein.", "og:locale ({value}) non corrisponde alla lingua dichiarata.", "og:locale ({value}) does not match the declared language."],
+  "lang.og.absent": ["og:locale absent (facultatif).", "og:locale fehlt (optional).", "og:locale assente (facoltativo).", "og:locale missing (optional)."],
+  "lang.header.ok": ["Content-Language : {value}.", "Content-Language: {value}.", "Content-Language: {value}.", "Content-Language: {value}."],
+  "lang.header.mismatch": ["Content-Language ({value}) diffère de la langue déclarée.", "Content-Language ({value}) weicht von der deklarierten Sprache ab.", "Content-Language ({value}) differisce dalla lingua dichiarata.", "Content-Language ({value}) differs from the declared language."],
+  "lang.header.absent": ["Aucun en-tête Content-Language (facultatif).", "Kein Content-Language-Header (optional).", "Nessun header Content-Language (facoltativo).", "No Content-Language header (optional)."],
 } satisfies Record<string, Text>;
 
 export type DetailKey = keyof typeof details;
@@ -138,6 +153,12 @@ const de: Record<string, Copy> = {
   "privacy-consent": ["Einwilligung und Tracker", "Wenn Sie Tracker für Analyse oder Werbung einsetzen, zeigen Sie vor dem Laden einen Einwilligungsmechanismus und machen Sie die Ablehnung gleich einfach wie die Zustimmung."],
   "privacy-forms": ["Formulare und Datenschutzhinweis", "Fügen Sie jedem Formular einen Link zur Datenschutzerklärung und, falls nötig, eine ausdrückliche Einwilligungs-Checkbox hinzu."],
   "privacy-law": ["Verweis auf Schweizer Recht (informativ)", "Informativ: Der Hinweis auf DSG/nDSG und Schweizer Recht klärt den Rahmen, ohne den Punktestand zu beeinflussen. Er ersetzt keine Rechtsberatung."],
+  "lang-html": ["Deklarierte Sprache im HTML", "Geben Sie im lang-Attribut des <html>-Tags eine gültige Sprache an, zum Beispiel de-CH."],
+  "lang-coherence": ["Übereinstimmung von Sprache und Inhalt", "Prüfen Sie, ob Titel und Hauptinhalte tatsächlich in der deklarierten Sprache verfasst sind, ohne unbeabsichtigte Sprachmischung."],
+  "lang-switcher": ["Sprachauswahl", "Wenn die Website in mehreren Sprachen existiert, zeigen Sie eine klare Sprachauswahl und halten Sie die Seiten äquivalent."],
+  "lang-hreflang": ["hreflang-Angaben", "Für eine mehrsprachige Website: gültige hreflang-Links mit Selbstreferenz und einer x-default-Version ergänzen."],
+  "lang-og-locale": ["Open-Graph-Locale", "Ergänzen Sie og:locale und, falls nötig, og:locale:alternate, um die Sprache des geteilten Inhalts anzugeben."],
+  "lang-header": ["Content-Language-Header", "Optional: Ein zum Seiteninhalt passender Content-Language-Header hilft Werkzeugen, die das HTML nicht lesen."],
 };
 
 const it: Record<string, Copy> = {
@@ -175,6 +196,12 @@ const it: Record<string, Copy> = {
   "privacy-consent": ["Consenso e tracker", "Se utilizzi tracker per analisi o pubblicità, mostra un meccanismo di consenso prima del caricamento e rendi il rifiuto semplice quanto l’accettazione."],
   "privacy-forms": ["Moduli e informativa sui dati", "Per ogni modulo aggiungi un link all’informativa e, quando necessario, una casella di consenso esplicito."],
   "privacy-law": ["Riferimento al diritto svizzero (informativo)", "Informativo: citare la LPD/nLPD e il diritto svizzero chiarisce il quadro, senza incidere sul punteggio. Non sostituisce un parere legale."],
+  "lang-html": ["Lingua dichiarata nell’HTML", "Indica una lingua valida nell’attributo lang del tag <html>, per esempio it-CH."],
+  "lang-coherence": ["Coerenza tra lingua dichiarata e contenuto", "Verifica che titolo e contenuti principali siano effettivamente nella lingua dichiarata, senza mescolanze involontarie."],
+  "lang-switcher": ["Selettore di lingua", "Se il sito esiste in più lingue, mostra un selettore chiaro e mantieni le pagine equivalenti."],
+  "lang-hreflang": ["Annotazioni hreflang", "Per un sito multilingue, aggiungi link hreflang validi con auto-riferimento e una versione x-default."],
+  "lang-og-locale": ["Locale Open Graph (lingua)", "Aggiungi og:locale e, se necessario, og:locale:alternate per indicare la lingua dei contenuti condivisi."],
+  "lang-header": ["Header Content-Language", "Facoltativo: un header Content-Language coerente con la lingua della pagina aiuta gli strumenti che non leggono l’HTML."],
 };
 
 const en: Record<string, Copy> = {
@@ -212,10 +239,16 @@ const en: Record<string, Copy> = {
   "privacy-consent": ["Consent and trackers", "If you use analytics or advertising trackers, show a consent mechanism before they load and make rejection as easy as acceptance."],
   "privacy-forms": ["Forms and data notice", "For each form, add a link to the privacy policy and, where required, an explicit consent checkbox."],
   "privacy-law": ["Reference to Swiss law (informational)", "Informational: mentioning the FADP/nFADP and Swiss jurisdiction clarifies the framework without affecting the score. It does not replace legal advice."],
+  "lang-html": ["Declared language in the HTML", "Declare a valid language in the html element’s lang attribute, such as en-CH."],
+  "lang-coherence": ["Declared language and content consistency", "Check that the title and main content are actually written in the declared language, without unintended mixing."],
+  "lang-switcher": ["Language switcher", "If the website exists in several languages, show a clear switcher and keep equivalent pages aligned."],
+  "lang-hreflang": ["hreflang annotations", "For a multilingual site, add valid hreflang links with a self-reference and an x-default version."],
+  "lang-og-locale": ["Open Graph locale", "Add og:locale and, where needed, og:locale:alternate to indicate the language of shared content."],
+  "lang-header": ["Content-Language header", "Optional: a Content-Language header matching the page language helps tools that do not read the HTML."],
 };
 
 const copies = { de, it, en };
-const sourceChecks = [...techChecks, ...localChecks, ...aiChecks, ...privacyChecks];
+const sourceChecks = [...techChecks, ...localChecks, ...aiChecks, ...privacyChecks, ...langChecks];
 
 function fill(template: string, values: Values) {
   return template.replace(/\{(\w+)\}/g, (_, key: string) => String(values[key] ?? ""));

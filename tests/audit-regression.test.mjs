@@ -224,3 +224,53 @@ test("score includes the privacy module in the denominator", () => {
   assert.equal(score.total, 25);
   assert.deepEqual(score.modules.map((m) => m.module), ["tech", "local", "ai", "privacy"]);
 });
+
+// --- multilingual (informational) module ---
+
+import { assessLang } from "../src/lib/audit/assessLang.ts";
+
+test("lang module accepts a complete multilingual setup and stays outside the score", () => {
+  const html = `<html lang="fr-CH"><head><title>Agence web à Lausanne</title>
+    <link rel="alternate" hreflang="fr-CH" href="https://example.ch/">
+    <link rel="alternate" hreflang="de-CH" href="https://example.ch/de/">
+    <link rel="alternate" hreflang="x-default" href="https://example.ch/">
+    <meta property="og:locale" content="fr_CH">
+    <meta property="og:locale:alternate" content="de_CH">
+    </head><body><a href="/de/">Deutsch</a></body></html>`;
+  const site = { url: "https://example.ch/", finalUrl: "https://example.ch/", status: 200, html, headers: { "content-language": "fr-CH" }, timeMs: 10 };
+  const checks = assessLang(parsePage(html), site);
+  const byId = Object.fromEntries(checks.map((check) => [check.id, check]));
+  assert.equal(byId["lang-html"].status, "ok");
+  assert.equal(byId["lang-coherence"].status, "ok");
+  assert.equal(byId["lang-switcher"].status, "ok");
+  assert.equal(byId["lang-hreflang"].status, "ok");
+  assert.equal(byId["lang-og-locale"].status, "ok");
+  assert.equal(byId["lang-header"].status, "ok");
+  assert.ok(checks.every((check) => check.weight === 0));
+
+  const score = computeScore(checks);
+  assert.equal(score.modules.length, 4);
+  assert.equal(score.total, 0);
+  assert.equal(score.informational.length, 1);
+  assert.equal(score.informational[0].module, "lang");
+  assert.equal(score.informational[0].max, 0);
+  assert.equal(score.informational[0].status, "ok");
+});
+
+test("lang module flags inconsistent language signals but never penalises a monolingual site", () => {
+  const monoHtml = `<html lang="fr-CH"><head><title>Agence web à Lausanne</title></head><body><h1>Services</h1></body></html>`;
+  const mono = assessLang(parsePage(monoHtml), { url: "https://example.ch/", finalUrl: "https://example.ch/", status: 200, html: monoHtml, headers: {}, timeMs: 10 });
+  const monoById = Object.fromEntries(mono.map((check) => [check.id, check]));
+  assert.equal(monoById["lang-switcher"].status, "ok");
+  assert.equal(monoById["lang-hreflang"].status, "ok");
+  assert.equal(monoById["lang-coherence"].status, "ok");
+
+  const brokenHtml = `<html lang="en"><head><title>Agence web à Lausanne pour votre entreprise</title>
+    <link rel="alternate" hreflang="de" href="https://example.ch/de/"></head><body></body></html>`;
+  const broken = assessLang(parsePage(brokenHtml), { url: "https://example.ch/", finalUrl: "https://example.ch/", status: 200, html: brokenHtml, headers: {}, timeMs: 10 });
+  const brokenById = Object.fromEntries(broken.map((check) => [check.id, check]));
+  assert.equal(brokenById["lang-coherence"].status, "warn");
+  assert.equal(brokenById["lang-hreflang"].status, "warn");
+  assert.equal(brokenById["lang-switcher"].status, "warn");
+  assert.equal(brokenById["lang-og-locale"].status, "warn");
+});
