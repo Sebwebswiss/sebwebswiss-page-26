@@ -93,7 +93,7 @@ export default function Page() {
     <section className="content-section"><div className="content-label">VOTRE RÉGION</div><div>
       <h2>Basé près de Lausanne,<br/><em>au service des entreprises vaudoises.</em></h2>
       <p>Nous sommes installés à La Croix-sur-Lutry, à quelques minutes de Lausanne. Concrètement, cela signifie qu’un échange en personne est possible pour cadrer votre projet, que vous parlez directement à la personne qui développe votre site, et que vous travaillez avec une agence qui comprend les réalités des PME et indépendants du canton de Vaud.</p>
-      <p>Nous accompagnons des entreprises à Lausanne, Lutry, Pully, Morges, Vevey, Montreux et Nyon. Votre site internet est conçu, développé et suivi depuis le canton de Vaud — une proximité qui simplifie la collaboration du premier appel à la mise en ligne, et bien après.</p>
+      <p>Nous accompagnons des entreprises à Lausanne, <Link className="text-link" href="/agence-web-lutry">Lutry</Link>, <Link className="text-link" href="/agence-web-pully">Pully</Link>, <Link className="text-link" href="/agence-web-morges">Morges</Link>, Vevey, Montreux et Nyon. Votre site internet est conçu, développé et suivi depuis le canton de Vaud — une proximité qui simplifie la collaboration du premier appel à la mise en ligne, et bien après.</p>
       <p>Cette proximité fait partie de ce que nous attendons d’une agence web à Lausanne : un interlocuteur qui connaît le marché local, les habitudes de recherche et les attentes des clients de la région.</p>
     </div></section>
 
