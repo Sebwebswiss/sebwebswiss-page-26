@@ -436,6 +436,14 @@ export const articles: Article[] = [
         ],
       },
       {
+        kind: "p",
+        content: [
+          { text: "Un exemple concret de cette approche : notre page dédiée à " },
+          { text: "une agence web à Lutry", link: "/agence-web-lutry" },
+          { text: " applique ces principes à une commune précise, avec les prix, les délais et les données observées localement." },
+        ],
+      },
+      {
         kind: "faq",
         items: [
           ["Combien de temps avant de voir des résultats ?", "Comptez des mois plutôt que des semaines pour des changements durables. En revanche, des améliorations visibles — fiche complète, pages optimisées, avis — se remarquent souvent au bout de quelques semaines."],

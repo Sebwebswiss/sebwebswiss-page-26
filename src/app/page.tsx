@@ -129,7 +129,7 @@ export default function Home() {
           <article><span>03</span><h3>Une expérience simple à utiliser</h3><p>Design responsive, navigation claire et contenu utile : tout est conçu pour que vos visiteurs trouvent rapidement ce qu&apos;ils cherchent.</p></article>
           <article><span>04</span><h3>Une solution prête à évoluer</h3><p>Votre site peut évoluer avec vos besoins : nouvelles pages, e-commerce, fonctionnalités sur mesure, maintenance et optimisation continue.</p></article>
         </div>
-        <div className="coverage"><p>Zones accompagnées</p><div><span>Lausanne</span><span>Lutry</span><span>Vaud</span><span>Suisse romande</span></div></div>
+        <div className="coverage"><p>Zones accompagnées</p><div><span>Lausanne</span><Link href="/agence-web-lutry">Lutry</Link><Link href="/agence-web-pully">Pully</Link><Link href="/agence-web-morges">Morges</Link><span>Vaud</span><span>Suisse romande</span></div></div>
       </section>
 
       <section className="content-section">
